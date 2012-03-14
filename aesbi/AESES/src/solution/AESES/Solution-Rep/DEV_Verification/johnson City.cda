@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="LM_project" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="LM" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_project"
+               id="LM_project"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="2011-11-10" name="startdate" type="String"/>
+      </Parameters>
+      <Query>SELECT 
+DATE(b.timestamp) AS "TIMESTAMP",
+round(AVG(availability_factor),2) AS "Availability Factor",
+round(AVG(planned_outage_rate),2) AS "Planned Outage Rate",
+round(AVG(unplanned_outage_rate),2) AS "Unplanned Outage Rate",
+round(AVG(market_capture),2) AS "Market capture",
+round(AVG(revenue_capture),2) AS "Revenue Capture"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 300
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-01 00:00:00'), INTERVAL 9 DAY))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 00:00:00'), INTERVAL 9 DAY) AND DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM" id="LM"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="2011-11-11" name="startdate" type="String"/>
+      </Parameters>
+      <Query>SELECT DATE_FORMAT(DATE(b.timestamp),'%Y-%b') AS "TIMESTAMP",
+ sum(tickets_created)as "tickets_created",
+ sum(tickets_completed)as "tickets_completed",
+ sum(major_count)as "major_count",
+ sum(critical_count) as "critical_count",
+ sum(minor_count)as "minor_count"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis where jira_id = 300 and bi_dim_fleet_id = 300
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(${startdate},'%Y-%m-%d 00:00:00'), interval 8 month))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=date_sub(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), interval 0 month))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(${startdate},'%Y-%m-%d 00:00:00'), interval 8 month) AND date_sub(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), interval 0 month)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY month(b.timestamp)
+ORDER BY  month(b.timestamp) ASC</Query>
+   </DataAccess>
+</CDADescriptor>

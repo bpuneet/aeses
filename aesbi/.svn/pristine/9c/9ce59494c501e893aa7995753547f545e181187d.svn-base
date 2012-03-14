@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2011-11-21T04:19:25" created="2011-11-15T10:42:48" description="" updatedBy="gopeshwer.s@sigmainfo.net" createdBy="joe">
+        <path folder="AESES/Market/ERCOT_DAM.xanalyzer" name="PJM_DAM"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="5" showDrillLinks="false" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Market Prices (Prices and Volume)" catalog="Market Prices">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Clearing Price]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Iso].[Iso]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market].[Market]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Iso].[Iso]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="PJM" formula="[Iso].[PJM]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2011" formula="[Year].[2011]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="10" formula="[Month].[10]"/>
+                        <member pos="0" caption="11" formula="[Month].[11]"/>
+                        <member pos="0" caption="5" formula="[Month].[5]"/>
+                        <member pos="0" caption="6" formula="[Month].[6]"/>
+                        <member pos="0" caption="7" formula="[Month].[7]"/>
+                        <member pos="0" caption="8" formula="[Month].[8]"/>
+                        <member pos="0" caption="9" formula="[Month].[9]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Market].[Market]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Day-Ahead Regulation" formula="[Market].[Day-Ahead Regulation]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

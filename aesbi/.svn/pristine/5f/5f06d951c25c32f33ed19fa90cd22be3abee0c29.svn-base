@@ -1,0 +1,226 @@
+<Schema name="AESES_Schema" description="AESES Cubes">
+  <Dimension type="TimeDimension" highCardinality="false" name="Date" description="Date">
+    <Hierarchy name="Date" hasAll="true" allMemberName="Dates" primaryKey="id" description="Date">
+      <Table name="bi_dim_date">
+      </Table>
+      <Level approxRowCount="900000" name="Year" column="year" type="Integer" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never" description="Year">
+      </Level>
+      <Level approxRowCount="900000" name="Quarter" column="quarter" nameColumn="quarter_name" type="Integer" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never" description="Quarter">
+      </Level>
+      <Level approxRowCount="900000" name="Month" column="month" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" description="Month" captionColumn="month_name">
+      </Level>
+      <Level approxRowCount="900000" name="Day of Month" column="day_of_month" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never" description="Day of Month">
+      </Level>
+      <Level approxRowCount="900000" name="Hour" column="hour_name" type="String" uniqueMembers="false" levelType="TimeHours" hideMemberIf="Never" description="Hour">
+      </Level>
+      <Level approxRowCount="900000" name="Minute" column="15min_name" type="String" uniqueMembers="false" levelType="TimeMinutes" hideMemberIf="Never" description="Minute" captionColumn="15min_name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" highCardinality="false" name="Market" description="Market">
+    <Hierarchy name="Market" hasAll="true" allMemberName="All Markets" primaryKey="id" description="Market">
+      <Table name="bi_dim_market">
+      </Table>
+      <Level approxRowCount="100" name="ISO" column="iso" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="ISO">
+      </Level>
+      <Level approxRowCount="100" name="Market" column="market" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Market">
+      </Level>
+      <Level approxRowCount="100" name="Market Service" column="service" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Market Service">
+      </Level>
+      <Level approxRowCount="100" name="Market Zone" column="zone" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Market Zone">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" highCardinality="false" name="Fleet">
+    <Hierarchy name="Fleet" hasAll="true" allMemberName="Fleet" primaryKey="id">
+      <Table name="bi_dim_fleet">
+      </Table>
+      <Level name="Project" column="project" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Moule" column="module" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Container" column="container" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" highCardinality="false" name="ES Service">
+    <Hierarchy name="ES Service" hasAll="true" allMemberName="All ES Services" primaryKey="id">
+      <Table name="bi_dim_es_service">
+      </Table>
+      <Level approxRowCount="5" name="ES Service" column="es_service" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" highCardinality="false" name="Supplier">
+    <Hierarchy name="Supplider" hasAll="true" allMemberName="All Suppliers" primaryKey="id">
+      <Table name="bi_dim_supplier">
+      </Table>
+      <Level approxRowCount="5" name="Supplier" column="supplier" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" highCardinality="false" name="Technology">
+    <Hierarchy name="Technology" hasAll="true" allMemberName="All Technology" primaryKey="id">
+      <Table name="bi_dim_technology">
+      </Table>
+      <Level approxRowCount="5" name="Technology" column="technology" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" highCardinality="false" name="Hour_GMT" description="Hour_GMT">
+    <Hierarchy name="Hour_GMT" hasAll="true" allMemberName="Hours_GMT" primaryKey="id">
+      <Table name="bi_dim_date">
+      </Table>
+      <Level approxRowCount="900000" name="Hour_GMT" column="hour_gmt_name" type="String" uniqueMembers="false" levelType="TimeHours" hideMemberIf="Never" description="Hour_GMT">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Fleet" cache="true" enabled="true">
+    <Table name="bi_fact_fleet">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Fleet" name="Fleet" foreignKey="bi_dim_fleet_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ES Service" name="ES Service" foreignKey="bi_dim_es_service_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Supplier" name="Supplier" foreignKey="bi_dim_supplier_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Technology" name="Technology" foreignKey="bi_dim_technology_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="sum_pjmareg" column="pjmareg" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Signal" column="pjmrega" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Watt-Hour Throughout" column="watt_hour_tput" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Average SoC" column="batsoc" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="trailerinregulation" column="trailerinregulation" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Signal Hitrate" column="signal_hitrate" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Net Energy" column="net_energy" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="sum_trailerinregulation" column="trailerinregulation" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="recordcount" column="bi_dim_date_id" datatype="Numeric" formatString="#,###.00" aggregator="count" visible="false">
+    </Measure>
+    <Measure name="Assigned Regulation" column="pjmareg" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Power Output" column="ionkw" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Signal Capture" column="signal_capture" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <CalculatedMember name="Availability Factor" formatString="#,###.00" formula="abs([Measures].[sum_trailerinregulation]/[Measures].[recordcount])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Forced Outage Rate" formatString="#,###.00" formula="(1-abs([Measures].[sum_trailerinregulation]/[Measures].[recordcount]))" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Market Capture" formatString="#,###.00" formula="abs([Measures].[sum_trailerinregulation]/[Measures].[sum_pjmareg])" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="NYISO_LBMP_ZONE_DAM" cache="true" enabled="true">
+    <Table name="bi_fact_nyiso_lbmp_zone_dam">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minimum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="Maximum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Sum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="Clearing_Price_Spread" formatString="#,###.00" formula="[Measures].[Maximum_Clearing_Price]-[Measures].[Minimum_Clearing_Price]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="NYISO_LBMP_ZONE_HAM" cache="true" enabled="true">
+    <Table name="bi_fact_nyiso_lbmp_zone_ham">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minimum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="Maximum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Sum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="Clearing_Price_Spread" formatString="#,###.00" formula="[Measures].[Maximum_Clearing_Price]-[Measures].[Minimum_Clearing_Price]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="NYISO_LBMP_ZONE_REAL_TIME" cache="true" enabled="true">
+    <Table name="bi_fact_nyiso_lbmp_zone_real_time">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minimum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="Maximum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Sum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="Clearing_Price_Spread" formatString="#,###.00" formula="[Measures].[Maximum_Clearing_Price]-[Measures].[Minimum_Clearing_Price]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="PJM_Regulation" cache="true" enabled="true">
+    <Table name="bi_fact_pjm_regulation">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minimum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="Maximum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Sum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="Clearing_Price_Spread" formatString="#,###.00" formula="[Measures].[Maximum_Clearing_Price]-[Measures].[Minimum_Clearing_Price]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="ERCOT_Ancillary_Services_DAM" cache="true" enabled="true">
+    <Table name="bi_fact_ercot_ancillary_services_dam">
+    </Table>
+    <DimensionUsage source="Date" name="Date" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Market" name="Market" foreignKey="bi_dim_market_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Hour_GMT" name="Hour_GMT" foreignKey="bi_dim_date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minimum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="min" visible="true">
+    </Measure>
+    <Measure name="Maximum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Sum_Clearing_Price" column="clearing_price" datatype="Numeric" formatString="#,###.00" aggregator="sum" visible="true">
+    </Measure>
+    <CalculatedMember name="Clearing_Price_Spread" formatString="#,###.00" formula="[Measures].[Maximum_Clearing_Price]-[Measures].[Minimum_Clearing_Price]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+</Schema>

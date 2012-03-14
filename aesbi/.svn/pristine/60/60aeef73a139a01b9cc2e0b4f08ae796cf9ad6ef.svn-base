@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2010-11-29T21:55:28" created="2010-11-03T15:18:20" description="" updatedBy="isaiah.jefferson@aes.com" createdBy="isaiah.jefferson@aes.com">
+        <path folder="AESES/Barbados KPIs 2010.xanalyzer" name="Barbados KPIs 2010"/>
+    </commonStorageAttributes>
+    <report version="4" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet" catalog="ZDEV_AESES">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Availability Factor]"/>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Forced Outage Rate]"/>
+            <measure id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Market Capture]"/>
+            <measure id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Net Energy]"/>
+            <measure id="[MEASURE:6]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Watt-Hour Throughout]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Year].[2010]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Project].[Barbados                                                                                            ]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions chartType="HORIZONTAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

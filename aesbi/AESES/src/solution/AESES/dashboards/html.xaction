@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>Zdev_Interactive_Dashboard</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs/>
+
+  <outputs> 
+    <nyiso type="string"> 
+      <destinations> 
+        <response>content</response> 
+      </destinations> 
+    </nyiso> 
+  </outputs>
+
+  <resources> 
+    <template1> 
+      <solution-file> 
+        <location>Idashboard.html</location>  
+        <mime-type>text/plain</mime-type> 
+      </solution-file> 
+    </template1> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>TemplateComponent</component-name>
+      <action-type>Message Template</action-type>
+      <action-resources> 
+        <template mapping="template1"/> 
+      </action-resources>
+      <action-outputs> 
+        <output-message type="string" mapping="nyiso"/> 
+      </action-outputs>
+      <component-definition/> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

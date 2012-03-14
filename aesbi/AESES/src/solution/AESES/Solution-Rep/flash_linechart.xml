@@ -1,0 +1,77 @@
+<chart>
+	<!-- Define the chart type -->	
+	<chart-type>LineChart</chart-type>
+	
+	<!-- Specify the title of the chart -->
+	<title>NYISO Market Prices</title>	
+	<title-font>
+		<font-family>Arial</font-family>
+		<size>18</size>
+		<is-bold>true</is-bold>
+	</title-font>
+	
+	<!--  Line Chart properties -->
+	<line-width>2.0</line-width>
+	<dot-style>normal</dot-style> <!-- values: dot, normal, hollow -->
+	<dot-width>2</dot-width>
+	<is-3D>true</is-3D>
+	 <url-template><![CDATA[http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2F&action=Dev_NYISO_Ancillary.xanalyzer&showFieldList=true]]></url-template>  
+	 
+	
+
+    <!-- General Chart Propeties --> 
+	<chart-background type="color">#fffacd</chart-background>
+	<plot-background type="color">#fffacd</plot-background>
+	<orientation>vertical</orientation>  <!-- valid values: vertical, horizontal -->
+  
+  <is-3D>false</is-3D>
+  <is-glass>true</is-glass>  <!-- set to true to apply the 'glass' style to bars -->
+  <is-sketch>false</is-sketch>  <!-- set to true to apply the 'sketch' style to bars -->
+    <!-- additional properties specific to sketch charts -->
+    <fun-factor>10</fun-factor> 
+	
+	
+	<!--  X-Axis properties (domain) -->
+	
+	<domain-title>Day Of Month</domain-title>
+	<domain-title-font>
+      <font-family>Arial</font-family>
+	  <size>14</size>
+	  <is-bold>true</is-bold>	
+	  	</domain-title-font>
+	<domain-color>#000000</domain-color>
+	<domain-grid-color>#CCCCCC</domain-grid-color>
+	<domain-stroke>1</domain-stroke>
+    <domain-label-rotation>diagonal</domain-label-rotation>
+	<domain-label-rotation-dir>down</domain-label-rotation-dir>
+
+	
+	
+	
+
+
+	<!--  Y-Axis properties (range) -->
+	<range-title>Day-Ahead Regulation</range-title>
+	<range-title-font>
+      <font-family>Arial</font-family>
+	  <size>14</size>
+	 <is-bold>true</is-bold>
+	</range-title-font>
+	<range-minimum></range-minimum>
+	<range-maximum></range-maximum>
+	<range-color>#000000</range-color>
+	<range-grid-color>#CCCCCC</range-grid-color>
+	<range-stroke>1</range-stroke>
+	<range-steps>1</range-steps>
+	
+	
+	<!-- Specify the color palette for the chart -->
+	<color-palette>
+		<color>#3B9C9C</color>
+		<color>#347235</color>
+		<color>#FF0000</color>
+		<color>#2554C7</color>
+		
+	</color-palette>
+
+</chart>

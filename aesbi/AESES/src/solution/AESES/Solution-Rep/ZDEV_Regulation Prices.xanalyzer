@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2011-02-08T19:46:59" created="2011-01-21T06:47:45" description="" updatedBy="isaiah.jefferson@aes.com" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/ZDEV_AES market cube.xanalyzer" name="ZDEV_Regulation Prices"/>
+    </commonStorageAttributes>
+    <report version="4" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Market" catalog="Market_Analysis">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Clearing Price]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market].[Market]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[ISO.Iso].[Iso]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Quarter].[Quarter]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Year].[Day of Year]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Year].[2010]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Month].[January]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Market].[Market]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Market].[Day-Ahead Regulation]"/>
+                        <member pos="0" formula="[Market].[Hour-Ahead Regulation]"/>
+                        <member pos="0" formula="[Market].[Real-Time Regulation]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions chartType="VERTICAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths/>
+    </uiAttributes>
+</reportRecord>

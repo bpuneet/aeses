@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>LM Monthly Report</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs> 
+    <Month type="string"> 
+      <sources> 
+        <request>Month</request> 
+      </sources>  
+      <default-value><![CDATA[November]]></default-value> 
+    </Month>  
+    <newInput type="property-map-list"> 
+      <default-value type="property-map-list"> 
+        <property-map> 
+          <entry key="month_num">01</entry>  
+          <entry key="month">January</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">02</entry>  
+          <entry key="month">February</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">03</entry>  
+          <entry key="month">March</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">04</entry>  
+          <entry key="month">April</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">05</entry>  
+          <entry key="month">May</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">06</entry>  
+          <entry key="month">June</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">07</entry>  
+          <entry key="month">July</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">08</entry>  
+          <entry key="month">August</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">09</entry>  
+          <entry key="month">September</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">10</entry>  
+          <entry key="month">October</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">11</entry>  
+          <entry key="month">November</entry> 
+        </property-map>  
+        <property-map> 
+          <entry key="month_num">12</entry>  
+          <entry key="month">December</entry> 
+        </property-map> 
+      </default-value> 
+    </newInput>  
+    <Year type="string"> 
+      <sources> 
+        <request>Year</request> 
+      </sources>  
+      <default-value><![CDATA[Year]]></default-value> 
+    </Year>  
+    <yr type="string-list"> 
+      <default-value type="string-list"> 
+        <list-item>2010</list-item>  
+        <list-item>2011</list-item> 
+      </default-value> 
+    </yr>  
+    <date type="string"> 
+      <sources> 
+        <request>date</request> 
+      </sources>  
+      <default-value><![CDATA[2011-11-01]]></default-value> 
+    </date>  
+    <project type="string">
+      <sources>
+        <request>project</request>
+      </sources>
+      <default-value><![CDATA[Laurel Mountain]]></default-value>
+    </project>
+    <projectvalue type="property-map-list">
+      <default-value type="property-map-list">
+        <property-map>
+          <entry key="project_id">500</entry>
+          <entry key="project_value">Laurel Mountain</entry>
+        </property-map>
+        <property-map>
+          <entry key="project_id">300</entry>
+          <entry key="project_value">Johnson city</entry>
+        </property-map>
+      </default-value>
+    </projectvalue>
+  </inputs>
+
+  <outputs/>
+
+  <resources> 
+    <!-- use this section to identify any files that the component needs to execute the report -->  
+    <pageTemplate> 
+      <solution-file> 
+        <location>project.html</location>  
+        <mime-type>text/html</mime-type> 
+      </solution-file> 
+    </pageTemplate> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SecureFilterComponent</component-name>
+      <action-type>Select the parameter</action-type>
+      <action-inputs> 
+        <newInput type="property-map-list"/>  
+        <Year type="string"/>  
+        <yr type="string-list"/>  
+        <Month type="string"/>  
+        <date type="string"/>  
+        <project type="string"/>
+        <projectvalue type="property-map-list"/>
+      </action-inputs>
+      <action-resources> 
+        <pageTemplate type="resource"/> 
+      </action-resources>
+      <action-outputs/>
+      <component-definition> 
+        <handle-all-prompts>true</handle-all-prompts>  
+        <selections> 
+          <Month style="select"> 
+            <filter value-col-name="month_num" display-col-name="month">newInput</filter> 
+          </Month>  
+          <Year style="select"> 
+            <filter>yr</filter> 
+          </Year>  
+          <date filter="none" style="text-box"/>  
+          <project style="select">
+            <filter value-col-name="project_id" display-col-name="project_value">projectvalue</filter>
+          </project>
+        </selections>  
+        <xsl><![CDATA[pageTemplate]]></xsl> 
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

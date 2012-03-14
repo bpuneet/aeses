@@ -1,0 +1,666 @@
+DELIMITER $$
+
+USE `aeses`$$
+
+DROP PROCEDURE IF EXISTS `missing_data`$$
+
+CREATE DEFINER=`puneet.b`@`%` PROCEDURE `missing_data`()
+BEGIN
+
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.East_Regulation AS clearing_price,
+        (SELECT ROUND(AVG(East_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp)) AS thirty_day_avg,
+        (SELECT ROUND(AVG(East_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp))  AS ninety_day_avg,
+        (SELECT ROUND(AVG(East_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw  WHERE time_stamp=DATE_SUB(a.time_stamp,INTERVAL 1 YEAR)
+        AND HOUR(time_stamp)=HOUR(a.time_stamp)) AS previous_year_clearing_price,
+        NULL AS volume,
+         /**** 12 month rolling avg ***/
+        (SELECT ROUND(AVG(East_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp))  AS one_year_avg,
+        NULL AS "capacity"
+        /*****************************/
+FROM (SELECT *  FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59')a
+JOIN
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59' ) b
+ON b.timestamp=a.time_stamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE zone = 'East'AND service = 'Regulation' AND id=500) c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.West_Regulation AS clearing_price,
+        (SELECT ROUND(AVG(West_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp)) AS thirty_day_avg,
+        (SELECT ROUND(AVG(West_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp))  AS ninety_day_avg,
+        (SELECT ROUND(AVG(West_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw  WHERE time_stamp=DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+        AND HOUR(time_stamp)=HOUR(a.time_stamp)) AS previous_year_clearing_price,
+        NULL AS volume,
+        /**** 12 month rolling avg ****/
+        (SELECT ROUND(AVG(West_Regulation),2)
+        FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+        a.time_stamp AND HOUR(time_stamp)=HOUR(a.time_stamp))  AS one_year_avg,
+         NULL AS "capacity"
+        /******************************/
+FROM (SELECT *  FROM nyiso_ancillary_service_prices_dayahead_raw WHERE time_stamp  BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b
+ON b.timestamp=a.time_stamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE zone = 'West'AND service = 'Regulation' AND id=508) c;
+REPLACE INTO bi_fact_markets_part
+SELECT b.id AS bi_dim_date_id,c.id AS bi_dim_market_id, a.east_regulation AS clearing_price,
+    (SELECT AVG(east_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS thirty_day_avg,
+      (SELECT AVG(east_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS ninety_day_avg,
+      (SELECT AVG(east_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp=DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS previous_year_clearing_price,
+    NULL AS volume,
+     /**** 12 month rolling avg ****/
+      (SELECT AVG(east_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS one_year_avg,
+       NULL AS "capacity"
+      /*******************************/
+FROM (SELECT * FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP  BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b
+ON a.time_stamp=b.timestamp
+JOIN
+(SELECT id FROM bi_dim_market WHERE iso='NYISO' AND market='Real-Time Regulation' AND service='Regulation' AND zone='east') c;
+REPLACE INTO bi_fact_markets_part
+SELECT b.id AS bi_dim_date_id,c.id AS bi_dim_market_id, a.west_regulation AS clearing_price,
+    (SELECT AVG(west_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS thirty_day_avg,
+      (SELECT AVG(west_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS ninety_day_avg,
+      (SELECT AVG(west_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp=DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS previous_year_clearing_price,
+    NULL AS volume,
+    /**** 12 month rolling avg ****/
+      (SELECT AVG(west_regulation) FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+    WHERE time_stamp  BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+      a.time_stamp AND HOUR(a.time_stamp)=HOUR(time_stamp)) AS one_year_avg,
+       NULL AS "capacity"
+      /*******************************/
+FROM (SELECT * FROM nyiso_ancillary_service_prices_realtime_raw_15_min_interval
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b
+ON a.time_stamp=b.timestamp
+JOIN
+(SELECT id FROM bi_dim_market WHERE iso='NYISO' AND market='Real-Time Regulation' AND service='Regulation' AND zone='West') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        2001 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCNS','NSPIN') )
+	AS thirty_day_avg,
+	(SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCNS','NSPIN'))
+	AS ninety_day_avg,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR)
+	AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCNS','NSPIN')) AS previous_year_clearing_price,
+	NULL AS 'volume',
+     /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCNS','NSPIN'))
+	AS one_year_avg,
+	 NULL AS "capacity"
+    /*******************************/
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59' AND zone IN ('MCPCNS','NSPIN')) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-01 23:59:59') b ON b.timestamp_gmt =a.time_stamp
+;
+/********ERCOT Spinning Reserve****/
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        2002 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCRS','RRS'))
+    AS thirty_day_avg,
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCRS','RRS'))
+    AS ninety_day_avg,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCRS','RRS')) AS previous_year_clearing_price,
+NULL AS volume,
+ /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('MCPCRS','RRS'))
+    AS one_year_avg,
+     NULL AS "capacity"
+    /*******************************/
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw 
+WHERE time_stamp  BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59' AND zone IN ('MCPCRS','RRS')) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59') b ON b.timestamp_gmt =a.time_stamp
+ ;
+/********ERCOT Regulation down****/
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        2005 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS thirty_day_avg,
+	(SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS ninety_day_avg,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+	AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') ) AS previous_year_clearing_price,
+        NULL AS volume,
+     /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS one_year_avg,
+	 NULL AS "capacity"
+    /*****************************/
+	
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw 
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59' AND zone IN ('REGDN','MCPCRD') ) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59') b ON b.timestamp_gmt =a.time_stamp 
+ ;
+/********ERCOT Regulation up****/
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        2006 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU') )
+    AS thirty_day_avg,
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU'))
+    AS ninety_day_avg,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU')) AS previous_year_clearing_price,
+ NULL AS 'volume',
+ /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU'))
+    AS one_year_avg,
+     NULL AS "capacity"
+    /******************************/
+ 
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw 
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2009-12-31 23:59:59' AND zone IN ('REGUP','MCPCRU')) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59') b ON b.timestamp_gmt =a.time_stamp 
+;
+/********ERCOT Regulation****/
+REPLACE INTO bi_fact_markets_part
+SELECT dn.bi_dim_date_id AS bi_dim_date_id,
+	2004 AS bi_dim_market_id,
+	dn.clearing_price+up.clearing_price AS clearing_price,
+	dn.thirty_day_avg+up.thirty_day_avg AS thirty_day_avg,
+	dn.ninety_day_avg+up.ninety_day_avg AS ninety_day_avg,
+	dn.previous_year_clearing_price+up.previous_year_clearing_price AS previous_year_clearing_price ,
+	NULL AS volume,
+    dn.one_year_avg+up.one_year_avg AS one_year_avg,
+     NULL AS "capacity"
+FROM
+(SELECT  b.id AS bi_dim_date_id,
+        2005 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS thirty_day_avg,
+	(SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS ninety_day_avg,
+     /**** 12 month rolling avg ****/
+     (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+	a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') )
+	AS one_year_avg,
+     /******************************/
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+	AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGDN','MCPCRD') ) AS previous_year_clearing_price,
+	0 AS volume
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw 
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59' AND zone IN ('REGDN','MCPCRD') ) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59') b ON b.timestamp_gmt =a.time_stamp) dn
+JOIN
+(SELECT  b.id AS bi_dim_date_id,
+        2006 AS bi_dim_market_id,
+        a.cp AS clearing_price,
+        (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 29 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU') )
+    AS thirty_day_avg,
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 89 DAY) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU'))
+    AS ninety_day_avg,
+    /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') BETWEEN DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) AND
+     a.time_stamp AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU'))
+    AS one_year_avg,
+    (SELECT ROUND(AVG(cp),2) FROM ercot_dam_ancillary_raw WHERE CONVERT_TZ(time_stamp,'US/Central','GMT') = DATE_SUB(a.time_stamp,INTERVAL 1 YEAR) 
+AND HOUR(a.time_stamp)=HOUR(CONVERT_TZ(time_stamp,'US/Central','GMT')) AND zone IN ('REGUP','MCPCRU')) AS previous_year_clearing_price
+FROM (SELECT CONVERT_TZ(time_stamp,'US/Central','GMT') AS time_stamp,zone,cp FROM ercot_dam_ancillary_raw 
+WHERE time_stamp BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59' AND zone IN ('REGUP','MCPCRU')) a
+JOIN
+(SELECT id,TIMESTAMP,timestamp_gmt FROM bi_dim_date WHERE timestamp_gmt BETWEEN  '2009-01-01 00:00:00' AND '2010-01-02 23:59:59') b ON b.timestamp_gmt =a.time_stamp) up;
+/**anki************************************************************************************************************************************/
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.clearing_price AS clearing_price,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Non-Spinning Reserve') AS thirty_day_avg,
+    (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Non-Spinning Reserve') AS ninety_day_avg,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR)
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Non-Spinning Reserve') AS previous_year_clearing_price,
+        NULL AS volume,
+      /**** 12 month rolling avg ****/
+     (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Non-Spinning Reserve') AS one_year_avg,
+     NULL AS "capacity"
+     /******************************/
+FROM (SELECT * FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='MISO' AND market='Day-Ahead Regulation' AND service='Non-Spinning Reserve') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.clearing_price AS clearing_price,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Regulation') AS thirty_day_avg,
+    (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Regulation') AS ninety_day_avg,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR)
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Regulation') AS previous_year_clearing_price,
+        NULL AS volume,
+     /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Regulation') AS one_year_avg,
+     NULL AS "capacity"
+    /*******************************/
+FROM (SELECT * FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='MISO' AND market='Day-Ahead Regulation' AND service='Regulation') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.clearing_price AS clearing_price,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Spinning Reserve') AS thirty_day_avg,
+    (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Spinning Reserve') AS ninety_day_avg,
+        (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR)
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Spinning Reserve') AS previous_year_clearing_price,
+        NULL AS volume,
+     /**** 12 month rolling avg ****/
+    (SELECT ROUND(AVG(clearing_price),2) FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP) AND service='Spinning Reserve') AS one_year_avg,
+     NULL AS "capacity"
+    /*******************************/
+FROM (SELECT * FROM miso_ancillary_dam_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='MISO' AND market='Day-Ahead Regulation' AND service='Spinning Reserve') c ;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.lbmp AS clearing_price,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 29 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 89 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP = DATE_SUB(a.timestamp,INTERVAL 1 YEAR)
+    AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 1 YEAR) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Day-Ahead Energy' AND service='Energy') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.CongestionPrice AS clearing_price,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 29 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 89 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP = DATE_SUB(a.timestamp,INTERVAL 1 YEAR)
+    AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 1 YEAR) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Day-Ahead Energy' AND service='Congestion') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.MarginalLossPrice AS clearing_price,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 29 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 89 DAY) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP = DATE_SUB(a.timestamp,INTERVAL 1 YEAR) 
+    AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.timestamp,INTERVAL 1 YEAR) AND
+    a.timestamp AND HOUR(a.timestamp)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_dam_raw  WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Day-Ahead Energy' AND service='Losses') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.lbmp AS clearing_price,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR)
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(lbmp),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Real-Time Energy' AND service='Energy') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.CongestionPrice AS clearing_price,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) 
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(CongestionPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Real-Time Energy' AND service='Congestion') c;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        c.id AS bi_dim_market_id,
+        a.MarginalLossPrice AS clearing_price,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 29 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 89 DAY) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP = DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR)
+    AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+    0 AS volume,
+        (SELECT ROUND(AVG(MarginalLossPrice),2) FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN DATE_SUB(a.TIMESTAMP,INTERVAL 1 YEAR) AND
+    a.TIMESTAMP AND HOUR(a.TIMESTAMP)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT * FROM pjm_energy_rt_raw WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') b ON b.timestamp =a.TIMESTAMP
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='PJM' AND market='Real-Time Energy' AND service='Losses') c;
+/* ERCOT RT-Settlement prices(Energy)*/
+REPLACE INTO bi_fact_markets_part
+SELECT b.id AS bi_dim_date_id,
+    c.id AS bi_dim_market_id,
+    a.settlementpointprice AS clearing_price,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS ninety_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time=DATE_SUB(a.date_time,INTERVAL 1 YEAR)) AS previous_year_clearing_price,
+    0 AS volume,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS one_year_avg,
+    NULL AS capacity
+FROM
+(SELECT date_time,settlementpointprice  FROM ercot_realtime_energy_prices WHERE SettlementPointName="ALL" AND date_time>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2009))) a
+JOIN
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2009))) b
+ON a.date_time=b.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='ERCOT' AND market='Real-Time Energy' AND service='Energy' AND zone='All') c;
+/* ERCOT DAM-Settlement prices(Energy)*/
+REPLACE INTO bi_fact_markets_part
+SELECT b.id AS bi_dim_date_id,
+    c.id AS bi_dim_market_id,
+    a.settlementpointprice AS clearing_price,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_dayahead_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_dayahead_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS ninety_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_dayahead_energy_prices
+    WHERE date_time=DATE_SUB(a.date_time,INTERVAL 1 YEAR)) AS previous_year_clearing_price,
+    0 AS volume,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_dayahead_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS one_year_avg,
+    NULL AS capacity
+FROM
+(SELECT date_time,settlementpointprice  FROM ercot_dayahead_energy_prices WHERE date_time>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2008))) a
+JOIN
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2008))) b
+ON a.date_time=b.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='ERCOT' AND market='Day-Ahead Energy' AND service='Energy') c;
+/* ERCOT RT-Settlement prices(Energy) for HB_HOUSTON*/
+REPLACE INTO bi_fact_markets_part
+SELECT b.id AS bi_dim_date_id,
+    c.id AS bi_dim_market_id,
+    a.settlementpointprice AS clearing_price,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS thirty_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS ninety_day_avg,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time=DATE_SUB(a.date_time,INTERVAL 1 YEAR)) AS previous_year_clearing_price,
+    0 AS volume,
+    (SELECT ROUND(AVG(settlementpointprice),2)
+    FROM  ercot_realtime_energy_prices
+    WHERE date_time BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+    a.date_time AND HOUR(a.date_time)=HOUR(date_time)) AS one_year_avg,
+    NULL AS capacity
+FROM
+(SELECT date_time,settlementpointprice  FROM ercot_realtime_energy_prices WHERE SettlementPointName="HB_HOUSTON" AND  date_time>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2010))) a
+JOIN
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP>=(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=2010))) b
+ON a.date_time=b.timestamp
+JOIN
+(SELECT * FROM bi_dim_market WHERE iso='ERCOT' AND market='Real-Time Energy' AND service='Energy' AND zone='HB_HOUSTON') c;
+/* ISO-NE energy dam and RT */
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7005 AS bi_dim_market_id,
+        a.energy_component AS clearing_price,
+        (SELECT ROUND(AVG(energy_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(energy_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(energy_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(energy_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT energy_component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7005))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7005))) b ON b.timestamp =a.date_time ;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7006 AS bi_dim_market_id,
+        a.marginal_loss_component AS clearing_price,
+        (SELECT ROUND(AVG(marginal_loss_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(marginal_loss_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(marginal_loss_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(marginal_loss_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT marginal_loss_component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7006))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7006))) b ON b.timestamp =a.date_time ;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7007 AS bi_dim_market_id,
+        a.congestion_component AS clearing_price,
+        (SELECT ROUND(AVG(congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT congestion_component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7007))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7007))) b ON b.timestamp =a.date_time;
+/*RT */
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7008 AS bi_dim_market_id,
+        a.rt_congestion_component AS clearing_price,
+        (SELECT ROUND(AVG(rt_congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(rt_congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(rt_congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(rt_congestion_component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT rt_congestion_component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7008))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7008))) b ON b.timestamp =a.date_time;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7009 AS bi_dim_market_id,
+        a.RT_Marginal_Loss_Component AS clearing_price,
+        (SELECT ROUND(AVG(RT_Marginal_Loss_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(RT_Marginal_Loss_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(RT_Marginal_Loss_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(RT_Marginal_Loss_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT RT_Marginal_Loss_Component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7009))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7009))) b ON b.timestamp =a.date_time;
+REPLACE INTO bi_fact_markets_part
+SELECT  b.id AS bi_dim_date_id,
+        7010 AS bi_dim_market_id,
+        a.RT_Energy_Component AS clearing_price,
+        (SELECT ROUND(AVG(RT_Energy_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 29 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS thirty_day_avg,
+	(SELECT ROUND(AVG(RT_Energy_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 89 DAY) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS ninety_day_avg,
+        (SELECT ROUND(AVG(RT_Energy_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP = DATE_SUB(a.date_time,INTERVAL 1 YEAR)
+	AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS previous_year_clearing_price,
+	0 AS volume,
+        (SELECT ROUND(AVG(RT_Energy_Component),2) FROM iso_ne_dam_rt_raw  WHERE TIMESTAMP BETWEEN DATE_SUB(a.date_time,INTERVAL 1 YEAR) AND
+	a.date_time AND HOUR(a.date_time)=HOUR(TIMESTAMP)) AS one_year_avg,
+        NULL AS capacity
+FROM (SELECT RT_Energy_Component ,date_time FROM iso_ne_dam_rt_raw  WHERE date_time >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7010))) a
+JOIN
+(SELECT id,TIMESTAMP FROM bi_dim_date WHERE TIMESTAMP >=
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id = (SELECT MAX( bi_dim_date_id) FROM bi_fact_markets_part
+WHERE bi_dim_market_id=7010))) b ON b.timestamp =a.date_time;
+
+END$$
+
+DELIMITER ;

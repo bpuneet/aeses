@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2011-08-08T04:17:43" created="2011-06-13T07:51:31" description="" updatedBy="puneet.b@sigmainfo.net" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/ZDEV_JC_WorkOrders.xanalyzer" name="ZDEV_JC_WorkOrders"/>
+    </commonStorageAttributes>
+    <report version="4" emptyCellDisplay="NULL" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet Cube" catalog="Fleet KPI">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Created]"/>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Completed]"/>
+            <measure id="[MEASURE:7]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Average Resolution Time (Days)]"/>
+            <measure id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Issues]"/>
+            <measure id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Minor Issues]"/>
+            <measure id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Blocker Issues]"/>
+            <measure id="[MEASURE:5]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Issues]"/>
+            <measure id="[MEASURE:6]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Trivial Issues]"/>
+            <measure id="[MEASURE:8]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Resolution Time (Days)]"/>
+            <measure id="[MEASURE:9]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Minor Resolution Time (Days)]"/>
+            <measure id="[MEASURE:10]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Resolution Time (Days)]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Issue Type].[Issue Type]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Issue Type].[Issue Type]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Issue Type].[Work Order]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Project].[Westover                                                                                            ]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Month].[July]"/>
+                        <member pos="0" formula="[Month].[June]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions chartType="HORIZONTAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>-25</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>-23</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>-23</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>-51</width>
+            </labelWidth>
+            <labelWidth index="12">
+                <width>-29</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

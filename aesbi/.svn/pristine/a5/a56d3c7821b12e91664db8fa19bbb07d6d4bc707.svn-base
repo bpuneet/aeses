@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2011-02-07T22:13:18" created="2011-01-14T04:23:33" description="" updatedBy="isaiah.jefferson@aes.com" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/ZDEV_Market_Analysis.xanalyzer" name="ZDEV_Market_Analysis"/>
+    </commonStorageAttributes>
+    <report version="4" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Market" catalog="Market_Analysis">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Clearing Price]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[ISO.Iso].[Iso]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market].[Market]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market Service.Service].[Service]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market Zone.Zone].[Zone]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Quarter].[Quarter]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Year].[2010]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions chartType="HORIZONTAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths/>
+    </uiAttributes>
+</reportRecord>

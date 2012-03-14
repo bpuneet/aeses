@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>new_email_report</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs/>
+
+  <outputs> 
+    <Ancillary_Prices_Report.pdf type="content"> 
+      <destinations> 
+        <contentrepo>Ancillary_Prices_Report.pdf</contentrepo> 
+      </destinations> 
+    </Ancillary_Prices_Report.pdf> 
+  </outputs>
+
+  <resources> 
+    <report-definition> 
+      <solution-file> 
+        <location>Ancillary_Reports_new.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>Pentaho Report</action-type>
+      <action-resources> 
+        <report-definition type="resource"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="Ancillary_Prices_Report.pdf"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[application/pdf]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>EmailComponent</component-name>
+      <action-type>E-Mail</action-type>
+      <action-inputs> 
+        <Ancillary_Prices_Report.pdf type="content"/> 
+      </action-inputs>
+      <component-definition> 
+        <to><![CDATA[puneet.b@sigmainfo.net]]></to>  
+        <attachment-ref name-param="attach_name_1" input-param="Ancillary_Prices_Report.pdf"/>  
+        <attach_name_1><![CDATA[Ancillary_Prices_Report.pdf]]></attach_name_1>  
+        <message-plain><![CDATA[Please find attached PDF showing the Ancillary Prices for NYISO, ERCOT and PJM markets]]></message-plain>  
+        <subject><![CDATA[Ancillary Prices Report]]></subject> 
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

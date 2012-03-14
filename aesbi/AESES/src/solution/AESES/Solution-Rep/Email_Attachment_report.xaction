@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>PJM Email</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs/>
+
+  <outputs> 
+    <PJM_Ancillary_Prices_Report.htm type="content">
+      <destinations>
+        <contentrepo>PJM_Ancillary_Prices_Report.htm</contentrepo>
+      </destinations>
+    </PJM_Ancillary_Prices_Report.htm>
+  </outputs>
+
+  <resources> 
+    <report-definition> 
+      <solution-file> 
+        <location>PJM_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>Pentaho Report</action-type>
+      <action-resources> 
+        <report-definition type="resource"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="PJM_Ancillary_Prices_Report.htm"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[text/html]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>EmailComponent</component-name>
+      <action-type>E-Mail</action-type>
+      <action-inputs> 
+        <PJM_Ancillary_Prices_Report.htm type="content"/> 
+      </action-inputs>
+      <component-definition> 
+        <to><![CDATA[puneet.b@sigmainfo.net]]></to>  
+        <subject><![CDATA[PJM Ancillary Prices Report]]></subject>  
+        <message-plain><![CDATA[Please find attached PJM Ancillary Prices report
+
+Note: This has been mailed only to < isaiah.jefferson@aes.com> to get the feedback]]></message-plain>  
+        <attachment-ref name-param="attach_name_1" input-param="PJM_Ancillary_Prices_Report.htm"/>
+        <attach_name_1><![CDATA[PJM_Ancillary_Prices_Report.htm]]></attach_name_1>
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

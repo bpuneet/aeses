@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>Email ALL Ancillary Reports (Do not execute)</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs/>
+
+  <outputs>
+    <Ancillary_Prices_Report.pdf type="content">
+      <destinations>
+        <contentrepo>Ancillary_Prices_Report.pdf</contentrepo>
+      </destinations>
+    </Ancillary_Prices_Report.pdf>
+  </outputs>
+
+  <resources>
+    <report-definition>
+      <solution-file>
+        <location>Ancillary_Prices_Report_rowcount.prpt</location>
+        <mime-type>application/zip</mime-type>
+      </solution-file>
+    </report-definition>
+    <report-definition1>
+      <solution-file>
+        <location>Ancillary_Prices_Report.prpt</location>
+        <mime-type>application/zip</mime-type>
+      </solution-file>
+    </report-definition1>
+  </resources>
+  
+  <actions> 
+    <action-definition>
+      <component-name>SQLLookupRule</component-name>
+      <action-type>Relational</action-type>
+      <action-outputs>
+        <query-result type="result-set" mapping="r1"/>
+      </action-outputs>
+      <component-definition>
+        <query><![CDATA[SELECT DATE(b.timestamp) AS TIMESTAMP,MONTH(b.timestamp)AS MONTH,
+AVG(a.clearing_price)AS clearing_price,
+AVG(a.thirty_day_avg)AS thirty_day_avg,
+AVG(a.ninety_day_avg)AS ninety_day_avg,
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=1
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_FORMAT(NOW() ,'%Y-%m-01'))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=CURDATE())) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_FORMAT(NOW() ,'%Y-%m-01') AND CURDATE()) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC;]]></query>
+        <live><![CDATA[true]]></live>
+        <driver><![CDATA[com.mysql.jdbc.Driver]]></driver>
+        <connection><![CDATA[jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses]]></connection>
+        <user-id><![CDATA[puneet.b]]></user-id>
+        <password><![CDATA[Sigma_2010!]]></password>
+      </component-definition>
+    </action-definition>
+
+    <action-definition>
+      <component-name>JavascriptRule</component-name>
+      <action-type>JavaScript</action-type>
+      <action-inputs>
+        <r1 type="result-set"/>
+      </action-inputs>
+      <action-outputs>
+        <rowcount type="integer"/>
+      </action-outputs>
+      <component-definition>
+        <script><![CDATA[r1.getRowCount()]]></script>
+      </component-definition>
+    </action-definition>
+
+    <actions>
+      <condition><![CDATA[rowcount == 0]]></condition>
+      <action-definition>
+        <component-name>SimpleReportingComponent</component-name>
+        <action-type>Pentaho Report</action-type>
+        <action-resources>
+          <report-definition type="resource"/>
+        </action-resources>
+        <action-outputs>
+          <outputstream type="content" mapping="Ancillary_Prices_Report.pdf"/>
+        </action-outputs>
+        <component-definition>
+          <outputType><![CDATA[application/pdf]]></outputType>
+        </component-definition>
+      </action-definition>
+
+    </actions>
+
+    <actions>
+      <condition><![CDATA[rowcount > 0]]></condition>
+      <action-definition>
+        <component-name>SimpleReportingComponent</component-name>
+        <action-type>Pentaho Report</action-type>
+        <action-resources>
+          <report-definition mapping="report-definition1"/>
+        </action-resources>
+        <action-outputs>
+          <outputstream type="content" mapping="Ancillary_Prices_Report.pdf"/>
+        </action-outputs>
+        <component-definition>
+          <outputType><![CDATA[application/pdf]]></outputType>
+        </component-definition>
+      </action-definition>
+
+    </actions>
+
+    <action-definition>
+      <component-name>EmailComponent</component-name>
+      <action-type>E-Mail</action-type>
+      <action-inputs>
+        <Ancillary_Prices_Report.pdf type="content"/>
+      </action-inputs>
+      <component-definition>
+        <to><![CDATA[puneet.b@sigmainfo.net,isaiah.jefferson@aes.com]]></to>
+        <subject><![CDATA[Ancillary Prices Report (Single Attachment)]]></subject>
+        <message-plain><![CDATA[This report shows the market ancillary prices for all the ISOs and markets.
+
+Note: This has been mailed only to isaiah.jefferson@aes.com to get the feedback]]></message-plain>
+        <attachment-ref name-param="attach_name_1" input-param="Ancillary_Prices_Report.pdf"/>
+        <attach_name_1><![CDATA[Ancillary_Prices_Report.pdf]]></attach_name_1>
+      </component-definition>
+    </action-definition>
+
+  </actions> 
+</action-sequence>

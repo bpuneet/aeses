@@ -1,0 +1,88 @@
+<Schema name="ZDEV Market Prices">
+  <Cube name="Market Prices Dev BOX" cache="true" enabled="true">
+    <Table name="bi_fact_markets_part">
+    </Table>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_date_id" name="Year">
+      <Hierarchy name="Year" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Year" column="year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_date_id" name="Quarter">
+      <Hierarchy name="Quarter" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Quarter" column="quarter_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_date_id" name="Month">
+      <Hierarchy name="Month" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Month" column="month" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_date_id" name="Day of Year">
+      <Hierarchy name="Day of Year" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Year" column="day_of_year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_date_id" name="Day of Month">
+      <Hierarchy name="Day of Month" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Month" column="day_of_month" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_market_id" name="Market">
+      <Hierarchy name="Market" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Market" column="market" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_market_id" name="Iso">
+      <Hierarchy name="Iso" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Iso" column="iso" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_market_id" name="Market Service">
+      <Hierarchy name="Service" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Service" column="service" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" foreignKey="bi_dim_market_id" name="Market Zone">
+      <Hierarchy name="Zone" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Zone" column="zone" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Clearing Price" column="clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Thirty Day Average" column="thirty_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Ninety Day Average" column="ninety_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Previous Year Price" column="previous_year_clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Volume (Quantity)" column="volume" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

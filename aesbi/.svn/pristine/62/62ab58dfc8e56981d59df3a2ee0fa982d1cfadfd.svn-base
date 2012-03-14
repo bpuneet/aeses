@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title>Email Attachment (Do not open)</title>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author/>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type/>  
+    <icon/> 
+  </documentation>
+
+  <inputs/>
+
+  <outputs> 
+    <NYISO_Ancillary_Day_Ahead_Regulation.pdf type="content">
+      <destinations>
+        <contentrepo>NYISO_Ancillary_Day_Ahead_Regulation.pdf</contentrepo>
+      </destinations>
+    </NYISO_Ancillary_Day_Ahead_Regulation.pdf>
+    <NYISO_Ancillary_Hour_Ahead_Regulation.pdf type="content">
+      <destinations>
+        <contentrepo>NYISO_Ancillary_Hour_Ahead_Regulation.pdf</contentrepo>
+      </destinations>
+    </NYISO_Ancillary_Hour_Ahead_Regulation.pdf>
+    <NYISO_Ancillary_RealTime_Regulation.pdf type="content">
+      <destinations>
+        <contentrepo>NYISO_Ancillary_RealTime_Regulation.pdf</contentrepo>
+      </destinations>
+    </NYISO_Ancillary_RealTime_Regulation.pdf>
+    <ERCOT_Ancillary_Prices.pdf type="content">
+      <destinations>
+        <contentrepo>ERCOT_Ancillary_Prices.pdf</contentrepo>
+      </destinations>
+    </ERCOT_Ancillary_Prices.pdf>
+    <PJM_Ancillary_Price.pdf type="content">
+      <destinations>
+        <contentrepo>PJM_Ancillary_Price.pdf</contentrepo>
+      </destinations>
+    </PJM_Ancillary_Price.pdf>
+  </outputs>
+
+  <resources> 
+    <report-definition> 
+      <solution-file> 
+        <location>NYISO_DAM_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition>  
+    <report-definition1> 
+      <solution-file> 
+        <location>NYISO_HAM_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition1>  
+    <report-definition2> 
+      <solution-file> 
+        <location>NYISO_RT_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition2>  
+    <report-definition3> 
+      <solution-file> 
+        <location>PJM_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition3>  
+    <report-definition4> 
+      <solution-file> 
+        <location>ERCOT_Ancillary_Prices_Report.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition4>  
+    <report-definition5> 
+      <solution-file> 
+        <location>PJM_rowcount.prpt</location>  
+        <mime-type>application/zip</mime-type> 
+      </solution-file> 
+    </report-definition5> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SQLLookupRule</component-name>
+      <action-type>Relational</action-type>
+      <action-outputs> 
+        <query-result type="result-set" mapping="r1"/> 
+      </action-outputs>
+      <component-definition> 
+        <live><![CDATA[true]]></live>  
+        <driver><![CDATA[com.mysql.jdbc.Driver]]></driver>  
+        <connection><![CDATA[jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses]]></connection>  
+        <user-id><![CDATA[puneet.b]]></user-id>  
+        <password><![CDATA[Sigma_2010!]]></password>  
+        <query><![CDATA[SELECT DATE(b.timestamp) AS TIMESTAMP,MONTH(b.timestamp)AS MONTH,
+AVG(a.clearing_price)AS clearing_price,
+AVG(a.thirty_day_avg)AS thirty_day_avg,
+AVG(a.ninety_day_avg)AS ninety_day_avg,
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=1
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_FORMAT(NOW() ,'%Y-%m-01'))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=CURDATE())) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_FORMAT(NOW() ,'%Y-%m-01') AND CURDATE()) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC;]]></query>
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>JavascriptRule</component-name>
+      <action-type>JavaScript</action-type>
+      <action-inputs> 
+        <r1 type="result-set"/> 
+      </action-inputs>
+      <action-outputs> 
+        <rowcount type="integer"/> 
+      </action-outputs>
+      <component-definition> 
+        <script><![CDATA[r1.getRowCount()]]></script> 
+      </component-definition> 
+    </action-definition>
+  
+    <actions> 
+      <condition><![CDATA[rowcount == 0]]></condition>  
+      <action-definition> 
+        <component-name>SimpleReportingComponent</component-name>
+        <action-type>PJM Prices</action-type>
+        <action-resources> 
+          <report-definition mapping="report-definition5"/> 
+        </action-resources>
+        <action-outputs> 
+          <outputstream type="content" mapping="PJM_Ancillary_Price.pdf"/> 
+        </action-outputs>
+        <component-definition> 
+          <outputType><![CDATA[application/pdf]]></outputType> 
+        </component-definition> 
+      </action-definition>
+
+    </actions>
+  
+    <actions> 
+      <condition><![CDATA[rowcount > 0]]></condition>  
+      <action-definition> 
+        <component-name>SimpleReportingComponent</component-name>
+        <action-type>PJM</action-type>
+        <action-resources> 
+          <report-definition mapping="report-definition3"/> 
+        </action-resources>
+        <action-outputs> 
+          <outputstream type="content" mapping="PJM_Ancillary_Price.pdf"/> 
+        </action-outputs>
+        <component-definition> 
+          <outputType><![CDATA[application/pdf]]></outputType> 
+        </component-definition> 
+      </action-definition>
+
+    </actions>
+  
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>NYISO DAM</action-type>
+      <action-resources> 
+        <report-definition type="resource"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="NYISO_Ancillary_Day_Ahead_Regulation.pdf"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[application/pdf]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>NYISO HAM</action-type>
+      <action-resources> 
+        <report-definition mapping="report-definition1"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="NYISO_Ancillary_Hour_Ahead_Regulation.pdf"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[application/pdf]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>NYISO RT</action-type>
+      <action-resources> 
+        <report-definition mapping="report-definition2"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="NYISO_Ancillary_RealTime_Regulation.pdf"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[application/pdf]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>SimpleReportingComponent</component-name>
+      <action-type>ERCOT</action-type>
+      <action-resources> 
+        <report-definition mapping="report-definition4"/> 
+      </action-resources>
+      <action-outputs> 
+        <outputstream type="content" mapping="ERCOT_Ancillary_Prices.pdf"/> 
+      </action-outputs>
+      <component-definition> 
+        <outputType><![CDATA[application/pdf]]></outputType> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>EmailComponent</component-name>
+      <action-type>E-Mail</action-type>
+      <action-inputs> 
+        <NYISO_Ancillary_Day_Ahead_Regulation.pdf type="content"/>
+        <NYISO_Ancillary_Hour_Ahead_Regulation.pdf type="content"/>
+        <NYISO_Ancillary_RealTime_Regulation.pdf type="content"/>
+        <ERCOT_Ancillary_Prices.pdf type="content"/>
+        <PJM_Ancillary_Price.pdf type="content"/>
+      </action-inputs>
+      <component-definition> 
+        <to><![CDATA[puneet.b@sigmainfo.net,isaiah.jefferson@aes.com,John.Zahurancik@AES.com , Chris.Shelton@AES.com , brett.galura@aes.com , Praveen.Kathpal@AES.com , dauren.kilish@aes.com ]]></to>  
+        <subject><![CDATA[Ancillary Prices Report]]></subject>  
+        <message-plain><![CDATA[Please find attached PDF]]></message-plain>  
+        <attachment-ref name-param="attach_name_3" input-param="NYISO_Ancillary_Day_Ahead_Regulation.pdf"/>
+        <attach_name_3><![CDATA[NYISO_Ancillary_Day_Ahead_Regulation.pdf]]></attach_name_3>
+        <attachment-ref name-param="attach_name_4" input-param="NYISO_Ancillary_Hour_Ahead_Regulation.pdf"/>
+        <attach_name_4><![CDATA[NYISO_Ancillary_Hour_Ahead_Regulation.pdf]]></attach_name_4>
+        <attachment-ref name-param="attach_name_5" input-param="NYISO_Ancillary_RealTime_Regulation.pdf"/>
+        <attach_name_5><![CDATA[NYISO_Ancillary_RealTime_Regulation.pdf]]></attach_name_5>
+        <attachment-ref name-param="attach_name_6" input-param="ERCOT_Ancillary_Prices.pdf"/>
+        <attach_name_6><![CDATA[ERCOT_Ancillary_Prices.pdf]]></attach_name_6>
+        <attachment-ref name-param="attach_name_1" input-param="PJM_Ancillary_Price.pdf"/>
+        <attach_name_1><![CDATA[PJM_Ancillary_Price.pdf]]></attach_name_1>
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

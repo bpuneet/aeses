@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <name>Simple Line Chart Example</name>
+  <title>linechart1</title>
+  <version>1</version>
+  <logging-level>debug</logging-level>
+  <documentation> 
+    <author>Gretchen Moran</author>  
+    <description/>  
+    <help/>  
+    <result-type/> 
+  </documentation>
+
+  <inputs> 
+    <chart_height type="string"> 
+      <sources> 
+        <request>chart_height</request> 
+      </sources>  
+      <default-value><![CDATA[70%]]></default-value> 
+    </chart_height>  
+    <chart_width type="string"> 
+      <sources> 
+        <request>chart_width</request> 
+      </sources>  
+      <default-value><![CDATA[100%]]></default-value> 
+    </chart_width> 
+  </inputs>
+
+  <outputs> 
+    <html_fragment type="content"> 
+      <destinations> 
+        <response>content</response> 
+      </destinations> 
+    </html_fragment> 
+  </outputs>
+
+  <resources> 
+    <line> 
+      <solution-file> 
+        <location>flash_linechart.xml</location>  
+        <mime-type>text/xml</mime-type> 
+      </solution-file> 
+    </line> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SQLLookupRule</component-name>
+      <action-type>Relational</action-type>
+      <action-outputs> 
+        <query-result type="result-set" mapping="r1"/> 
+      </action-outputs>
+      <component-definition> 
+        <live><![CDATA[true]]></live>  
+        <driver><![CDATA[com.mysql.jdbc.Driver]]></driver>  
+        <connection><![CDATA[jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses]]></connection>  
+        <user-id><![CDATA[puneet.b]]></user-id>  
+        <password><![CDATA[Sigma_2010!]]></password>  
+        <query><![CDATA[select b.day_of_month as date  ,avg(a.clearing_price) as clearing_price,avg(a.thirty_day_avg) as thirty_day_avg, avg(ninety_day_avg ) as ninety_day_avg,avg(previous_year_clearing_price) as previous_year_clearing_price
+
+ from
+(select bi_dim_date_id ,clearing_price,
+thirty_day_avg ,
+ninety_day_avg ,
+previous_year_clearing_price 
+from bi_fact_markets_part
+where bi_dim_market_id in (500,501,502,503,505,506,507,508)
+and bi_dim_date_id between 
+(select id from bi_dim_date where timestamp = date_sub(DATE_FORMAT(NOW() ,'%Y-%m-01'),interval 1 month))
+and
+(select id from bi_dim_date where timestamp=curdate()))a
+JOIN
+(select id, date(timestamp)as date,timestamp,day_of_month from bi_dim_date where timestamp between date_sub(DATE_FORMAT(NOW() ,'%Y-%m-01'),interval 1 month) and curdate())b on  b.id = a.bi_dim_date_id 
+group by b.date
+order by b.date asc;]]></query> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>OpenFlashChartComponent</component-name>
+      <action-type>Open Flash Chart</action-type>
+      <action-inputs> 
+        <chart-data type="result-set" mapping="r1"/>  
+        <height type="string" mapping="chart_height"/>  
+        <width type="string" mapping="chart_width"/> 
+      </action-inputs>
+      <action-resources> 
+        <chart-attributes type="resource" mapping="line"/> 
+      </action-resources>
+      <action-outputs> 
+        <html_fragment type="content"/> 
+      </action-outputs>
+      <component-definition/> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

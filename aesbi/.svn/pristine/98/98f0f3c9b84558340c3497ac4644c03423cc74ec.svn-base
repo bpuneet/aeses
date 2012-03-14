@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="NYISO" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2010!</Pass>
+         <Url>jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="nyiso_line" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2010!</Pass>
+         <Url>jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="nyiso_line2" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_iso" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_market" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_service" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_zone" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="NYISO" id="NYISO"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,
+AVG(a.clearing_price)AS clearing_price,
+AVG(a.thirty_day_avg)AS thirty_day_avg,
+AVG(a.ninety_day_avg)AS ninety_day_avg,
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="nyiso_line"
+               id="nyiso_line"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT cp.series ,cp.TIMESTAMP,cp.clearing_price FROM
+(SELECT "ClearingPrice" AS series,
+DATE(b.timestamp) AS TIMESTAMP,
+AVG(a.clearing_price)AS clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC) cp
+UNION
+(SELECT 
+"30-Day-Avg" AS series,DATE(b.timestamp) AS TIMESTAMP,
+AVG(a.thirty_day_avg) AS clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC) 
+UNION
+(SELECT 
+"90-Day-Avg" AS series,DATE(b.timestamp) AS TIMESTAMP,
+AVG(a.ninety_day_avg) AS clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC)
+UNION
+(SELECT 
+"Previous Year Clearing Price" AS series,DATE(b.timestamp) AS TIMESTAMP,
+AVG(a.previous_year_clearing_price) AS clearing_price
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC)</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="nyiso_line2"
+               id="nyiso_line2"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+         <Parameter default="param_market" name="param_market" type="String"/>
+         <Parameter default="param_service" name="param_service" type="String"/>
+         <Parameter default="param_zone" name="param_zone" type="String"/>
+         <Parameter default="price" name="price" type="String"/>
+      </Parameters>
+      <Query>SELECT 
+DATE_FORMAT(TIMESTAMP, '%b %Y') AS customM,
+AVG(clearing_price) AS ${price}
+FROM bi_fact_markets_part INNER JOIN bi_dim_date  ON bi_fact_markets_part.bi_dim_date_id = bi_dim_date .id 
+WHERE bi_dim_market_id in (SELECT id FROM bi_dim_market WHERE iso = ${param_iso} AND market=${param_market} AND service=${param_service} and zone=${param_zone}) 
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH)) 
+AND 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = LAST_DAY(NOW() - INTERVAL 1 MONTH ))
+GROUP BY YEAR(TIMESTAMP) , MONTH(TIMESTAMP)
+ORDER BY TIMESTAMP ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_iso"
+               id="param_iso"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>select distinct iso as param_iso from bi_dim_market</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_market"
+               id="param_market"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="NYISO" name="param_iso" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_market 
+union
+SELECT DISTINCT market AS param_market FROM bi_dim_market WHERE iso=${param_iso}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_service"
+               id="param_service"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="NYISO" name="param_iso" type="String"/>
+         <Parameter default="Day-Ahead Regulation" name="param_market" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_service 
+union
+SELECT DISTINCT service AS param_service FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_zone"
+               id="param_zone"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+         <Parameter default="param_market" name="param_market" type="String"/>
+         <Parameter default="param_service" name="param_service" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_zone 
+union
+SELECT DISTINCT if(zone='ALL','All',zone) AS param_zone FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} and service=${param_service}</Query>
+   </DataAccess>
+</CDADescriptor>

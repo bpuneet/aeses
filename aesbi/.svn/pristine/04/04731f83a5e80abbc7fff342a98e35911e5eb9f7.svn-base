@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2011-06-21T10:22:45" created="2011-03-28T09:14:18" description="" updatedBy="isaiah.jefferson@aes.com" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/ZDEV_Fletet_KPI_JC.xanalyzer" name="KPIs_IDJ"/>
+    </commonStorageAttributes>
+    <report version="4" emptyCellDisplay="No data" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet Cube" catalog="Fleet KPI">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Availability Factor (%)]"/>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Market Capture (%)]"/>
+            <measure id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Planned Outage Rate (%)]"/>
+            <measure id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Unplanned Outage Rate (%)]"/>
+            <measure id="[MEASURE:9]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Gross Revenue ($)]"/>
+            <measure id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Cost ($)]"/>
+            <measure id="[MEASURE:10]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Losses (MWh)]"/>
+            <measure id="[MEASURE:11]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy_Efficiency (%)]"/>
+            <measure id="[MEASURE:7]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Throughput (MWh/yr/MW)]"/>
+            <measure id="[MEASURE:8]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Available Capacity (%)]"/>
+            <measure id="[MEASURE:5]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Charge C-rate]"/>
+            <measure id="[MEASURE:6]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Discharge C-rate]"/>
+            <measure id="[MEASURE:12]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Created]"/>
+            <measure id="[MEASURE:19]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Blocker Issues]"/>
+            <measure id="[MEASURE:20]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Blocker Resolution Time (In Days)]"/>
+            <measure id="[MEASURE:17]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Issues]"/>
+            <measure id="[MEASURE:18]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Resolution Time (In Days)]"/>
+            <measure id="[MEASURE:16]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Issues]"/>
+            <measure id="[MEASURE:13]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Completed]"/>
+            <measure id="[MEASURE:14]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Minor Issues]"/>
+            <measure id="[MEASURE:15]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Resolution Time (In Days)]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Project].[Westover                                                                                            ]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Month].[June]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Day of Month].[Day of Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" formula="[Day of Month].[1]"/>
+                        <member pos="0" formula="[Day of Month].[10]"/>
+                        <member pos="0" formula="[Day of Month].[11]"/>
+                        <member pos="0" formula="[Day of Month].[12]"/>
+                        <member pos="0" formula="[Day of Month].[13]"/>
+                        <member pos="0" formula="[Day of Month].[14]"/>
+                        <member pos="0" formula="[Day of Month].[15]"/>
+                        <member pos="0" formula="[Day of Month].[2]"/>
+                        <member pos="0" formula="[Day of Month].[3]"/>
+                        <member pos="0" formula="[Day of Month].[4]"/>
+                        <member pos="0" formula="[Day of Month].[5]"/>
+                        <member pos="0" formula="[Day of Month].[6]"/>
+                        <member pos="0" formula="[Day of Month].[7]"/>
+                        <member pos="0" formula="[Day of Month].[8]"/>
+                        <member pos="0" formula="[Day of Month].[9]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions chartType="MULTIPLE_PIE"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="12">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="13">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="14">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="15">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="16">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="17">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="18">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="19">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="20">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="21">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="22">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="23">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="24">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="25">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="26">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="27">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="28">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

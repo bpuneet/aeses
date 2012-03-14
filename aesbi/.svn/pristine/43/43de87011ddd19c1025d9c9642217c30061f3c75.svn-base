@@ -1,0 +1,97 @@
+<!-- ======================================================================
+description: main build file for pentaho  . .                                                    
+====================================================================== -->
+<project name="aes" default="all" >
+	
+	<condition property="config.properties" value="build-${env}.properties" else="build.properties">
+		<isset property="env"/>
+	</condition>
+
+	<property name="target-dist" value="target-dist"/>
+	<property name="project" value="aes"/>	
+	<property name="pentaho.build.dir" value="build"/>
+	<property name="pentaho.src.config" value="src/solution"/>
+	<property name="pentaho.src.dir" value="src/solution/aes"/>
+	<property name="pentaho.src" value="src"/>
+	<property name="config.properties.path" value="config/${config.properties}"/>
+	<property name="config.properties.default.path" value="config/build.properties"/>
+	
+		
+	<property file="${config.properties.path}"/>
+	<property file="${config.properties.default.path}"/>
+	
+	<property name="jre.dir" value="../dummy-jre" />
+
+	<!-- Build init -->
+	<target name="init">
+		<echo>Building project ${project}</echo>
+	</target>
+
+	<!-- Clean targets 
+	<target name="clean" depends="init" description="Deletes the target preconfigured install dir" >		
+			<delete dir="${pentaho.build.dir}/tomcat-pci-test/biserver-ce/pentaho-solutions/aes" failonerror="false"/>
+			<delete dir="${target-dist}" failonerror="false"/>
+			<echo>Targets cleaned</echo>
+	</target>-->
+	<target name="copy-init" description="Copy project files" />
+	
+	<target name="copy-configs" depends="copy-init">
+
+
+		<!-- Overriding the admin console files 
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/pentaho-solutions/AESES" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/solution/AESES/Solution-Rep/">
+			<include name=".old/**"/>
+			<include name="**"/>
+			</fileset>
+		</copy> -->
+
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/tomcat/webapps/pentaho" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/server/webapps/pentaho">
+			</fileset>
+		</copy>
+
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/pentaho-solutions/system" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/solution/system/">
+			</fileset>
+		</copy>
+		
+		<copy todir="/var/www/html/ETL/Fleet" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/solution/AESES/etl/fleet/">
+			</fileset>
+		</copy>
+		
+		<copy todir="/var/www/html/cron/Development" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/solution/AESES/etl/market/Development/">
+			</fileset>
+		</copy>
+		<!--
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/tomcat/webapps/pentaho" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/server/webapps/pentaho">
+			</fileset>
+		</copy> -->
+		
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/tomcat/webapps/pentaho-style" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/server/webapps/pentaho-style">
+			</fileset>
+		</copy>
+
+		<copy todir="/usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/pentaho-solutions" overwrite="true" failonerror="true" verbose="false">
+			<fileset dir="/var/lib/jenkins/jobs/AES/workspace/AESES/src/solution/pentaho-solutions/">
+			</fileset>
+		</copy>
+		
+			
+		<!-- since tomcat replaces some files, we may need to patch again -->
+		<echo>Applying patches for the second time</echo>
+		<!-- <antcall target="copy-init" /> -->
+
+	</target>
+	
+	<target name="copy-finish" depends="copy-configs" description="Copy target files">
+		<!-- apply patches - Not sure if I need this -->
+	</target>
+
+	<target name="all" description="Compiles and builds the entire project" depends="copy-finish" />
+	
+</project>

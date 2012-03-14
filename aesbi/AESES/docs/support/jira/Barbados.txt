@@ -1,0 +1,20 @@
+1.bi_dim_fleet
+2.bi_fact_fleet
+3.bi_dim_date
+4.bi_fact_markets
+
+FOr Jira data:
+1. change requesthttps:
+//aesgse.onjira.com/sr/jira.issueviews:searchrequest-xml/temp
+/SearchRequest.xml?type=5&pid=10002&sorter
+/field=issuekey&sorter/order=DESC&tempMax=1000&os_username=aeses.reports&os_password=reports_2010!
+
+2.workorders:
+https://aesgse.onjira.com/sr/jira.issueviews:searchrequest-xml/temp
+/SearchRequest.xml?type=6&pid=10002&sorter
+/field=issuekey&sorter/order=DESC&tempMax=1000&os_username=aeses.reports&os_password=reports_2010!
+
+3.Alerts:
+https://aesgse.onjira.com/sr/jira.issueviews:searchrequest-xml/temp
+/SearchRequest.xml?type=1&pid=10002&sorter/field=issuekey&sorter
+/order=DESC&tempMax=1000&os_username=aeses.reports&os_password=reports_2010!
