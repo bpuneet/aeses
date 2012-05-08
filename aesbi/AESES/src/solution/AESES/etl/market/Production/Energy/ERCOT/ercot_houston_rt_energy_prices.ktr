@@ -72,7 +72,7 @@
     <name>pro</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -94,10 +94,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Select values 3</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>Modified Java Script Value 3</to><enabled>Y</enabled> </hop>  <hop> <from>CSV file input</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 3</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Select values 3</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>Modified Java Script Value 3</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 3</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Text file input</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Group by</to><enabled>Y</enabled> </hop>  <hop> <from>Group by</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
+    <name>Group by</name>
+    <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -105,112 +105,152 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;ERCOT&#47;ERCOT-Houston.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure>&quot;</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <encoding/>
-    <fields>
-      <field>
-        <name>Price Node Name</name>
-        <type>String</type>
-        <format/>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>10</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Price Node ID</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Local Datetime (Hour&#47;Period Ending)</name>
-        <type>String</type>
-        <format/>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Time Zone</name>
-        <type>String</type>
-        <format/>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Price Type Full Description</name>
-        <type>String</type>
-        <format/>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>16</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Is Derived (Y&#47;N)</name>
-        <type>Boolean</type>
-        <format/>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Price $&#47;MWh</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Record Count</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>Rs.</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>%%java.io.tmpdir%%</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>datetime_gmt</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>Price_Node_Name</aggregate>
+          <subject>Price_Node_Name</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Price_Node_ID</aggregate>
+          <subject>Price_Node_ID</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>time_zone</aggregate>
+          <subject>time_zone</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Price_Type_Full_Description</aggregate>
+          <subject>Price_Type_Full_Description</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Is_Derived_(Y&#47;N)</aggregate>
+          <subject>Is_Derived_(Y&#47;N)</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Price_$&#47;MWh</aggregate>
+          <subject>Price_$&#47;MWh</subject>
+          <type>AVERAGE</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Record_Count</aggregate>
+          <subject>Record_Count</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>pdate</aggregate>
+          <subject>pdate</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>local_datetime</aggregate>
+          <subject>local_datetime</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>datetime_gmt</aggregate>
+          <subject>datetime_gmt</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>140</xloc>
-      <yloc>113</yloc>
+      <xloc>761</xloc>
+      <yloc>202</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel/>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+if (time_zone == &apos;CST&apos;)
+{
+   var datetime_gmt=dateAdd(local_datetime,&quot;hh&quot;,6);
+}
+else if(time_zone == &apos;CDT&apos;)
+{
+   var datetime_gmt=dateAdd(local_datetime,&quot;hh&quot;,5);
+}
+else{
+   var datetime_gmt=local_datetime;
+}</jsScript_script>
+      </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>dateAdd_Sample</jsScript_name>
+        <jsScript_script>&#47;&#47; Add&apos;s the given number to  the given date Value.
+&#47;&#47;
+&#47;&#47; Usage:
+&#47;&#47; dateAdd(var,var,var);
+&#47;&#47; 1: Date - The Variable with the Date.
+&#47;&#47; 2: String - The Type which represents the value
+&#47;&#47; to add.
+&#47;&#47; y - Years
+&#47;&#47; m - Months
+&#47;&#47; d - Days
+&#47;&#47; w - Weeks
+&#47;&#47; wd - Workingdays
+&#47;&#47; hh - Hours
+&#47;&#47; mi - Minutes
+&#47;&#47; ss - Seconds
+&#47;&#47; 3: Numeric - The Value to add.
+&#47;&#47; 
+&#47;&#47; 2006-11-15
+&#47;&#47;
+var d1 = new Date();
+Alert(dateAdd(d1, &quot;y&quot;, 1));
+Alert(dateAdd(d1, &quot;m&quot;, 4));
+Alert(dateAdd(d1, &quot;d&quot;, 5));
+Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>datetime_gmt</name>
+        <rename>datetime_gmt</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>678</xloc>
+      <yloc>285</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -226,6 +266,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -274,31 +315,35 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>Price Node Name</name>
+    <fields>      <field>        <name>Price_Node_Name</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price Node ID</name>
+      </field>      <field>        <name>Price_Node_ID</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Time Zone</name>
+      </field>      <field>        <name>Time_Zone</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price Type Full Description</name>
+      </field>      <field>        <name>Price_Type_Full_Description</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Is Derived (Y&#47;N)</name>
+      </field>      <field>        <name>Is_Derived_(Y&#47;N)</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price $&#47;MWh</name>
+      </field>      <field>        <name>Price_$&#47;MWh</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Record Count</name>
+      </field>      <field>        <name>Record_Count</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>pdate</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -307,56 +352,8 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>Price Node Name</name>
-        <rename>Price Node Name</rename>
-        <type>-</type>
-        <length>10</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>Price Node ID</name>
-        <rename>Price Node ID</rename>
-        <type>-</type>
-        <length>15</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>Time Zone</name>
-        <rename>time_zone</rename>
-        <type>-</type>
-        <length>3</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>Price Type Full Description</name>
-        <rename>Price Type Full Description</rename>
-        <type>-</type>
-        <length>16</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>Is Derived (Y&#47;N)</name>
-        <rename>Is Derived (Y&#47;N)</rename>
+      <meta>        <name>Price_Node_Name</name>
+        <rename>Price_Node_Name</rename>
         <type>-</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -367,10 +364,58 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>Price $&#47;MWh</name>
-        <rename>Price $&#47;MWh</rename>
+      </meta>      <meta>        <name>Price_Node_ID</name>
+        <rename>Price_Node_ID</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Time_Zone</name>
+        <rename>time_zone</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Price_Type_Full_Description</name>
+        <rename>Price_Type_Full_Description</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Is_Derived_(Y&#47;N)</name>
+        <rename>Is_Derived_(Y&#47;N)</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Price_$&#47;MWh</name>
+        <rename>Price_$&#47;MWh</rename>
         <type>Number</type>
-        <length>15</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask>#.##</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -379,11 +424,11 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>Record Count</name>
-        <rename>Record Count</rename>
+      </meta>      <meta>        <name>Record_Count</name>
+        <rename>Record_Count</rename>
         <type>-</type>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-2</length>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <encoding/>
@@ -405,8 +450,8 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>506</xloc>
-      <yloc>143</yloc>
+      <xloc>543</xloc>
+      <yloc>147</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -421,40 +466,136 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>Price Node Name</name>
+    <fields>      <field>        <name>Price_Node_Name</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price Node ID</name>
+      </field>      <field>        <name>Price_Node_ID</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Local Datetime (Hour&#47;Period Ending)</name>
+      </field>      <field>        <name>Local_Datetime_(Hour&#47;Period_Ending)</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Time Zone</name>
+      </field>      <field>        <name>Time_Zone</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price Type Full Description</name>
+      </field>      <field>        <name>Price_Type_Full_Description</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Is Derived (Y&#47;N)</name>
+      </field>      <field>        <name>Is_Derived_(Y&#47;N)</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Price $&#47;MWh</name>
+      </field>      <field>        <name>Price_$&#47;MWh</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Record Count</name>
+      </field>      <field>        <name>Record_Count</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>Price_Node_Name</name>
+        <rename>Price_Node_Name</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Price_Node_ID</name>
+        <rename>Price_Node_ID</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Local_Datetime_(Hour&#47;Period_Ending)</name>
+        <rename>Local_Datetime_(Hour&#47;Period_Ending)</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Time_Zone</name>
+        <rename>Time_Zone</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Price_Type_Full_Description</name>
+        <rename>Price_Type_Full_Description</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Is_Derived_(Y&#47;N)</name>
+        <rename>Is_Derived_(Y&#47;N)</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Price_$&#47;MWh</name>
+        <rename>Price_$&#47;MWh</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Record_Count</name>
+        <rename>Record_Count</rename>
+        <type>-</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>201</xloc>
       <yloc>257</yloc>
@@ -472,7 +613,7 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
            <method>none</method>
            <schema_name/>
            </partitioning>
-   <splitfield>Local Datetime (Hour&#47;Period Ending)</splitfield>
+   <splitfield>Local_Datetime_(Hour&#47;Period_Ending)</splitfield>
    <delimiter>&#47;</delimiter>
     <fields>      <field>        <name>m</name>
         <id/>
@@ -530,7 +671,7 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
            </partitioning>
     <connection>pro</connection>
     <schema/>
-    <table>ercot_rt_energy_hb_houston_raw</table>
+    <table>ercot_rt_energy_hb_houston_dec_nov2011_raw</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -548,15 +689,11 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
     <fields>
         <field>
           <column_name>price_node_name</column_name>
-          <stream_name>Price Node Name</stream_name>
+          <stream_name>Price_Node_Name</stream_name>
         </field>
         <field>
           <column_name>price_node_id</column_name>
-          <stream_name>Price Node ID</stream_name>
-        </field>
-        <field>
-          <column_name>local_datetime</column_name>
-          <stream_name>local_datetime</stream_name>
+          <stream_name>Price_Node_ID</stream_name>
         </field>
         <field>
           <column_name>time_zone</column_name>
@@ -564,36 +701,40 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
         </field>
         <field>
           <column_name>price_type_full_description</column_name>
-          <stream_name>Price Type Full Description</stream_name>
+          <stream_name>Price_Type_Full_Description</stream_name>
         </field>
         <field>
           <column_name>is_derived</column_name>
-          <stream_name>Is Derived (Y&#47;N)</stream_name>
+          <stream_name>Is_Derived_(Y&#47;N)</stream_name>
         </field>
         <field>
           <column_name>price_mwh</column_name>
-          <stream_name>Price $&#47;MWh</stream_name>
+          <stream_name>Price_$&#47;MWh</stream_name>
         </field>
         <field>
           <column_name>record_count</column_name>
-          <stream_name>Record Count</stream_name>
+          <stream_name>Record_Count</stream_name>
+        </field>
+        <field>
+          <column_name>local_datetime</column_name>
+          <stream_name>local_datetime</stream_name>
         </field>
         <field>
           <column_name>datetime_gmt</column_name>
-          <stream_name>datetime_gmt</stream_name>
+          <stream_name>datetime_gmt_1</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>745</xloc>
-      <yloc>107</yloc>
+      <xloc>761</xloc>
+      <yloc>74</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Modified Java Script Value</name>
-    <type>ScriptValueMod</type>
+    <name>Text file input</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -601,58 +742,231 @@ var cdate = str2date(pdate,&quot;dd MM yyyy HH:mm&quot;)</jsScript_script>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <compatible>N</compatible>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#47;&#47;Script here
-
-if (time_zone == &apos;CST&apos;)
-{
-   var datetime_gmt=dateAdd(local_datetime,&quot;hh&quot;,6);
-}
-else if(time_zone == &apos;CDT&apos;)
-{
-   var datetime_gmt=dateAdd(local_datetime,&quot;hh&quot;,5);
-}
-else{
-   var datetime_gmt=local_datetime;
-}</jsScript_script>
-      </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
-        <jsScript_name>dateAdd_Sample</jsScript_name>
-        <jsScript_script>&#47;&#47; Add&apos;s the given number to  the given date Value.
-&#47;&#47;
-&#47;&#47; Usage:
-&#47;&#47; dateAdd(var,var,var);
-&#47;&#47; 1: Date - The Variable with the Date.
-&#47;&#47; 2: String - The Type which represents the value
-&#47;&#47; to add.
-&#47;&#47; y - Years
-&#47;&#47; m - Months
-&#47;&#47; d - Days
-&#47;&#47; w - Weeks
-&#47;&#47; wd - Workingdays
-&#47;&#47; hh - Hours
-&#47;&#47; mi - Minutes
-&#47;&#47; ss - Seconds
-&#47;&#47; 3: Numeric - The Value to add.
-&#47;&#47; 
-&#47;&#47; 2006-11-15
-&#47;&#47;
-var d1 = new Date();
-Alert(dateAdd(d1, &quot;y&quot;, 1));
-Alert(dateAdd(d1, &quot;m&quot;, 4));
-Alert(dateAdd(d1, &quot;d&quot;, 5));
-Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>datetime_gmt</name>
-        <rename>datetime_gmt</rename>
-        <type>Date</type>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field>final_url</accept_field>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure>&quot;</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>N</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>mixed</format>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;ERCOT&#47;ERCOT-2011-NOV-DEC.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+      <filter>
+        <filter_string>Base64: QVBEX0FQRF9HMQ==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: QlVGRl9HQVBfQUxM</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfQlVTQVZH</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfSE9VU1RPTg==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfSFVCQVZH</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfTk9SVEg=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfU09VVEg=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: SEJfV0VTVA==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfQUVO</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfQ1BT</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfSE9VU1RPTg==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfTENSQQ==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfTk9SVEg=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfUkFZQk4=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfU09VVEg=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: TFpfV0VTVA==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+    </filters>
+    <fields>
+      <field>
+        <name>Price_Node_Name</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Price_Node_ID</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Local_Datetime_(Hour&#47;Period_Ending)</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Time_Zone</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Price_Type_Full_Description</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Is_Derived_(Y&#47;N)</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Price_$&#47;MWh</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Record_Count</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>Y</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>678</xloc>
-      <yloc>285</yloc>
+      <xloc>127</xloc>
+      <yloc>120</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

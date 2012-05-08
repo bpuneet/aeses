@@ -71,7 +71,7 @@
     <name>pro</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -199,6 +199,83 @@
     </step>
 
   <step>
+    <name>Insert &#47; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>pro</connection>
+    <commit>100</commit>
+    <update_bypassed>Y</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>bi_fact_markets_part</table>
+      <key>
+        <name>bi_dim_market_id</name>
+        <field>bi_dim_market_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>bi_dim_date_id_1</name>
+        <field>bi_dim_date_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>bi_dim_date_id</name>
+        <rename>bi_dim_date_id_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>bi_dim_market_id</name>
+        <rename>bi_dim_market_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>clearing_price</name>
+        <rename>clearing_price</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thirty_day_avg</name>
+        <rename>thirty_day_avg</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ninety_day_avg</name>
+        <rename>ninety_day_avg</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>previous_year_clearing_price</name>
+        <rename>previous_year_clearing_price</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>volume</name>
+        <rename>volume</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>one_year_avg</name>
+        <rename>one_year_avg</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>817</xloc>
+      <yloc>123</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Modified Java Script Value</name>
     <type>ScriptValueMod</type>
     <description/>
@@ -209,6 +286,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -375,83 +453,6 @@ ON a.datetime_gmt=b.timestamp_gmt
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>101</xloc>
       <yloc>114</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#47; Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>pro</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>bi_fact_markets_part</table>
-      <key>
-        <name>bi_dim_market_id</name>
-        <field>bi_dim_market_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>bi_dim_date_id_1</name>
-        <field>bi_dim_date_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>bi_dim_date_id</name>
-        <rename>bi_dim_date_id_1</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>bi_dim_market_id</name>
-        <rename>bi_dim_market_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>clearing_price</name>
-        <rename>clearing_price</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>thirty_day_avg</name>
-        <rename>thirty_day_avg</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ninety_day_avg</name>
-        <rename>ninety_day_avg</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>previous_year_clearing_price</name>
-        <rename>previous_year_clearing_price</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>volume</name>
-        <rename>volume</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>one_year_avg</name>
-        <rename>one_year_avg</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>817</xloc>
-      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

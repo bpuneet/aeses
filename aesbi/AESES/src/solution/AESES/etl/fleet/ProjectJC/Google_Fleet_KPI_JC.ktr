@@ -97,7 +97,7 @@
     <name>pro</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -772,6 +772,275 @@ MW Out Planned</field_a>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>172</xloc>
       <yloc>366</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Google Docs Input 2</name>
+    <type>GoogleDocsInputPlugin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <username>harshavardhan.k@sigmainfo.net</username>
+    <q>herodadheroinmum</q>
+    <r>spreadsheet%3A0Ark5_O_QpE3udG5PMWFMZm1jMUlnSjE5TzVLZW9uYlE</r>
+    <u class="java.lang.String">
+        <String value="Run Schedule"/>
+    </u>
+    <v class="java.lang.Integer">
+        <Integer value="0"/>
+    </v>
+    <w class="java.lang.Integer">
+        <Integer value="0"/>
+    </w>
+    <x>false</x>
+    <A>true</A>
+    <B>true</B>
+    <K>true</K>
+    <L>
+        </L>
+    <M>false</M>
+    <rowLimit>0</rowLimit>
+    <N class="org.pentaho.di.trans.steps.googledocsinput.c">
+        <c>
+        <name>Datetime NY HB</name>
+        <type>3</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Datetime GMT HB</name>
+        <type>2</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Date GMT</name>
+        <type>2</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>HB GMT</name>
+        <type>2</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name> MW
+Online</name>
+        <type>2</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Odyssey
+ Bid Amount
+NYISO
+</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>ES Westover 
+MW Out Unplanned</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>h</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>i</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>j</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>k</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>l</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>ES Westover
+MW Out Planned</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>3</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Comments</name>
+        <type>2</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Odyssey
+Accepted Availability
+NYISO
+mwh_available
+250</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+energy_losses
+207</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+energy_cost
+209</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+gross_revenue
+251</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+other_charge
+258</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>s</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>z</name>
+        <type>0</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>Latest Update</name>
+        <type>3</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+hrly_dam_reg_mcp
+218</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+        <c>
+        <name>NYISO
+injection_mwh
+254</name>
+        <type>1</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <ff>0</ff>
+        <fj>false</fj>
+        </c>
+    </N>
+    <O>false</O>
+    <P>true</P>
+    <Q>false</Q>
+    <R>spreadsheet%3A0Ark5_O_QpE3udG5PMWFMZm1jMUlnSjE5TzVLZW9uYlE</R>
+    <U>
+        </U>
+    <V>
+        </V>
+    <W>
+        </W>
+    <X>false</X>
+    <Y>false</Y>
+    <Z>
+        </Z>
+    <ab>false</ab>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>60</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1700,9 +1969,9 @@ MW Out Planned</name>
            <schema_name/>
            </partitioning>
     <connection>pro</connection>
-    <sql>select date_add(timestamp,interval 1 second) as maxdate1,date_add(timestamp, interval 183 day)  as maxdate2
+    <sql>select date_add(timestamp,interval 0 second) as maxdate1,curdate() as maxdate2
 
-from bi_dim_date where id = (select min(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture &lt; 100000000000)</sql>
+from bi_dim_date where id = (select min(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1750,275 +2019,6 @@ var Bid_amount = Bid_amount1;
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>475</xloc>
       <yloc>23</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Google Docs Input 2</name>
-    <type>GoogleDocsInputPlugin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <username>harshavardhan.k@sigmainfo.net</username>
-    <q>herodadheroinmum</q>
-    <r>spreadsheet%3A0Ark5_O_QpE3udG5PMWFMZm1jMUlnSjE5TzVLZW9uYlE</r>
-    <u class="java.lang.String">
-        <String value="Run Schedule"/>
-    </u>
-    <v class="java.lang.Integer">
-        <Integer value="0"/>
-    </v>
-    <w class="java.lang.Integer">
-        <Integer value="0"/>
-    </w>
-    <x>false</x>
-    <A>true</A>
-    <B>true</B>
-    <K>true</K>
-    <L>
-        </L>
-    <M>false</M>
-    <rowLimit>0</rowLimit>
-    <N class="org.pentaho.di.trans.steps.googledocsinput.c">
-        <c>
-        <name>Datetime NY HB</name>
-        <type>3</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Datetime GMT HB</name>
-        <type>2</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Date GMT</name>
-        <type>2</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>HB GMT</name>
-        <type>2</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name> MW
-Online</name>
-        <type>2</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Odyssey
- Bid Amount
-NYISO
-</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>ES Westover 
-MW Out Unplanned</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>h</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>i</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>j</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>k</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>l</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>ES Westover
-MW Out Planned</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>3</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Comments</name>
-        <type>2</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Odyssey
-Accepted Availability
-NYISO
-mwh_available
-250</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-energy_losses
-207</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-energy_cost
-209</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-gross_revenue
-251</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-other_charge
-258</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>s</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>z</name>
-        <type>0</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>Latest Update</name>
-        <type>3</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-hrly_dam_reg_mcp
-218</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-        <c>
-        <name>NYISO
-injection_mwh
-254</name>
-        <type>1</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <ff>0</ff>
-        <fj>false</fj>
-        </c>
-    </N>
-    <O>false</O>
-    <P>true</P>
-    <Q>false</Q>
-    <R>spreadsheet%3A0Ark5_O_QpE3udG5PMWFMZm1jMUlnSjE5TzVLZW9uYlE</R>
-    <U>
-        </U>
-    <V>
-        </V>
-    <W>
-        </W>
-    <X>false</X>
-    <Y>false</Y>
-    <Z>
-        </Z>
-    <ab>false</ab>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>60</xloc>
-      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

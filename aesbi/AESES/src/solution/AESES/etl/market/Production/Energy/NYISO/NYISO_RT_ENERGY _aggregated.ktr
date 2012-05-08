@@ -97,7 +97,7 @@
     <name>aes-pr</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -120,43 +120,6 @@
   </connection>
   <order>
   <hop> <from>nyiso_lbmp_RT_raw</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>nyiso_lbmp_RT_raw</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>aes-pr</connection>
-    <sql>SELECT
-  DATE_FORMAT(time_stamp,&apos;%Y-%m-%d %H:00:00&apos;)
-, YEAR(time_stamp) AS YEAR
-, MONTH(time_stamp) AS MONTH
-, DAY(time_stamp) AS DAY
-, HOUR(time_stamp) AS HOUR
-, AVG(Marginal_Cost_Congestion)
-, AVG(Marginal_Cost_Losses)
-, AVG(LBMP)
-, PTID
-, NAME
-FROM nyiso_lbmp_rt_raw WHERE time_stamp &gt;=(SELECT DATE_FORMAT(MAX(time_stamp),&apos;%Y-%m-%d 00:00:00&apos;) FROM nyiso_lbmp_rt_raw_aggregated)
-GROUP BY YEAR,MONTH,DAY,HOUR,NAME</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>171</xloc>
-      <yloc>157</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Insert &#47; Update</name>
     <type>InsertUpdate</type>
@@ -220,6 +183,43 @@ GROUP BY YEAR,MONTH,DAY,HOUR,NAME</sql>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>415</xloc>
       <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nyiso_lbmp_RT_raw</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>aes-pr</connection>
+    <sql>SELECT
+  DATE_FORMAT(time_stamp,&apos;%Y-%m-%d %H:00:00&apos;)
+, YEAR(time_stamp) AS YEAR
+, MONTH(time_stamp) AS MONTH
+, DAY(time_stamp) AS DAY
+, HOUR(time_stamp) AS HOUR
+, AVG(Marginal_Cost_Congestion)
+, AVG(Marginal_Cost_Losses)
+, AVG(LBMP)
+, PTID
+, NAME
+FROM nyiso_lbmp_rt_raw WHERE time_stamp &gt;=(SELECT DATE_FORMAT(MAX(time_stamp),&apos;%Y-%m-%d 00:00:00&apos;) FROM nyiso_lbmp_rt_raw_aggregated)
+GROUP BY YEAR,MONTH,DAY,HOUR,NAME</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>171</xloc>
+      <yloc>157</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

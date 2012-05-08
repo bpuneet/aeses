@@ -1131,6 +1131,553 @@ ON a.datetime=d.datetime
 JOIN
 (SELECT * FROM bi_dim_market WHERE iso='caiso' AND market='Day-Ahead Regulation' AND service='Regulation Up') c) up
 ON dn.bi_dim_date_id=up.bi_dim_date_id;
+/*TAB1: EA_Market_Schedule_Quantities_raw (1st)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        662 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.schedule_mw AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EA_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400020') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB1: EA_Market_Schedule_Quantities_raw (2nd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        663 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.schedule_mw AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EA_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400021') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB1: EA_Market_Schedule_Quantities_raw (3rd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        664 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.schedule_mw AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EA_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400030') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB2: EA_System_Marginal_Price_raw */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        661 AS bi_dim_market_id,
+        r.SMP AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EA_System_Marginal_Price_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+  ORDER BY  r.trading_period ;
+  
+  /*TAB3: EP2_Actual_Availabilities_raw (1st)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        775 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.MAX_AVAIL_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Actual_Availabilities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400020') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB3: EP2_Actual_Availabilities_raw (2nd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        776 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.MAX_AVAIL_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Actual_Availabilities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400021') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB3: EP2_Actual_Availabilities_raw (3rd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        777 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.MAX_AVAIL_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Actual_Availabilities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400030') ORDER BY r.participant_resource_name, r.trading_period ;
+/*TAB4: EP2_Daily_Actual_Load_raw (1st)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7780 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.ACT_LOAD_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Daily_Actual_Load_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.JURISDICTION IN ('NI') ORDER BY r.JURISDICTION, r.trading_period;
+/*TAB4: EP2_Daily_Actual_Load_raw (2nd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7781 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.ACT_LOAD_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Daily_Actual_Load_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.JURISDICTION IN ('ROI') ORDER BY r.JURISDICTION, r.trading_period;
+/*TAB5: EP2_Dispatch_Quantities_raw (1st)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7700 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.DISPATCH_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Dispatch_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400020') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB5: EP2_Dispatch_Quantities_raw (2nd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7701 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.DISPATCH_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Dispatch_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400021') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB5: EP2_Dispatch_Quantities_raw (3rd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7702 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.DISPATCH_MW AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Dispatch_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400030') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB6: EP2_Market_Schedule_Quantities_raw (1st)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7703 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.quantity AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400020') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB6: EP2_Market_Schedule_Quantities_raw (2nd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7704 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.quantity AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400021') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB6: EP2_Market_Schedule_Quantities_raw (3rd)*/
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        7705 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.quantity AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_Market_Schedule_Quantities_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+AND r.participant_resource_name IN ('PT_400021 GU_400030') ORDER BY r.participant_resource_name, r.trading_period;
+/*TAB7: EP2_System_Marginal_Price_raw */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        779 AS bi_dim_market_id,
+        r.SMP AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+         FROM EP2_System_Marginal_Price_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period  AND YEAR(d.timestamp_gmt) = 2012
+  ORDER BY  r.trading_period ;
+  
+  /*TAB8: EA_raw: SYSTEM_LOAD */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        885 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.system_load AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN ( 2012)
+        ORDER BY  r.trading_period ;
+  
+/*TAB8: EA_raw: NON_WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        886 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.non_wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+    /*TAB8: EA_raw: WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        887 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB8: EA_raw: TOTAL_GEN_COST */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        888 AS bi_dim_market_id,
+        r.TOTAL_GEN_COST AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB8: EA_raw: energy(smp) */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        881 AS bi_dim_market_id,
+        r.smp AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB8: EA_raw: LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        889 AS bi_dim_market_id,
+        r.lambda AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB8: EA_raw: INTER_LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        890 AS bi_dim_market_id,
+        r.INTER_LAMBDA AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB8: EA_raw: INTERCONNECTOR */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        891 AS bi_dim_market_id,
+        r.INTERCONNECTOR AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EA_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  
+ /*TAB9: EP1_raw: SYSTEM_LOAD */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        222 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.system_load AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN ( 2012)
+        ORDER BY  r.trading_period ;
+  
+/*TAB9: EP1_raw: NON_WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        223 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.non_wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+    /*TAB9: EP1_raw: WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        224 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB9: EP1_raw: TOTAL_GEN_COST */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        225 AS bi_dim_market_id,
+        r.TOTAL_GEN_COST AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB9: EP1_raw: energy(smp) */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        221 AS bi_dim_market_id,
+        r.smp AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB9: EP1_raw: LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        226 AS bi_dim_market_id,
+        r.lambda AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB9: EP1_raw: INTER_LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        227 AS bi_dim_market_id,
+        r.INTER_LAMBDA AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB9: EP1_raw: INTERCONNECTOR */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        228 AS bi_dim_market_id,
+        r.INTERCONNECTOR AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP1_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB10: EP2_raw: SYSTEM_LOAD */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        332 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.system_load AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN ( 2012)
+        ORDER BY  r.trading_period ;
+  
+/*TAB10: EP2_raw: NON_WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        333 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.non_wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+    /*TAB10: EP2_raw: WIND_GEN */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        334 AS bi_dim_market_id,
+        NULL AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        r.wind_gen AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB10: EP2_raw: TOTAL_GEN_COST */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        335 AS bi_dim_market_id,
+        r.TOTAL_GEN_COST AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
+  /*TAB10: EP2_raw: energy(smp) */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        331 AS bi_dim_market_id,
+        r.smp AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB10: EP2_raw: LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        336 AS bi_dim_market_id,
+        r.lambda AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB10: EP2_raw: INTER_LAMBDA */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        337 AS bi_dim_market_id,
+        r.INTER_LAMBDA AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+        
+        /*TAB10: EP2_raw: INTERCONNECTOR */
+REPLACE INTO bi_fact_markets_part
+SELECT d.id AS bi_dim_date_id,
+        338 AS bi_dim_market_id,
+        r.INTERCONNECTOR AS clearing_price,
+        NULL AS thirty_day_avg,
+        NULL  AS ninety_day_avg,
+        NULL AS previous_year_clearing_price,
+        NULL AS volume,
+        NULL AS one_year_avg,
+        NULL AS "capacity"
+        FROM EP2_raw AS r, bi_dim_date AS d WHERE d.timestamp_gmt = r.trading_period AND YEAR(d.timestamp_gmt) IN (  2012)
+        ORDER BY  r.trading_period ;
+  
 END$$
 
 DELIMITER ;

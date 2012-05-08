@@ -1,0 +1,336 @@
+<Schema name="Market Prices">
+	<Cube name="Market Prices (Prices, Volume and Capacity)" visible="true" cache="true" enabled="true">
+		<Table name="bi_fact_markets_part">
+			<AggName name="Market_Pri_Market_Pri_1">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Month" name="[Month].[Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Service" name="[Market Service.Service].[Service]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_2">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Market" name="[Market].[Market]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Zone" name="[Market Zone.Zone].[Zone]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour_gmt" name="[Hour gmt].[Hour gmt]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_3">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Day_of_Month" name="[Day of Month].[Day of Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Iso" name="[Iso].[Iso]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Service" name="[Market Service.Service].[Service]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour_gmt" name="[Hour gmt].[Hour gmt]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_4">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Iso" name="[Iso].[Iso]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Zone" name="[Market Zone.Zone].[Zone]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour" name="[Hour].[Hour]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_5">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Day_of_Month" name="[Day of Month].[Day of Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Market" name="[Market].[Market]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour" name="[Hour].[Hour]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_6">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_market_Market" name="[Market].[Market]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Iso" name="[Iso].[Iso]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Service" name="[Market Service.Service].[Service]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour" name="[Hour].[Hour]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour_gmt" name="[Hour gmt].[Hour gmt]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_7">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Month" name="[Month].[Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Market" name="[Market].[Market]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Iso" name="[Iso].[Iso]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_8">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Month" name="[Month].[Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Iso" name="[Iso].[Iso]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Service" name="[Market Service.Service].[Service]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour" name="[Hour].[Hour]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour_gmt" name="[Hour gmt].[Hour gmt]">
+				</AggLevel>
+			</AggName>
+			<AggName name="Market_Pri_Market_Pri_9">
+				<AggFactCount column="bi_fact_markets_part_fact_coun">
+				</AggFactCount>
+				<AggMeasure column="bi_fact_markets_part_Clearing_" name="[Measures].[Clearing Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Thirty_Da" name="[Measures].[Thirty Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Ninety_Da" name="[Measures].[Ninety Day Average]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Previous_" name="[Measures].[Previous Year Price]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Volume_(Q" name="[Measures].[Volume (Quantity)]">
+				</AggMeasure>
+				<AggMeasure column="bi_fact_markets_part_Twelve_Mo" name="[Measures].[Twelve Month Rolling Average]">
+				</AggMeasure>
+				<AggLevel column="bi_dim_date_Year" name="[Year].[Year]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Quarter" name="[Quarter].[Quarter]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Month" name="[Month].[Month]">
+				</AggLevel>
+				<AggLevel column="bi_dim_market_Market" name="[Market].[Market]">
+				</AggLevel>
+				<AggLevel column="bi_dim_date_Hour" name="[Hour].[Hour]">
+				</AggLevel>
+			</AggName>
+		</Table>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Year">
+			<Hierarchy name="Year" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Year" visible="true" column="year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Quarter">
+			<Hierarchy name="Quarter" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Quarter" visible="true" column="quarter_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Month">
+			<Hierarchy name="Month" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Month" visible="true" column="month" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Year">
+			<Hierarchy name="Day of Year" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Day of Year" visible="true" column="day_of_year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Month">
+			<Hierarchy name="Day of Month" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Day of Month" visible="true" column="day_of_month" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market">
+			<Hierarchy name="Market" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_market">
+				</Table>
+				<Level name="Market" visible="true" column="market" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Iso">
+			<Hierarchy name="Iso" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_market">
+				</Table>
+				<Level name="Iso" visible="true" column="iso" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market Service">
+			<Hierarchy name="Service" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_market">
+				</Table>
+				<Level name="Service" visible="true" column="service" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market Zone">
+			<Hierarchy name="Zone" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_market">
+				</Table>
+				<Level name="Zone" visible="true" column="zone" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour">
+			<Hierarchy name="Hour" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Hour" visible="true" column="hour" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour gmt">
+			<Hierarchy name="Hour gmt" visible="true" hasAll="true" primaryKey="id">
+				<Table name="bi_dim_date">
+				</Table>
+				<Level name="Hour gmt" visible="true" column="hour_gmt" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Measure name="Clearing Price" column="clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+		<Measure name="Thirty Day Average" column="thirty_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+		<Measure name="Ninety Day Average" column="ninety_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+		<Measure name="Previous Year Price" column="previous_year_clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+		<Measure name="Volume (Quantity)" column="volume" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+		<Measure name="Twelve Month Rolling Average" column="one_year_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+		</Measure>
+	</Cube>
+</Schema>

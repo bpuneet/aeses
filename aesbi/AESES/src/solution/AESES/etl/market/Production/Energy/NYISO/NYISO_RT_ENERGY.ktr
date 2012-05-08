@@ -96,7 +96,7 @@
     <name>aes-pr</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -245,6 +245,7 @@
     <filter>
       <filterfiletype>all_files</filterfiletype>
     </filter>
+    <doNotFailIfNoFile>N</doNotFailIfNoFile>
     <rownum>N</rownum>
     <isaddresult>Y</isaddresult>
     <filefield>Y</filefield>
@@ -310,6 +311,7 @@
            <schema_name/>
            </partitioning>
     <compatible>Y</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -343,6 +345,7 @@ var date_time = start_date + &quot; &quot;+ time;</jsScript_script>
            <schema_name/>
            </partitioning>
     <compatible>Y</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -377,6 +380,7 @@ var final_url = &quot;http:&#47;&#47;mis.nyiso.com&#47;public&#47;csv&#47;realti
            <schema_name/>
            </partitioning>
     <compatible>Y</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -891,6 +895,9 @@ var d = dt.substr(3,2);
     </fields>
     <limit>0</limit>
     <error_ignored>Y</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>

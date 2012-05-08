@@ -97,7 +97,7 @@
     <name>pro</name>
     <server>50.16.172.74</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -118,8 +118,33 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>scada</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>scada</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Calculator 3</from><to>COLUMN AO</to><enabled>Y</enabled> </hop>  <hop> <from>Output_Intensity calc</from><to>Output_Intensity </to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>Group by</to><enabled>Y</enabled> </hop>  <hop> <from>output intensity</from><to>previous value</to><enabled>Y</enabled> </hop>  <hop> <from>previous value</from><to>Calculator 3</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Output_Intensity </from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Update</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>output intensity</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Join</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA_JC_maxdate</from><to>Join</to><enabled>Y</enabled> </hop>  <hop> <from>Join</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>COLUMN AO</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Group by</from><to>Output_Intensity calc</to><enabled>Y</enabled> </hop>  <hop> <from>maxdate</from><to>maxdate entry</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>maxdate</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Calculator 3</from><to>COLUMN AO</to><enabled>Y</enabled> </hop>  <hop> <from>Output_Intensity calc</from><to>Output_Intensity </to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>Group by</to><enabled>Y</enabled> </hop>  <hop> <from>output intensity</from><to>previous value</to><enabled>Y</enabled> </hop>  <hop> <from>previous value</from><to>Calculator 3</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Output_Intensity </from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Update</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date </from><to>output intensity</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date </from><to>Join</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA_JC_maxdate</from><to>Join</to><enabled>Y</enabled> </hop>  <hop> <from>Join</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>COLUMN AO</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Group by</from><to>Output_Intensity calc</to><enabled>Y</enabled> </hop>  <hop> <from>maxdate</from><to>maxdate entry</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>maxdate</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Abort</name>
     <type>Abort</type>
@@ -152,6 +177,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -448,6 +474,7 @@ time =  hr +&quot;:&quot; + minutes + &quot;:00&quot; </jsScript_script>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -674,6 +701,7 @@ FROM bi_dim_date WHERE id = (SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis 
     <connection>pro</connection>
     <skip_lookup>Y</skip_lookup>
     <commit>100</commit>
+    <use_batch>N</use_batch>
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
     <lookup>
@@ -705,7 +733,7 @@ FROM bi_dim_date WHERE id = (SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis 
     </step>
 
   <step>
-    <name>max fact date dev</name>
+    <name>max fact date </name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -715,8 +743,8 @@ FROM bi_dim_date WHERE id = (SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis 
            <schema_name/>
            </partitioning>
     <connection>pro</connection>
-    <sql>select  date_add(timestamp,interval 1 second) as maxdate1 ,date_add(timestamp, interval 1 day)  as maxdate2,
-date_add(timestamp,interval 1 second) as maxdate3,date_add(timestamp, interval 1 day) as maxdate4 
+    <sql>select  date_add(timestamp,interval 0 second) as maxdate1 ,date_add(timestamp, interval 1 day)  as maxdate2,
+date_add(timestamp,interval 0 second) as maxdate3,date_add(timestamp, interval 1 day) as maxdate4 
 from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis where output_intensity  is not null and bi_dim_fleet_id = 300)</sql>
     <limit>0</limit>
     <lookup/>
@@ -817,7 +845,7 @@ from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis 
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>pro</connection>
+    <connection>scada</connection>
     <sql>
 select x.date as timestamp, x.energy,y.total_gross_power_capacity,date(x.date) as date,hour(x.date) as hr,FLOOR(minute(x.date)&#47;15)*15 as minutes
 
@@ -845,7 +873,7 @@ JOIN
 
 </sql>
     <limit>0</limit>
-    <lookup>max fact date dev</lookup>
+    <lookup>max fact date </lookup>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
@@ -893,7 +921,7 @@ JOIN
            </partitioning>
     <connection>pro</connection>
     <sql>select  
-date_add(timestamp,interval 1 second)as maxdate9,
+date_add(timestamp,interval 0 second)as maxdate9,
 date_add(date_add(timestamp, interval 1 day), interval 5 hour) as maxdate10
 
 

@@ -66,6 +66,27 @@
   <modified_date>2011&#47;10&#47;10 15:21:26.603</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>Final insert step</note>
+      <xloc>843</xloc>
+      <yloc>263</yloc>
+      <width>102</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>64</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>dev</name>
@@ -96,7 +117,7 @@
     <name>pro</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -118,7 +139,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Add sequence</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>All KPIs format </from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>Calculate all KPIs</from><to>All KPIs format </to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator 2</from><to>GoogleKPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Calculator 2</to><enabled>Y</enabled> </hop>  <hop> <from>Updated</from><to>scenario</to><enabled>Y</enabled> </hop>  <hop> <from>scenario</from><to>Calculate all KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Merge all the KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>GoogleKPIs</from><to>Merge all the KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Calc: potential_revenue</to><enabled>Y</enabled> </hop>  <hop> <from>Calc: potential_revenue</from><to>Calc: revenue_capture</to><enabled>Y</enabled> </hop>  <hop> <from>Calc: revenue_capture</from><to>Roundtrip_Energy</to><enabled>Y</enabled> </hop>  <hop> <from>For each Row</from><to>Google KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Google KPIs</from><to>Filter Updated rows</to><enabled>Y</enabled> </hop>  <hop> <from>Roundtrip_Energy</from><to>format google date </to><enabled>Y</enabled> </hop>  <hop> <from>format google date </from><to>calculate latest update</to><enabled>Y</enabled> </hop>  <hop> <from>Filter Updated rows</from><to>!Updated</to><enabled>Y</enabled> </hop>  <hop> <from>Filter Updated rows</from><to>Updated</to><enabled>Y</enabled> </hop>  <hop> <from>calculate latest update</from><to>For each Row</to><enabled>Y</enabled> </hop>  <hop> <from>resetdate and lastdate 2</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product)</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>if reset is null</to><enabled>Y</enabled> </hop>  <hop> <from>calculate latest update</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>if reset is null</from><to>filter null values 2</to><enabled>Y</enabled> </hop>  <hop> <from>filter null values 2</from><to>resetdate and lastdate 2</to><enabled>Y</enabled> </hop>  <hop> <from>filter null values 2</from><to>!Updated 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Merge all the KPIs</from><to>Add sequence 2</to><enabled>Y</enabled> </hop>  <hop> <from>Merge all the KPIs</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence 2</from><to>Aggregate Rows</to><enabled>Y</enabled> </hop>  <hop> <from>Aggregate Rows</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Mail 2</to><enabled>Y</enabled> </hop>  <hop> <from>resetdate and lastdate 2</from><to>Join Rows (cartesian product) 2</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>Join Rows (cartesian product) 2</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 2</from><to>Join Rows (cartesian product) 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product) 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product) 2 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Add constants 2</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants 2</from><to>Mail 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Mail 2 2</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>  <hop> <from>Block this step until steps finish</from><to>Join Rows (cartesian product) 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Google Docs Input 2</from><to>Select values</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Add sequence</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>All KPIs format </from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>Calculate all KPIs</from><to>All KPIs format </to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator 2</from><to>GoogleKPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Calculator 2</to><enabled>Y</enabled> </hop>  <hop> <from>Updated</from><to>scenario</to><enabled>Y</enabled> </hop>  <hop> <from>scenario</from><to>Calculate all KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Merge all the KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>GoogleKPIs</from><to>Merge all the KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Calc: potential_revenue</to><enabled>Y</enabled> </hop>  <hop> <from>Calc: potential_revenue</from><to>Calc: revenue_capture</to><enabled>Y</enabled> </hop>  <hop> <from>Calc: revenue_capture</from><to>Roundtrip_Energy</to><enabled>Y</enabled> </hop>  <hop> <from>For each Row</from><to>Google KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Google KPIs</from><to>Filter Updated rows</to><enabled>Y</enabled> </hop>  <hop> <from>Roundtrip_Energy</from><to>format google date </to><enabled>Y</enabled> </hop>  <hop> <from>format google date </from><to>calculate latest update</to><enabled>Y</enabled> </hop>  <hop> <from>Filter Updated rows</from><to>!Updated</to><enabled>Y</enabled> </hop>  <hop> <from>Filter Updated rows</from><to>Updated</to><enabled>Y</enabled> </hop>  <hop> <from>calculate latest update</from><to>For each Row</to><enabled>Y</enabled> </hop>  <hop> <from>resetdate and lastdate 2</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product)</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>if reset is null</to><enabled>Y</enabled> </hop>  <hop> <from>calculate latest update</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>if reset is null</from><to>filter null values 2</to><enabled>Y</enabled> </hop>  <hop> <from>filter null values 2</from><to>resetdate and lastdate 2</to><enabled>Y</enabled> </hop>  <hop> <from>filter null values 2</from><to>!Updated 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Merge all the KPIs</from><to>Add sequence 2</to><enabled>Y</enabled> </hop>  <hop> <from>Merge all the KPIs</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence 2</from><to>Aggregate Rows</to><enabled>Y</enabled> </hop>  <hop> <from>Aggregate Rows</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Mail 2</to><enabled>Y</enabled> </hop>  <hop> <from>resetdate and lastdate 2</from><to>Join Rows (cartesian product) 2</to><enabled>Y</enabled> </hop>  <hop> <from>scada KPIs max</from><to>Join Rows (cartesian product) 2</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 2</from><to>Join Rows (cartesian product) 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product) 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product) 2 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Mail 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Block this step until steps finish</from><to>Join Rows (cartesian product) 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Google Docs Input 2</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Mail 2 2</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>!Updated</name>
     <type>Dummy</type>
@@ -184,7 +205,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>harshavardhan.k@sigmainfo.net, nagraj.rao@sigmainfo.net, puneet.b@sigmainfo.net ,isaiah.jefferson@aes.com</nullif>
+        <nullif>nagraj.rao@sigmainfo.net,isaiah.jefferson@aes.com,puneet.b@sigmainfo.net</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -254,6 +275,28 @@
         <length>-1</length>
         <precision>-1</precision>
       </field>
+      <field>
+        <name>cc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>nagraj.rao@sigmainfo.net</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bcc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>isaiah.jefferson@aes.com</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -264,7 +307,7 @@
     </step>
 
   <step>
-    <name>Add constants 2</name>
+    <name>Mail 2 2</name>
     <type>Constant</type>
     <description/>
     <distribute>N</distribute>
@@ -292,7 +335,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>harshavardhan.k@sigmainfo.net, nagraj.rao@sigmainfo.net, puneet.b@sigmainfo.net, isaiah.jefferson@aes.com</nullif>
+        <nullif>puneet.b@sigmainfo.net</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -358,7 +401,29 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>Laurel mountain Google KPIs scripts started processing data</nullif>
+        <nullif>Laurel mountain Google KPIs scripts have started processing data</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>nagraj.rao@sigmainfo.net</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bcc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>isaiah.jefferson@aes.com</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -759,7 +824,7 @@ Online</name>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -781,7 +846,7 @@ potential_revenue =(gross_revenue&#47;Odyssey_Accepted_Availability_NYISO)*32;
         <rename>potential_revenue</rename>
         <type>Number</type>
         <length>16</length>
-        <precision>2</precision>
+        <precision>4</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -1091,7 +1156,7 @@ revenue_capture = (gross_revenue&#47;potential_revenue);
            <schema_name/>
            </partitioning>
 <send_true_to>Dummy (do nothing)</send_true_to>
-<send_false_to>Add constants 2</send_false_to>
+<send_false_to>Mail 2 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1159,8 +1224,8 @@ if(reset != null)
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <username>harshavardhan.k@sigmainfo.net</username>
-    <q>herodadheroinmum</q>
+    <username>puneet.b@sigmainfo.net</username>
+    <q>puntergali</q>
     <r>spreadsheet%3A0Ak45fukExJ4ZdHRfcmlkZ3Zzc1VTQnhIeDJNaWpOWHc</r>
     <u class="java.lang.String">
         <String value="Run Schedule"/>
@@ -1839,8 +1904,8 @@ Online</name>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>858</xloc>
-      <yloc>270</yloc>
+      <xloc>855</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1948,8 +2013,8 @@ Online</name>
       <server>server</server>
       <port>port</port>
       <destination>destinationA</destination>
-      <destinationCc/>
-      <destinationBCc/>
+      <destinationCc>cc</destinationCc>
+      <destinationBCc>bcc</destinationBCc>
       <replyToAddresses/>
       <replyto>senderA</replyto>
       <replytoname>senderName</replytoname>
@@ -1987,62 +2052,6 @@ Online</name>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1034</xloc>
       <yloc>503</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Mail 2 2</name>
-    <type>Mail</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <server>server</server>
-      <port>port</port>
-      <destination>destinationA</destination>
-      <destinationCc/>
-      <destinationBCc/>
-      <replyToAddresses/>
-      <replyto>senderA</replyto>
-      <replytoname>senderName</replytoname>
-      <subject>subject</subject>
-      <include_date>N</include_date>
-      <include_subfolders>N</include_subfolders>
-      <zipFilenameDynamic>N</zipFilenameDynamic>
-      <isFilenameDynamic>N</isFilenameDynamic>
-      <dynamicFieldname/>
-      <dynamicWildcard/>
-      <dynamicZipFilename/>
-      <sourcefilefoldername/>
-      <sourcewildcard/>
-      <contact_person/>
-      <contact_phone/>
-      <comment>comments</comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <zip_limit_size>0</zip_limit_size>
-      <use_auth>Y</use_auth>
-      <use_secure_auth>Y</use_secure_auth>
-      <auth_user>senderA</auth_user>
-      <auth_password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2cfca</auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>Y</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <secureconnectiontype>TLS</secureconnectiontype>
-      <embeddedimages>
-      </embeddedimages>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1019</xloc>
-      <yloc>219</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2129,15 +2138,15 @@ var c=&quot;&quot;+reset1
 
 if(c==a &amp;&amp; a !=b)
 {
-var x=&quot;The scripts are completed successfully and processed data from &quot;+resetnull+&quot; to &quot;+last_date;
+var x=&quot;The script has run successfully and has processed data from &quot;+resetnull+&quot; to &quot;+last_date;
 }
 if(a==b &amp;&amp; c != a)
 {
-var x=&quot;The scripts are completed successfully and updated data from &quot;+reset1+&quot; to &quot;+resetnull;
+var x=&quot;The script has run successfully and has updated data from &quot;+reset1+&quot; to &quot;+resetnull;
 }
 if(c != a &amp;&amp; a != b)
 {
-var x=&quot;The scripts are completed successfully, \nupdated data from &quot;+reset1+&quot; to &quot;+resetnull+&quot;and processed data from &quot;+resetnull+&quot; to &quot;+last_date;
+var x=&quot;The script has run successfully, \nupdated data from &quot;+reset1+&quot; to &quot;+resetnull+&quot;and processed data from &quot;+resetnull+&quot; to &quot;+last_date;
 }</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>x</name>
         <rename>x</rename>
@@ -2164,7 +2173,7 @@ var x=&quot;The scripts are completed successfully, \nupdated data from &quot;+r
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -2805,7 +2814,7 @@ Online</name>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here

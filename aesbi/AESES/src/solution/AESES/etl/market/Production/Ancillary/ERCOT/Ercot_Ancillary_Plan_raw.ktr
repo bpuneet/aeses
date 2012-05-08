@@ -97,7 +97,7 @@
     <name>aes-pr</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -119,7 +119,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Add sequence</from><to>Calc days</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>formatd</from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>max date</from><to>formatd</to><enabled>Y</enabled> </hop>  <hop> <from>Calc days</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>calculate date</from><to>fields</to><enabled>Y</enabled> </hop>  <hop> <from>date format</from><to>calculate date</to><enabled>Y</enabled> </hop>  <hop> <from>fields</from><to>join</to><enabled>Y</enabled> </hop>  <hop> <from>greater than max date</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>greater than max date</from><to>false data</to><enabled>Y</enabled> </hop>  <hop> <from>join</from><to>greater than max date</to><enabled>Y</enabled> </hop>  <hop> <from>max date 2</from><to>max dates</to><enabled>Y</enabled> </hop>  <hop> <from>max dates</from><to>join</to><enabled>Y</enabled> </hop>  <hop> <from>source input</from><to>date format</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>source input</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Add sequence</from><to>Calc days</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>formatd</from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>max date</from><to>formatd</to><enabled>Y</enabled> </hop>  <hop> <from>Calc days</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>calculate date</from><to>fields</to><enabled>Y</enabled> </hop>  <hop> <from>date format</from><to>calculate date</to><enabled>Y</enabled> </hop>  <hop> <from>fields</from><to>join</to><enabled>Y</enabled> </hop>  <hop> <from>greater than max date</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>greater than max date</from><to>false data</to><enabled>Y</enabled> </hop>  <hop> <from>join</from><to>greater than max date</to><enabled>Y</enabled> </hop>  <hop> <from>max date 2</from><to>max dates</to><enabled>Y</enabled> </hop>  <hop> <from>max dates</from><to>join</to><enabled>Y</enabled> </hop>  <hop> <from>source input</from><to>date format</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>source input</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>false</to><enabled>Y</enabled> </hop>  <hop> <from>File exists</from><to>Filter rows</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Add sequence</name>
     <type>Sequence</type>
@@ -190,7 +190,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <nrclones>0</nrclones>
+    <nrclones>10</nrclones>
     <addcloneflag>N</addcloneflag>
     <cloneflagfield/>
     <nrcloneinfield>N</nrcloneinfield>
@@ -199,8 +199,59 @@
     <clonenumfield/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>95</xloc>
+      <xloc>98</xloc>
       <yloc>253</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>File exists</name>
+    <type>FileExists</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <filenamefield>final_url</filenamefield>
+    <resultfieldname>result</resultfieldname>
+    <includefiletype>N</includefiletype>
+    <filetypefieldname/>
+    <addresultfilenames>N</addresultfilenames>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>363</xloc>
+      <yloc>211</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>source input</send_true_to>
+<send_false_to>false</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>result</leftvalue>
+ <function>=</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>255</xloc>
+      <yloc>321</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -288,8 +339,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>376</xloc>
-      <yloc>155</yloc>
+      <xloc>449</xloc>
+      <yloc>126</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -347,8 +398,26 @@ var timestamp = dateAdd(DeliveryDate,&quot;d&quot;,1);
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>389</xloc>
-      <yloc>250</yloc>
+      <xloc>488</xloc>
+      <yloc>241</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>false</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>108</xloc>
+      <yloc>372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -696,9 +765,9 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            <schema_name/>
            </partitioning>
     <accept_filenames>Y</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
+    <passing_through_fields>Y</passing_through_fields>
     <accept_field>final_url</accept_field>
-    <accept_stepname>final_url</accept_stepname>
+    <accept_stepname>Filter rows</accept_stepname>
     <separator>,</separator>
     <enclosure>&quot;</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
@@ -720,9 +789,9 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <rownum_field/>
     <format>mixed</format>
     <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
+    <add_to_result_filenames>N</add_to_result_filenames>
     <file>
-      <name>C:\Documents and Settings\puneet\My Documents\Downloads\20110825.zip</name>
+      <name>http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_Ancillary_plan&#47;20120327.zip</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -742,12 +811,12 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull/>
+        <nullif>01&#47;01&#47;2012</nullif>
+        <ifnull>01&#47;01&#47;2012</ifnull>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -823,8 +892,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>297</xloc>
-      <yloc>249</yloc>
+      <xloc>476</xloc>
+      <yloc>349</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

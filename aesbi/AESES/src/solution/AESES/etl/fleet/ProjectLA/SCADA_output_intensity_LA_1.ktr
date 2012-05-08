@@ -96,7 +96,7 @@
     <name>PRO</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -111,6 +111,31 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>scada</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>scada</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -151,6 +176,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -447,6 +473,7 @@ time =  hr +&quot;:&quot; + minutes + &quot;:00&quot; </jsScript_script>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -682,6 +709,7 @@ FROM bi_dim_date WHERE id = (SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis 
     <connection>PRO</connection>
     <skip_lookup>N</skip_lookup>
     <commit>1000</commit>
+    <use_batch>N</use_batch>
     <error_ignored>Y</error_ignored>
     <ignore_flag_field/>
     <lookup>
@@ -723,8 +751,8 @@ FROM bi_dim_date WHERE id = (SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis 
            <schema_name/>
            </partitioning>
     <connection>PRO</connection>
-    <sql>select  date_add(timestamp,interval 1 second) as &quot;maxdate1&quot; ,date_add(timestamp, interval 1 day)  as &quot;maxdate2&quot;,
-date_add(timestamp,interval 1 second) as &quot;maxdate3&quot;,date_add(timestamp, interval 1 day) as &quot;maxdate4&quot; 
+    <sql>select  date_add(timestamp,interval 0 second) as &quot;maxdate1&quot; ,date_add(timestamp, interval 1 day)  as &quot;maxdate2&quot;,
+date_add(timestamp,interval 0 second) as &quot;maxdate3&quot;,date_add(timestamp, interval 1 day) as &quot;maxdate4&quot; 
 from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis where output_intensity  is not null and bi_dim_fleet_id = 400)</sql>
     <limit>0</limit>
     <lookup/>
@@ -825,7 +853,7 @@ from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis 
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>PRO</connection>
+    <connection>scada</connection>
     <sql>&#47;*  LA KPIs output intensity *&#47;
 select x.date as timestamp, x.energy,y.total_gross_power_capacity,date(x.date) as date,hour(x.date) as hr,FLOOR(minute(x.date)&#47;15) as minutes, &quot;00&quot; as sec
 

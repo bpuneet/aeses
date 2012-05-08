@@ -54,7 +54,7 @@
       <yloc>153</yloc>
       </entry>
     <entry>
-      <name>Transformation</name>
+      <name>LMgoogleMAILstart</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -86,7 +86,7 @@
       <yloc>58</yloc>
       </entry>
     <entry>
-      <name>Transformation 2</name>
+      <name>Google_Fleet_KPI_LM</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -118,7 +118,7 @@
       <yloc>62</yloc>
       </entry>
     <entry>
-      <name>Transformation 3</name>
+      <name>LMgoogleMAILstop</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -153,7 +153,7 @@
   <hops>
     <hop>
       <from>START</from>
-      <to>Transformation</to>
+      <to>LMgoogleMAILstart</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -161,8 +161,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Transformation</from>
-      <to>Transformation 2</to>
+      <from>LMgoogleMAILstart</from>
+      <to>Google_Fleet_KPI_LM</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -170,8 +170,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Transformation 2</from>
-      <to>Transformation 3</to>
+      <from>Google_Fleet_KPI_LM</from>
+      <to>LMgoogleMAILstop</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

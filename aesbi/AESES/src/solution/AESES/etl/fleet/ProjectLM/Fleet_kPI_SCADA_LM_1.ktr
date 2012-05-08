@@ -96,7 +96,7 @@
     <name>pro</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -117,8 +117,33 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>scada</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>scada</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Select 1st round</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>Filter null values</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Get System Info</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>param</to><enabled>Y</enabled> </hop>  <hop> <from>param</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>Dummy (do nothing) 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>maxdate entry</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Select 1st round</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>Filter null values</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Get System Info</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>param</to><enabled>Y</enabled> </hop>  <hop> <from>param</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>Dummy (do nothing) 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>maxdate entry</to><enabled>Y</enabled> </hop>  <hop> <from>lookup values</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>lookup values</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Abort</name>
     <type>Abort</type>
@@ -134,8 +159,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>948</xloc>
-      <yloc>303</yloc>
+      <xloc>994</xloc>
+      <yloc>398</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -152,8 +177,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>870</xloc>
-      <yloc>164</yloc>
+      <xloc>916</xloc>
+      <yloc>259</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -170,8 +195,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
-      <yloc>50</yloc>
+      <xloc>134</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -187,7 +212,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Dummy (do nothing) 2</send_true_to>
-<send_false_to>Insert &#47; Update</send_false_to>
+<send_false_to>lookup values</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -198,8 +223,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>108</xloc>
-      <yloc>171</yloc>
+      <xloc>154</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -226,8 +251,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>757</xloc>
-      <yloc>291</yloc>
+      <xloc>803</xloc>
+      <yloc>386</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -250,8 +275,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>656</xloc>
-      <yloc>295</yloc>
+      <xloc>702</xloc>
+      <yloc>390</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -352,8 +377,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>278</xloc>
-      <yloc>110</yloc>
+      <xloc>500</xloc>
+      <yloc>99</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -368,14 +393,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>pro</connection>
-    <sql>SELECT b.timestamp,
-    b.id bi_dim_date_id,
-    c.id bi_dim_market_id,
-    d.id bi_dim_fleet_id,
-    e.id bi_dim_es_service_id,
-    f.id bi_dim_supplier_id,
-    g.id bi_dim_technology_id,
+    <connection>scada</connection>
+    <sql>SELECT i.date as &apos;date&apos;,
     ROUND(((8760 * a.energy &#47; i.total_gross_power_capacity) &#47; (60*60&#47;4) &#47; ((15*60&#47;4) &#47; (60*60&#47;4)) *1000)&#47;1000,4) AS energy_throughput,
     ROUND((a.dis &#47; i.total_gross_power_capacity) &#47; (15*60&#47;4) * 1000,4) AS disposition,
     h.date,
@@ -427,23 +446,7 @@ FLOOR(MINUTE(FROM_UNIXTIME(ts&#47;1000))&#47;15)) a
     GROUP BY YEAR(FROM_UNIXTIME(ts&#47;1000)),DAYOFYEAR(FROM_UNIXTIME(ts&#47;1000)),
     HOUR(FROM_UNIXTIME(ts&#47;1000)),FLOOR(MINUTE(FROM_UNIXTIME(ts&#47;1000))&#47;15))z
     ON z.date=a.date
-    JOIN
     
-(SELECT * FROM bi_dim_date WHERE TIMESTAMP_gmt BETWEEN ?
-AND ?) b
-    ON z.date=b.timestamp_gmt
-
-JOIN
-   
-(SELECT * FROM bi_dim_market WHERE  iso = &apos;PJM&apos; AND market = &apos;Day-Ahead Regulation&apos; AND service = &apos;Regulation&apos; AND zone = &apos;ALL&apos;) c
-JOIN
-(SELECT * FROM bi_dim_fleet WHERE id=500) d
- JOIN
-(SELECT * FROM bi_dim_es_service WHERE es_service = &apos;Frequency Regulation&apos;)e
- JOIN
-(SELECT * FROM bi_dim_supplier WHERE supplier = &apos;A123&apos;)f
- JOIN
-(SELECT * FROM bi_dim_technology WHERE technology =&apos;Advanced Lithium-Ion Battery&apos;) g
  GROUP BY
 YEAR(h.date),
 DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
@@ -454,8 +457,8 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>252</xloc>
-      <yloc>348</yloc>
+      <xloc>298</xloc>
+      <yloc>443</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -470,31 +473,7 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>timestamp</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_date_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_market_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_fleet_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_es_service_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_supplier_id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>bi_dim_technology_id</name>
+    <fields>      <field>        <name>date</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -506,7 +485,7 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>date</name>
+      </field>      <field>        <name>date_1</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -544,8 +523,8 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>true</date_format_lenient>
         <encoding/>
         <decimal_symbol/>
         <grouping_symbol/>
@@ -553,8 +532,8 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>208</xloc>
-      <yloc>250</yloc>
+      <xloc>254</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -570,11 +549,10 @@ DAYOFYEAR(h.date),HOUR(h.date),FLOOR(MINUTE(h.date)&#47;15)</sql>
            <schema_name/>
            </partitioning>
     <connection>pro</connection>
-    <sql>SELECT DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND) AS maxdate, DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND) AS maxdate1,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY)  AS maxdate2,
-DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND) AS maxdate3,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate4,
-DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND) AS maxdate5,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate6,
-DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND) AS maxdate7,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate8,
- DATE_ADD(TIMESTAMP,INTERVAL 1 SECOND)AS maxdate9,DATE_ADD(DATE_ADD(TIMESTAMP, INTERVAL 1 DAY),INTERVAL 5 HOUR) AS maxdate10
+    <sql>SELECT DATE_ADD(TIMESTAMP,INTERVAL 0 SECOND) AS maxdate, DATE_ADD(TIMESTAMP,INTERVAL 0 SECOND) AS maxdate1,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY)  AS maxdate2,
+DATE_ADD(TIMESTAMP,INTERVAL 0 SECOND) AS maxdate3,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate4,
+DATE_ADD(TIMESTAMP,INTERVAL 0 SECOND) AS maxdate5,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate6,
+DATE_ADD(TIMESTAMP,INTERVAL 0 SECOND) AS maxdate7,DATE_ADD(TIMESTAMP, INTERVAL 1 DAY) AS maxdate8
 
 FROM bi_dim_date WHERE id = (SELECT max(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND disposition  IS NOT NULL)</sql>
     <limit>0</limit>
@@ -584,8 +562,8 @@ FROM bi_dim_date WHERE id = (SELECT max(bi_dim_date_id) FROM bi_fact_fleet_kpis 
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>495</xloc>
-      <yloc>326</yloc>
+      <xloc>541</xloc>
+      <yloc>421</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -625,8 +603,8 @@ FROM bi_dim_date WHERE id = (SELECT max(bi_dim_date_id) FROM bi_fact_fleet_kpis 
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>357</xloc>
-      <yloc>218</yloc>
+      <xloc>403</xloc>
+      <yloc>313</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -677,19 +655,109 @@ FROM bi_dim_date WHERE id = (SELECT max(bi_dim_date_id) FROM bi_fact_fleet_kpis 
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>maxdate9</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>maxdate10</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>377</xloc>
-      <yloc>332</yloc>
+      <xloc>423</xloc>
+      <yloc>427</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>pro</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>bi_dim_date</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>date</name>
+        <field>timestamp_gmt</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>bi_dim_date_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>413</xloc>
+      <yloc>196</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>lookup values</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var bi_dim_market_id = 500;
+var bi_dim_fleet_id = 500;
+var bi_dim_es_service_id = 1;
+var bi_dim_supplier_id = 1;
+var  bi_dim_technology_id = 1;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>bi_dim_market_id</name>
+        <rename>bi_dim_market_id</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>bi_dim_fleet_id</name>
+        <rename>bi_dim_fleet_id</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>bi_dim_es_service_id</name>
+        <rename>bi_dim_es_service_id</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>bi_dim_supplier_id</name>
+        <rename>bi_dim_supplier_id</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>bi_dim_technology_id</name>
+        <rename>bi_dim_technology_id</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>275</xloc>
+      <yloc>219</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

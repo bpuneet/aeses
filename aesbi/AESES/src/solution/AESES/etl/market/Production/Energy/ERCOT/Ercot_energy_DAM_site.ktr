@@ -154,13 +154,14 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
 &#47;&#47;var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;&quot; + fileurl
 
-var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlets&#47;mirDownload?mimicKey=&amp;doclookupId=&quot; + fileurl
+var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;servlets&#47;mirDownload?mimicKey=&amp;doclookupId=&quot; + fileurl
 
 &#47;&#47;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlets&#47;mirDownload?mimicKey=&amp;doclookupId=</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>filedownloadlink</name>
@@ -191,6 +192,7 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlet
     <resultfieldname>proper</resultfieldname>
     <usevar>N</usevar>
     <allowcapturegroups>N</allowcapturegroups>
+    <replacefields>N</replacefields>
     <canoneq>N</canoneq>
     <caseinsensitive>N</caseinsensitive>
     <comment>N</comment>
@@ -540,6 +542,32 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlet
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>430</xloc>
       <yloc>93</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Strings cut 2</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>filename</in_stream_name>
+        <out_stream_name>filename1</out_stream_name>
+        <cut_from>0</cut_from>
+        <cut_to>70</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>280</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1045,6 +1073,9 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlet
     </fields>
     <limit>0</limit>
     <error_ignored>Y</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>
@@ -1574,6 +1605,9 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlet
     </fields>
     <limit>0</limit>
     <error_ignored>Y</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>
@@ -1613,6 +1647,7 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misapp&#47;servlet
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -1663,32 +1698,6 @@ Alert(&quot;From position 6 for 7 long : &quot; + str3);
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>635</xloc>
       <yloc>232</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Strings cut 2</name>
-    <type>StringCut</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>filename</in_stream_name>
-        <out_stream_name>filename1</out_stream_name>
-        <cut_from>0</cut_from>
-        <cut_to>70</cut_to>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>280</xloc>
-      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

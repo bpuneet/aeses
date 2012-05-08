@@ -97,7 +97,7 @@
     <name>aes-pr</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -289,6 +289,7 @@
     <filter>
       <filterfiletype>all_files</filterfiletype>
     </filter>
+    <doNotFailIfNoFile>N</doNotFailIfNoFile>
     <rownum>N</rownum>
     <isaddresult>Y</isaddresult>
     <filefield>Y</filefield>
@@ -324,6 +325,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -1359,8 +1361,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
     <table>miso_dayaheadreport_raw</table>
     <commit>1000</commit>
     <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <ignore_errors>Y</ignore_errors>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -1953,6 +1955,9 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
     </fields>
     <limit>0</limit>
     <error_ignored>Y</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
     <error_count_field/>
     <error_fields_field/>
@@ -2038,6 +2043,7 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here

@@ -1,0 +1,14 @@
+MAILTO = harshavardhan.k@sigmainfo.net, gopeshwer.s@sigmainfo.net, nagraj.rao@sigmainfo.net
+# Setting the cron to run the Market Data load to dev and Production environments  daily at 11 AM EDT
+0 * * * * /var/www/html/cron/Daily_schedule/LM_GoogleSS.sh
+0 01 * * * /var/www/html/cron/Daily_schedule/daily_fleet_dev.sh
+0 01 * * * /var/www/html/cron/Daily_schedule/daily_fleet_pro.sh
+0 * * * * /var/www/html/cron/Daily_schedule/Download_ercot.sh
+00 02 * * * /var/www/html/cron/Daily_schedule/Daily-pro.sh
+0 10 * * * /var/www/html/cron/Daily_schedule/clear_log.sh
+0 10 * * * sh /var/www/html/cron/schedulereport.sh
+00 01 * * * /var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_Ancillary_plan_site.sh
+10 01 * * * /var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_DAM_Ancillary_site.sh
+20 01 * * * /var/www/html/cron/Production/Energy/ERCOT/Download_Ercot_energy_DAM_site.sh
+50 01 * * * /var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_mcpc_DAM.sh
+50 00 * * * /var/www/html/cron/Daily_schedule/del_old_file.sh
