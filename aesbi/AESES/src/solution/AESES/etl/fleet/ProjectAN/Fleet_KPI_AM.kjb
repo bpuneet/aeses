@@ -4,6 +4,7 @@
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#47;</directory>
   <created_user>-</created_user>
   <created_date>2012&#47;01&#47;09 14:12:42.440</created_date>
@@ -12,10 +13,54 @@
     <parameters>
     </parameters>
   <connection>
-    <name>pr</name>
-    <server>enst01db01pr.aesenergystorage.com</server>
+    <name>aeses</name>
+    <server>localhost</server>
     <type>MYSQL</type>
     <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50000</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>pr</name>
+    <server>enst01db02pr.aesenergystorage.com</server>
+    <type>MYSQL</type>
+    <access>Native</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -64,7 +109,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;Fleet_KPI_AM_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -96,7 +141,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;Fleet_KPI_AM_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -128,7 +173,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;Fleet_KPI_AM_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -198,7 +243,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -230,7 +275,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -262,7 +307,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -294,7 +339,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -370,7 +415,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -413,7 +458,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;SCADA_output_intensity_AN_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;AN_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

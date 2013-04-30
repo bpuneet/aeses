@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="LM_project" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_project"
+               id="LM_project"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="2011-11-10" name="startdate" type="String"/>
+      </Parameters>
+      <Query>SELECT DATE(b.timestamp) AS "TIMESTAMP",
+avg(Available_Capacity)as "Available_Capacity",
+avg(disposition)as "disposition",
+avg(charge_crate)as "charge_crate",
+avg(discharge_crate)as "discharge_crate",
+avg(c_rate) as "c-rate",
+avg(Output_Intensity)as "Output_Intensity"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-01 00:00:00'), INTERVAL 9 DAY))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH))) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 00:00:00'), INTERVAL 9 DAY) AND DATE_SUB(DATE_FORMAT(${startdate},'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+</CDADescriptor>

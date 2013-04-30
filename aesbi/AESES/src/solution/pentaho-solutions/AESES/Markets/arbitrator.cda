@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="param_iso" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_market" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_service" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_zone" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="limit" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_iso"
+               id="param_iso"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT iso AS i FROM bi_dim_market UNION SELECT  "---select--"  ORDER BY i</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_market"
+               id="param_market"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="i" name="i" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as m&#xD;
+union&#xD;
+SELECT DISTINCT market AS m FROM bi_dim_market WHERE iso = ${i} and market in ( 'day-ahead energy','real-time energy','hour-ahead energy')</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_service"
+               id="param_service"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="i" name="i" type="String"/>
+         <Parameter default="m" name="m" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as s&#xD;
+union&#xD;
+SELECT DISTINCT service AS s FROM bi_dim_market WHERE iso=${i} AND market=${m}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_zone"
+               id="param_zone"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="i" name="i" type="String"/>
+         <Parameter default="m" name="m" type="String"/>
+         <Parameter default="s" name="s" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as z&#xD;
+union&#xD;
+SELECT DISTINCT if(zone='ALL','All',zone) AS z FROM bi_dim_market WHERE iso=${i} AND market=${m} and service=${s}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="limit" id="limit"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT HOUR FROM bi_dim_date WHERE HOUR BETWEEN 1 AND 12</Query>
+   </DataAccess>
+</CDADescriptor>

@@ -12,6 +12,50 @@
   <modified_date>2012&#47;04&#47;02 12:57:08.198</modified_date>
     <parameters>
     </parameters>
+  <connection>
+    <name>aeses</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50000</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -51,8 +95,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>0</xloc>
-      <yloc>100</yloc>
+      <xloc>28</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_alert</name>
@@ -60,7 +104,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_alert.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_alert.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -83,8 +127,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>100</xloc>
-      <yloc>100</yloc>
+      <xloc>128</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_workorder</name>
@@ -92,7 +136,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_workorder.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_workorder.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -115,8 +159,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>250</xloc>
-      <yloc>100</yloc>
+      <xloc>278</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_changerequest</name>
@@ -124,7 +168,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_changerequest.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_changerequest.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -147,8 +191,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
+      <xloc>428</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_safetyobservation</name>
@@ -156,7 +200,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_safetyobservation.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_safetyobservation.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -179,8 +223,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>575</xloc>
-      <yloc>100</yloc>
+      <xloc>603</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_logbook</name>
@@ -188,7 +232,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_logbook.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_logbook.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -211,8 +255,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>725</xloc>
-      <yloc>100</yloc>
+      <xloc>753</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_invoicetraker</name>
@@ -220,7 +264,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_invoicetraker.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_invoicetraker.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -243,8 +287,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>875</xloc>
-      <yloc>100</yloc>
+      <xloc>903</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_Angamos_any</name>
@@ -252,7 +296,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_any.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_Angamos_any.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -275,8 +319,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1000</xloc>
-      <yloc>100</yloc>
+      <xloc>1028</xloc>
+      <yloc>73</yloc>
       </entry>
     <entry>
       <name>jira_LA_any</name>
@@ -284,7 +328,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_any.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_any.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -307,8 +351,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>100</xloc>
-      <yloc>225</yloc>
+      <xloc>128</xloc>
+      <yloc>198</yloc>
       </entry>
     <entry>
       <name>jira_LA_invoicetracker</name>
@@ -316,7 +360,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_invoicetracker.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_invoicetracker.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -339,8 +383,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>250</xloc>
-      <yloc>225</yloc>
+      <xloc>277</xloc>
+      <yloc>199</yloc>
       </entry>
     <entry>
       <name>jira_LA_logbook</name>
@@ -348,7 +392,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_logbook.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_logbook.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -371,8 +415,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>225</yloc>
+      <xloc>428</xloc>
+      <yloc>198</yloc>
       </entry>
     <entry>
       <name>jira_LA_safetyobservation</name>
@@ -380,7 +424,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_safetyobservation.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_safetyobservation.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -403,40 +447,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>575</xloc>
-      <yloc>225</yloc>
-      </entry>
-    <entry>
-      <name>jira_LA_changerequest</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_changerequest.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>725</xloc>
-      <yloc>225</yloc>
+      <xloc>603</xloc>
+      <yloc>198</yloc>
       </entry>
     <entry>
       <name>jira_LA_alert</name>
@@ -444,7 +456,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_alert.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_alert.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -467,8 +479,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>875</xloc>
-      <yloc>225</yloc>
+      <xloc>903</xloc>
+      <yloc>198</yloc>
       </entry>
     <entry>
       <name>jira_LA_workorder</name>
@@ -476,7 +488,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_workorder.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_workorder.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -499,8 +511,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1000</xloc>
-      <yloc>225</yloc>
+      <xloc>1028</xloc>
+      <yloc>198</yloc>
       </entry>
     <entry>
       <name>Jira_LM_workorders</name>
@@ -508,7 +520,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_workorders.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_workorders.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -531,8 +543,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>100</xloc>
-      <yloc>325</yloc>
+      <xloc>128</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_Alerts</name>
@@ -540,7 +552,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Alerts.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Alerts.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -563,8 +575,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>250</xloc>
-      <yloc>325</yloc>
+      <xloc>278</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_Change_request</name>
@@ -572,7 +584,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Change_request.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Change_request.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -595,8 +607,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>325</yloc>
+      <xloc>428</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_SO</name>
@@ -604,7 +616,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_SO.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_SO.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -627,8 +639,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>575</xloc>
-      <yloc>325</yloc>
+      <xloc>603</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_Log_Book</name>
@@ -636,7 +648,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Log_Book.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Log_Book.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -659,8 +671,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>725</xloc>
-      <yloc>325</yloc>
+      <xloc>753</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_Invoice_tracker</name>
@@ -668,7 +680,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Invoice_tracker.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_Invoice_tracker.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -691,8 +703,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>875</xloc>
-      <yloc>325</yloc>
+      <xloc>903</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_LM_All_Issues</name>
@@ -700,7 +712,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_All_Issues.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_LM_All_Issues.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -723,8 +735,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1000</xloc>
-      <yloc>325</yloc>
+      <xloc>1028</xloc>
+      <yloc>298</yloc>
       </entry>
     <entry>
       <name>Jira_JC_All</name>
@@ -732,7 +744,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_All.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_All.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -755,8 +767,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>100</xloc>
-      <yloc>425</yloc>
+      <xloc>128</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_invoice_tracker</name>
@@ -764,7 +776,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_invoice_tracker.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_invoice_tracker.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -787,8 +799,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>275</xloc>
-      <yloc>425</yloc>
+      <xloc>303</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_log_book</name>
@@ -796,7 +808,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_log_book.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_log_book.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -819,8 +831,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>425</xloc>
-      <yloc>425</yloc>
+      <xloc>453</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_SO</name>
@@ -828,7 +840,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_SO.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_SO.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -851,8 +863,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>575</xloc>
-      <yloc>425</yloc>
+      <xloc>603</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_change_request</name>
@@ -860,7 +872,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_change_request.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_change_request.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -883,8 +895,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>725</xloc>
-      <yloc>425</yloc>
+      <xloc>753</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_Alerts</name>
@@ -892,7 +904,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_Alerts.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_Alerts.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -915,8 +927,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>875</xloc>
-      <yloc>425</yloc>
+      <xloc>903</xloc>
+      <yloc>398</yloc>
       </entry>
     <entry>
       <name>Jira_JC_workorders</name>
@@ -924,7 +936,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_workorders.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;Jira_JC_workorders.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -947,8 +959,40 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1000</xloc>
-      <yloc>425</yloc>
+      <xloc>1028</xloc>
+      <yloc>398</yloc>
+      </entry>
+    <entry>
+      <name>jira_LA_changerequest</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_LA_changerequest.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>738</xloc>
+      <yloc>175</yloc>
       </entry>
   </entries>
   <hops>
@@ -1027,24 +1071,6 @@
     <hop>
       <from>jira_LA_workorder</from>
       <to>jira_LA_alert</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>jira_LA_alert</from>
-      <to>jira_LA_changerequest</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>jira_LA_changerequest</from>
-      <to>jira_LA_safetyobservation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1202,6 +1228,24 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>jira_LA_alert</from>
+      <to>jira_LA_changerequest</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>jira_LA_changerequest</from>
+      <to>jira_LA_safetyobservation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>

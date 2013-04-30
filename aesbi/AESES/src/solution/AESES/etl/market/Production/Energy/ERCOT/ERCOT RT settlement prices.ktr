@@ -100,7 +100,7 @@
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -115,6 +115,25 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
     </attributes>
   </connection>
   <order>
@@ -474,6 +493,12 @@
           <valuefield/>
         </field>
         <field>
+          <aggregate>DSTFlag</aggregate>
+          <subject>DSTFlag</subject>
+          <type>LAST_INCL_NULL</type>
+          <valuefield/>
+        </field>
+        <field>
           <aggregate>SettlementPointPrice</aggregate>
           <subject>SettlementPointPrice</subject>
           <type>AVERAGE</type>
@@ -499,7 +524,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -604,6 +629,10 @@ Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>SettlementPointPrice</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DSTFlag</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -802,6 +831,10 @@ Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
           <column_name>SettlementPointName</column_name>
           <stream_name>SettlementPointName</stream_name>
         </field>
+        <field>
+          <column_name>DSTFlag</column_name>
+          <stream_name>DSTFlag</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -981,6 +1014,21 @@ Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>DSTFlag</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <error_ignored>Y</error_ignored>
@@ -1053,6 +1101,10 @@ Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>DSTFlag</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>date_time</name>
         <rename>date_time</rename>
@@ -1103,7 +1155,7 @@ Alert(dateAdd(d1, &quot;wd&quot;, 5));</jsScript_script>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -1122,11 +1174,11 @@ else
 var s1 = s+hour+&quot;_&quot;+mincat;
 }
 
-&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ETL&#47;ERCOT&#47;ERCOT RT settlement prices&#47;&quot; +s1+ &quot;.csv&quot;;
+&#47;&#47;previous script
+&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_RT_Energy&#47;&quot; +s1+ &quot;.zip&quot;
 
-var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_RT_Energy&#47;&quot; +s1+ &quot;.zip&quot;
-
-
+&#47;&#47;Modified script on Dec 4th
+var final_url = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_RT_Energy&#47;&quot; +s1+ &quot;.zip&quot;
 
 
 </jsScript_script>

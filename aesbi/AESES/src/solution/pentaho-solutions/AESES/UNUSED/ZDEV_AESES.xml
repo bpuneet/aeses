@@ -1,0 +1,503 @@
+<Schema name="ZDEV_AESES">
+  <Cube name="Fleet Cube" visible="true" cache="true" enabled="true">
+    <Table name="bi_fact_fleet_kpis">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Year">
+      <Hierarchy name="Year" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Year" visible="true" column="year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Quarter">
+      <Hierarchy name="Quarter" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Quarter" visible="true" column="quarter_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Month">
+      <Hierarchy name="Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Month" visible="true" column="month" nameColumn="month_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Month">
+      <Hierarchy name="Day of Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Month" visible="true" column="day_of_month" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_supplier_id" highCardinality="false" name="Supplier">
+      <Hierarchy name="supplier" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_supplier">
+        </Table>
+        <Level name="Supplier" visible="true" column="supplier" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_technology_id" highCardinality="false" name="Technology">
+      <Hierarchy name="Technology" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_technology">
+        </Table>
+        <Level name="Technology" visible="true" column="technology" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_fleet_id" highCardinality="false" name="Project">
+      <Hierarchy name="Project" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_fleet">
+        </Table>
+        <Level name="Project" visible="true" column="project" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market">
+      <Hierarchy name="Market" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Market" visible="true" column="market" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour">
+      <Hierarchy name="Hour" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour" visible="true" column="hour" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour GMT">
+      <Hierarchy name="Hour GMT" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour GMT" visible="true" column="hour_gmt" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="15-Minute Interval">
+      <Hierarchy name="15-Minute Interval" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="15-Minute Interval" visible="true" column="15min_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="jira_id" highCardinality="false" name="Issue Type">
+      <Hierarchy name="Issue Type" visible="true" hasAll="true" primaryKey="ID">
+        <Table name="bi_dim_jira">
+        </Table>
+        <Level name="Issue Type" visible="true" column="Issue Type" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Availability F" column="availability_factor" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Unplanned O R" column="unplanned_outage_rate" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Planned O R" column="planned_outage_rate" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Market C" column="market_capture" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Energy Throughput (MWh/yr/MW)" column="energy_throughput" datatype="Numeric" formatString="##0.00" aggregator="avg" description="Amount of energy going into or out of the system on a 1 MW annualized basis" visible="true">
+    </Measure>
+    <Measure name="Propensity (kW/MW)" column="disposition" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Discharge C-rate" column="discharge_crate" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Charge C-rate" column="charge_crate" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Energy L" column="energy_losses" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Energy C" column="energy_cost" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Other C" column="other_charge" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Gross R" column="gross_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Potential R" column="potential_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Revenue C" column="revenue_capture" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="C-rate" column="c_rate" datatype="Numeric" formatString="##0.00" aggregator="avg" description="Rate of change expressed as a ratio of power to energy" visible="true">
+    </Measure>
+    <Measure name="Roundtrip_Energy" column="Roundtrip_Energy" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Energy_Efficiency (%)" column="Energy_Efficiency" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Output_Intensity (&#8710;KW/s/MW)" column="Output_Intensity" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Signal_Intensity (&#8710;KW/s/MW)" column="Signal_Intensity" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Available Capacity (%)" column="Available_Capacity" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Tickets Created" column="Tickets_Created" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Tickets Completed" column="Tickets_Completed" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Average Resolution Time (Days)" column="rt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Major Issues" column="major_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Minor Issues" column="minor_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Critical Issues" column="critical_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Blocker Issues" column="blocker_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Trivial Issues" column="trivial_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Major Resolution Time (Days)" column="mrt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minor Resolution Time (Days)" column="mirt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Critical Resolution Time (Days)" column="crt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Blocker Resolution Time (Days)" column="blk" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Trivial Resolution Time (Days)" column="tri" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Capacity Factor" column="capacity_factor" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <CalculatedMember name="Energy Losses (MWh)" description="Energy consumed per market settlement report " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Energy L] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Energy Cost ($)" description="Price paid for energy by the project, market specific " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Energy C] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Other Charges ($)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Other C] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="-$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Gross Revenue ($)" description="Revenues earned in market minus energy cost " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Gross R] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Potential Revenue ($)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Potential R] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Market Capture (%)" description="Defined as the amount of time project scheduled to perform in market divided by the amount of the time in the period" dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Market C] < 0, 0, [Measures].[Market C])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Availability Factor (%)" description="Defined as the amount of time that it is able to produce electricity over a certain period, divided by the amount of the time in the period" formula="iif([Measures].[Availability F] &#60; 0, 0, [Measures].[Availability F])" dimension="Measures">
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Revenue Capture (%)" dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Revenue C] < 0, 0, [Measures].[Revenue C])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Planned Outage Rate (%)" description="Defined as the number of planned outage hours over the total number of hours in a given period " dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Planned O R] < 0, 0, [Measures].[Planned O R])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Unplanned Outage Rate (%)" description="Defined as the number of unplanned outage hours over the total number of hours in a given period " dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Unplanned O R] < 0, 0, [Measures].[Unplanned O R])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Roundtrip Energy (MWh)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Roundtrip_Energy] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Weighted_Energy_Efficiency (%)" dimension="Measures">
+      <Formula>
+        <![CDATA[([Measures].[Roundtrip_Energy] *[Measures].[Energy_Efficiency (%)])/(4*sum([Measures].[Roundtrip_Energy]))]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+  </Cube>
+  
+  <Cube name="Fleet" visible="true" cache="true" enabled="true">
+    <Table name="bi_fact_fleet_kpis">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Year">
+      <Hierarchy name="Year" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Year" visible="true" column="year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Quarter">
+      <Hierarchy name="Quarter" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Quarter" visible="true" column="quarter_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Month">
+      <Hierarchy name="Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Month" visible="true" column="month" nameColumn="month_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Month">
+      <Hierarchy name="Day of Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Month" visible="true" column="day_of_month" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_supplier_id" highCardinality="false" name="Supplier">
+      <Hierarchy name="supplier" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_supplier">
+        </Table>
+        <Level name="Supplier" visible="true" column="supplier" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_technology_id" highCardinality="false" name="Technology">
+      <Hierarchy name="Technology" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_technology">
+        </Table>
+        <Level name="Technology" visible="true" column="technology" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_fleet_id" highCardinality="false" name="Project">
+      <Hierarchy name="Project" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_fleet">
+        </Table>
+        <Level name="Project" visible="true" column="project" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market">
+      <Hierarchy name="Market" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Market" visible="true" column="market" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour">
+      <Hierarchy name="Hour" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour" visible="true" column="hour" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour GMT">
+      <Hierarchy name="Hour GMT" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour GMT" visible="true" column="hour_gmt" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="15-Minute Interval">
+      <Hierarchy name="15-Minute Interval" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="15-Minute Interval" visible="true" column="15min_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="jira_id" highCardinality="false" name="Issue Type">
+      <Hierarchy name="Issue Type" visible="true" hasAll="true" primaryKey="ID">
+        <Table name="bi_dim_jira">
+        </Table>
+        <Level name="Issue Type" visible="true" column="Issue Type" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Availability F" column="availability_factor" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Unplanned O R" column="unplanned_outage_rate" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Planned O R" column="planned_outage_rate" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Market C" column="market_capture" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Energy Throughput (MWh/yr/MW)" column="energy_throughput" datatype="Numeric" formatString="##0.00" aggregator="avg" description="Amount of energy going into or out of the system on a 1 MW annualized basis" visible="true">
+    </Measure>
+    <Measure name="Propensity (kW/MW)" column="disposition" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Discharge C-rate" column="discharge_crate" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Charge C-rate" column="charge_crate" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Energy L" column="energy_losses" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Energy C" column="energy_cost" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Other C" column="other_charge" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Gross R" column="gross_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Potential R" column="potential_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Revenue C" column="revenue_capture" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="C-rate" column="c_rate" datatype="Numeric" formatString="##0.00" aggregator="avg" description="Rate of change expressed as a ratio of power to energy" visible="true">
+    </Measure>
+    <Measure name="Roundtrip_Energy" column="Roundtrip_Energy" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    </Measure>
+    <Measure name="Energy_Efficiency (%)" column="Energy_Efficiency" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Output_Intensity (&#8710;KW/s/MW)" column="Output_Intensity" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Signal_Intensity (&#8710;KW/s/MW)" column="Signal_Intensity" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Available Capacity (%)" column="Available_Capacity" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Tickets Created" column="Tickets_Created" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Tickets Completed" column="Tickets_Completed" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Average Resolution Time (Days)" column="rt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Major Issues" column="major_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Minor Issues" column="minor_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Critical Issues" column="critical_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Blocker Issues" column="blocker_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Trivial Issues" column="trivial_count" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Major Resolution Time (Days)" column="mrt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Minor Resolution Time (Days)" column="mirt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Critical Resolution Time (Days)" column="crt" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Blocker Resolution Time (Days)" column="blk" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Trivial Resolution Time (Days)" column="tri" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Capacity Factor" column="capacity_factor" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
+    </Measure>
+    <CalculatedMember name="Energy Losses (MWh)" description="Energy consumed per market settlement report " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Energy L] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Energy Cost ($)" description="Price paid for energy by the project, market specific " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Energy C] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Other Charges ($)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Other C] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="-$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Gross Revenue ($)" description="Revenues earned in market minus energy cost " dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Gross R] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Potential Revenue ($)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Potential R] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Market Capture (%)" description="Defined as the amount of time project scheduled to perform in market divided by the amount of the time in the period" dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Market C] < 0, 0, [Measures].[Market C])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Availability Factor (%)" description="Defined as the amount of time that it is able to produce electricity over a certain period, divided by the amount of the time in the period" formula="iif([Measures].[Availability F] &#60; 0, 0, [Measures].[Availability F])" dimension="Measures">
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Revenue Capture (%)" dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Revenue C] < 0, 0, [Measures].[Revenue C])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Planned Outage Rate (%)" description="Defined as the number of planned outage hours over the total number of hours in a given period " dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Planned O R] < 0, 0, [Measures].[Planned O R])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Unplanned Outage Rate (%)" description="Defined as the number of unplanned outage hours over the total number of hours in a given period " dimension="Measures">
+      <Formula>
+        <![CDATA[iif([Measures].[Unplanned O R] < 0, 0, [Measures].[Unplanned O R])]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Roundtrip Energy (MWh)" dimension="Measures">
+      <Formula>
+        <![CDATA[[Measures].[Roundtrip_Energy] /4]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+    <CalculatedMember name="Weighted_Energy_Efficiency (%)" dimension="Measures">
+      <Formula>
+        <![CDATA[([Measures].[Roundtrip_Energy] *[Measures].[Energy_Efficiency (%)])/(4*sum([Measures].[Roundtrip_Energy]))]]>
+      </Formula>
+      <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+  </Cube>
+  
+  
+</Schema>

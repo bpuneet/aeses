@@ -1,0 +1,2291 @@
+{
+ "layout": {
+  "title": "CDF - Sample structure",
+  "rows": [
+   {
+    "id": "8515efee-352a-48d5-d1bf-e16d8af79a42",
+    "type": "LayoutResource",
+    "typeDesc": "Resource",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "css",
+      "type": "Id"
+     },
+     {
+      "name": "resourceType",
+      "value": "Css",
+      "type": "Label"
+     },
+     {
+      "name": "resourceFile",
+      "value": "",
+      "type": "ResourceFile"
+     },
+     {
+      "name": "resourceCode",
+      "value": "img\n{\nheight:100px;\n} \n\n.line2\n{\nmargin-left:330px;\n} \n\n.chart\n{\nmargin-top:100px;\n} ",
+      "type": "Resource"
+     }
+    ]
+   },
+   {
+    "id": "2855e707-19de-52c2-bcfe-9759dfa5f1a5",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "h",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "6",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "#587ebf",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     }
+    ]
+   },
+   {
+    "id": "4fba37dd-561d-53dd-ea39-86c761d0645c",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "params",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "200",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "#9ac5e6",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     }
+    ]
+   },
+   {
+    "id": "adcf9c95-3cea-7e69-44a8-4996f979c789",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "4fba37dd-561d-53dd-ea39-86c761d0645c",
+    "properties": [
+     {
+      "name": "name",
+      "value": "p",
+      "type": "Id"
+     },
+     {
+      "name": "html",
+      "value": "<table style=\"width:180px;\">\n<tr> <td>Price:</td>\n<td id=\"price\" style=\"align:left;\"></td> </tr>\n<tr>\n<td>Iso:</td>\n<td id=\"iso\" style=\"align:left;\"></td> \n\n<td>Market:</td>\n<td id=\"market\" style=\"align:left;\"></td> \n\n<td>Service:</td>\n<td id=\"service\" style=\"align:left;\"></td> \n\n<td>Zone:</td>\n<td id=\"zone\" style=\"align:left;\"></td> \n</tr>\n\n<tr>\n<td>Iso:</td>\n<td id=\"iso2\" style=\"align:left;\"></td> \n\n<td>Market:</td>\n<td id=\"market2\" style=\"align:left;\"></td> \n\n<td>Service:</td>\n<td id=\"service2\" style=\"align:left;\"></td> \n\n<td>Zone:</td>\n<td id=\"zone2\" style=\"align:left;\"></td> \n</tr>\n\n<tr>\n<td>Iso:</td>\n<td id=\"iso3\" style=\"align:left;\"></td> \n\n<td>Market:</td>\n<td id=\"market3\" style=\"align:left;\"></td> \n\n<td>Service:</td>\n<td id=\"service3\" style=\"align:left;\"></td> \n\n<td>Zone:</td>\n<td id=\"zone3\" style=\"align:left;\"></td> \n</tr>\n</table> ",
+      "type": "Html"
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "16",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "52fdf1e9-d4da-4ffb-044f-4a8e0304e477",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "500",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "chart",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "left",
+      "type": "TextAlign"
+     }
+    ]
+   },
+   {
+    "id": "d773b92d-c4c7-ad83-ccd1-5a596cb0b796",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "52fdf1e9-d4da-4ffb-044f-4a8e0304e477",
+    "properties": [
+     {
+      "name": "name",
+      "value": "",
+      "type": "Id"
+     },
+     {
+      "name": "html",
+      "value": "<div id=\"line2\"> </div> ",
+      "type": "Html"
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   }
+  ]
+ },
+ "components": {
+  "rows": [
+   {
+    "id": "CHARTS",
+    "name": "Charts",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Charts",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "8f840138-bb9a-054b-da3d-0f62567e2a09",
+    "type": "ComponentscccLineChart",
+    "typeDesc": "CCC Line Chart",
+    "parent": "CHARTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "line2",
+      "type": "Id"
+     },
+     {
+      "name": "width",
+      "value": "900",
+      "type": "Integer"
+     },
+     {
+      "name": "height",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "nyiso_line2"
+     },
+     {
+      "name": "cccCrosstabMode",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSeriesInRows",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAnimate",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTimeSeries",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccTimeSeriesFormat",
+      "value": "%Y-%m-%d",
+      "type": "String"
+     },
+     {
+      "name": "cccOrientation",
+      "value": "vertical",
+      "type": "MenuMode"
+     },
+     {
+      "name": "cccColors",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccShowValues",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccShowDots",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTooltipFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccValuesAnchor",
+      "value": "right",
+      "type": "AnchorCenter"
+     },
+     {
+      "name": "title",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "cccTitlePosition",
+      "value": "top",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccTitleSize",
+      "value": 25,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowLegend",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccLegendPosition",
+      "value": "bottom",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccLegendSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccLegendAlign",
+      "value": "center",
+      "type": "SquareAlign"
+     },
+     {
+      "name": "cccShowXScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisPosition",
+      "value": "bottom",
+      "type": "TopBottom"
+     },
+     {
+      "name": "cccXAxisSize",
+      "value": "45",
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowYScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisPosition",
+      "value": "left",
+      "type": "LeftRight"
+     },
+     {
+      "name": "cccYAxisSize",
+      "value": 50,
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAxisOffset",
+      "value": "0",
+      "type": "Float"
+     },
+     {
+      "name": "cccOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccExtensionPoints",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"],[\"param_service\",\"param_service\"],[\"param_zone\",\"param_zone\"],[\"price\",\"price\"],[\"param_iso2\",\"param_iso2\"],[\"param_market2\",\"param_market2\"],[\"param_service2\",\"param_service2\"],[\"param_zone2\",\"param_zone2\"],[\"param_iso3\",\"param_iso3\"],[\"param_market3\",\"param_market3\"],[\"param_service3\",\"param_service3\"],[\"param_zone3\",\"param_zone3\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "htmlObject",
+      "value": "line2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market','param_service','param_zone','price','param_iso2','param_market2','param_service2','param_zone2','param_iso3','param_market3','param_zone3','param_service3']",
+      "type": "Listeners"
+     }
+    ]
+   },
+   {
+    "id": "GENERIC",
+    "name": "Generic",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Generic",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "aa8eca9b-434d-7a4f-98fa-4b07b39dd6bb",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "9fdc16b7-8837-44f7-6356-214cb3b89680",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "051e0511-1de3-16d4-59a7-2a20f1d48dd8",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "e37ee627-d803-e163-cf00-17bf41209eda",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "9d94bc02-32fa-cac2-b046-45b544edbe78",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "price",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "Clearing Price",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "4b32987a-8b6c-1ffe-8b0a-1dfef0dfefcd",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso2",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "ea20c077-2760-4de2-b68a-34055a41170a",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market2",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "95809d49-b62d-3ff8-4c1a-12b9323108b8",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service2",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "358a7a6d-b44c-0cad-64c6-ddb9d9c04a82",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone2",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "9e156b68-bccd-cdd9-a34b-6efc93cd428a",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso3",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "e09184d6-efc6-9dad-8eb2-3a5956296544",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market3",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "8579d929-a80b-fce6-e408-1775e6877c94",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone3",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "3a3faecd-b016-e234-7a03-0bd28a1b35ff",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service3",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ]
+   },
+   {
+    "id": "SELECTORS",
+    "name": "Selects",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Selects",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "6ae31276-2921-46b2-e118-07f54c460ab1",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_iso",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "iso",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_iso"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "b5c120f3-4a35-5d2e-4a4c-7424e995695a",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_market",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "market",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_market"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "817688ad-2b6d-a07c-5a9c-3ebe18bb11b4",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_service",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "service",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_service"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "cf6022cc-0808-f1ff-b0ed-3020d8f8ae4a",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_zone",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "zone",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market','param_service']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"],[\"param_service\",\"param_service\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_zone"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "ac209253-d275-4b21-db9e-a45326008e72",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "price",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "price",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "price",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": ""
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[[\"Clearing Price\",\"Clearing Price\"],[\"30 Day Rolling Avg\",\"30 Day Rolling Avg\"],[\"90 Day Rolling Avg\",\"90 Day Rolling Avg\"],[\"12 Month Rolling Avg\",\"12 Month Rolling Avg\"],[\"Previous Year Clearing Price\",\"Previous Year Clearing Price\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "0dc8cc6a-d232-45bd-5ef0-5d1fdbdda35f",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso2",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_iso2",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "iso2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_iso"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "3cde659f-6902-f4e2-ecd2-ed7a0b27d43d",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market2",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_market2",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "market2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso2']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso2\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_market"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "610a3dc4-3f85-4b2c-7621-b755daec4b06",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service2",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_service2",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "service2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso2','param_market2']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso2\"],[\"param_market\",\"param_market2\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_service"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "4d4069e1-e6e9-528f-a454-4bcf294f722f",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone2",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_zone2",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "zone2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso2','param_market2','param_service2']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso2\"],[\"param_market\",\"param_market2\"],[\"param_service\",\"param_service2\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_zone"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "9bbdb90e-72bc-2e46-eaf0-4c9906dc4e6c",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso3",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_iso3",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "iso3",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_iso"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "09166651-6d41-cf81-fa0d-9d20252085cd",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market3",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_market3",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "market3",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso3']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso3\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_market"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "6df5dea9-08bb-c072-ab8b-bd068adc17ed",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service3",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_service3",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "service3",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso3','param_market3']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso3\"],[\"param_market\",\"param_market3\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_service"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "01d6538d-29cc-0748-fd86-09ee34dde8f6",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone3",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_zone3",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "zone3",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso3','param_market3','param_service3']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso3\"],[\"param_market\",\"param_market3\"],[\"param_service\",\"param_service3\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_zone"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   }
+  ]
+ },
+ "datasources": {
+  "rows": [
+   {
+    "id": "SQL",
+    "name": "SQL Queries",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "SQL Queries",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "e41aba39-1289-62b2-64ed-69406b8f2a05",
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "nyiso_line2",
+      "type": "Id"
+     },
+     {
+      "name": "jndi",
+      "value": "aeses",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\",\"\"],[\"param_iso2\",\"param_iso2\",\"String\",\"\"],[\"param_iso3\",\"param_iso3\",\"String\",\"\"],[\"param_market\",\"param_market\",\"String\",\"\"],[\"param_market2\",\"param_market2\",\"String\",\"\"],[\"param_market3\",\"param_market3\",\"String\",\"\"],[\"param_service\",\"param_service\",\"String\",\"\"],[\"param_service2\",\"param_service2\",\"String\",\"\"],[\"param_service3\",\"param_service3\",\"String\",\"\"],[\"param_zone\",\"param_zone\",\"String\",\"\"],[\"param_zone2\",\"param_zone2\",\"String\",\"\"],[\"param_zone3\",\"param_zone3\",\"String\",\"\"],[\"price\",\"price\",\"String\",\"\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "SELECT * FROM\r\n(SELECT \r\nCONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(${param_iso},\"( \"),${param_market}),\" Service:\"),${param_service}),\" Zone:\"),${param_zone}),\")\") AS series,\r\nDATE_FORMAT(d.TIMESTAMP, '%b %Y') AS customM,\r\nIF(${price}=\"Clearing Price\",AVG(f.clearing_price),\r\n    IF(${price}=\"30 Day Rolling Avg\",AVG(f.thirty_day_avg),\r\n    IF(${price}=\"90 Day Rolling Avg\",AVG(f.ninety_day_avg),\r\n    IF(${price}=\"12 Month Rolling Avg\",AVG(f.one_year_avg),AVG(f.previous_year_clearing_price)))))\r\n   AS iso1 \r\nFROM bi_fact_markets_part AS f, bi_dim_date AS d \r\nWHERE f.bi_dim_market_id = (SELECT id FROM bi_dim_market WHERE iso = ${param_iso} AND market=${param_market} AND service=${param_service} AND zone=${param_zone})\r\nAND d.timestamp BETWEEN SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH) AND LAST_DAY(NOW() - INTERVAL 1 MONTH )  AND\r\nf.bi_dim_date_id = d.id\r\nGROUP BY YEAR(d.timestamp), MONTH(d.timestamp) ) a\r\nUNION\r\n(SELECT \r\nCONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(${param_iso2},\"( \"),${param_market2}),\" Service:\"),${param_service2}),\" Zone:\"),${param_zone2}),\")\") AS series,\r\nDATE_FORMAT(d.TIMESTAMP, '%b %Y') AS customM2,\r\nIF(${price}=\"Clearing Price\",AVG(f.clearing_price),\r\n    IF(${price}=\"30 Day Rolling Avg\",AVG(f.thirty_day_avg),\r\n    IF(${price}=\"90 Day Rolling Avg\",AVG(f.ninety_day_avg),\r\n    IF(${price}=\"12 Month Rolling Avg\",AVG(f.one_year_avg),AVG(f.previous_year_clearing_price)))))\r\n   AS iso2 \r\nFROM bi_fact_markets_part AS f, bi_dim_date AS d \r\nWHERE f.bi_dim_market_id = (SELECT id FROM bi_dim_market WHERE iso = ${param_iso2} AND market=${param_market2} AND service=${param_service2} AND zone=${param_zone2})\r\nAND d.timestamp BETWEEN SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH) AND LAST_DAY(NOW() - INTERVAL 1 MONTH )  AND\r\nf.bi_dim_date_id = d.id\r\nGROUP BY YEAR(d.timestamp), MONTH(d.timestamp) ) \r\nUNION\r\n(SELECT \r\nCONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(${param_iso3},\"( \"),${param_market3}),\" Service:\"),${param_service3}),\" Zone:\"),${param_zone3}),\")\") AS series,\r\nDATE_FORMAT(d.TIMESTAMP, '%b %Y') AS customM3,\r\nIF(${price}=\"Clearing Price\",AVG(f.clearing_price),\r\n    IF(${price}=\"30 Day Rolling Avg\",AVG(f.thirty_day_avg),\r\n    IF(${price}=\"90 Day Rolling Avg\",AVG(f.ninety_day_avg),\r\n    IF(${price}=\"12 Month Rolling Avg\",AVG(f.one_year_avg),AVG(f.previous_year_clearing_price)))))\r\n   AS iso3 \r\nFROM bi_fact_markets_part AS f, bi_dim_date AS d \r\nWHERE f.bi_dim_market_id = (SELECT id FROM bi_dim_market WHERE iso = ${param_iso3} AND market=${param_market3} AND service=${param_service3} AND zone=${param_zone3})\r\nAND d.timestamp BETWEEN SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH) AND LAST_DAY(NOW() - INTERVAL 1 MONTH )  AND\r\nf.bi_dim_date_id = d.id\r\nGROUP BY YEAR(d.timestamp), MONTH(d.timestamp) ) ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "1c6e8ada-1d9f-b4ac-5837-b83cd5cc9e9a",
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "jndi",
+      "value": "aeses",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "SELECT DISTINCT iso AS param_iso FROM bi_dim_market UNION SELECT  \"---select--\"  ORDER BY param_iso ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "e8bfe7a7-c20b-2bc9-9270-e31c04ea1a05",
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "jndi",
+      "value": "aeses",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\",\"\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_market \r\nunion\r\nSELECT DISTINCT market AS param_market FROM bi_dim_market WHERE iso=${param_iso} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "ebf02402-097a-41bd-9959-df2588546aac",
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "jndi",
+      "value": "aeses",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\",\"\"],[\"param_market\",\"param_market\",\"String\",\"\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_service \r\nunion\r\nSELECT DISTINCT service AS param_service FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "6a1ffe09-7d67-45bb-43d6-e187028ac8b9",
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "jndi",
+      "value": "aeses",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\",\"\"],[\"param_market\",\"param_market\",\"String\",\"\"],[\"param_service\",\"param_service\",\"String\",\"\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_zone \r\nunion\r\nSELECT DISTINCT if(zone='ALL','All',zone) AS param_zone FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} and service=${param_service} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   }
+  ]
+ },
+ "filename": "/AESES/DEV_Verification/Market_Comparison.cdfde"
+}

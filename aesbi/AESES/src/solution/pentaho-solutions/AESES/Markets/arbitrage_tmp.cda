@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="param_iso" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_market" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_service" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="param_zone" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="limit" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_iso"
+               id="param_iso"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT iso AS param_iso FROM bi_dim_market UNION SELECT  "---select--"  ORDER BY param_iso</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_market"
+               id="param_market"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>select distinct market from bi_dim_market where market in 
+( 'day-ahead energy','real-time energy','hour-ahead energy') UNION SELECT  "---select--"  ORDER BY market</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_service"
+               id="param_service"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>select distinct service from bi_dim_market where market in 
+( 'day-ahead energy','real-time energy','hour-ahead energy') UNION SELECT  "---select--"  ORDER BY service</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="param_zone"
+               id="param_zone"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="i" name="i" type="String"/>
+      </Parameters>
+      <Query>select distinct zone from bi_dim_market where market in 
+( 'day-ahead energy','real-time energy','hour-ahead energy') and iso = ${i}
+UNION SELECT  "---select--"  ORDER BY zone</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="false" cacheDuration="3600" connection="limit"
+               id="limit"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT HOUR FROM bi_dim_date WHERE HOUR BETWEEN 1 AND 12</Query>
+   </DataAccess>
+</CDADescriptor>

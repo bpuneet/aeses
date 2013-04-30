@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <name>Simple Line Chart Example</name>
+  <title>linechart2</title>
+  <version>1</version>
+  <logging-level>debug</logging-level>
+  <documentation> 
+    <author>Gretchen Moran</author>  
+    <description/>  
+    <help/>  
+    <result-type/> 
+  </documentation>
+
+  <inputs> 
+    <chart_height type="string"> 
+      <sources> 
+        <request>chart_height</request> 
+      </sources>  
+      <default-value><![CDATA[70%]]></default-value> 
+    </chart_height>  
+    <chart_width type="string"> 
+      <sources> 
+        <request>chart_width</request> 
+      </sources>  
+      <default-value><![CDATA[100%]]></default-value> 
+    </chart_width> 
+  </inputs>
+
+  <outputs> 
+    <html_fragment type="content">
+      <destinations>
+        <response>content</response>
+      </destinations>
+    </html_fragment>
+  </outputs>
+
+  <resources> 
+    <line> 
+      <solution-file> 
+        <location>flash_linechart.xml</location>  
+        <mime-type>text/xml</mime-type> 
+      </solution-file> 
+    </line> 
+  </resources>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SQLLookupRule</component-name>
+      <action-type>Relational</action-type>
+      <action-outputs> 
+        <query-result type="result-set" mapping="r2"/> 
+      </action-outputs>
+      <component-definition> 
+        <query><![CDATA[select 
+DATE_FORMAT(timestamp, '%b %Y') as date,
+avg(clearing_price)as clearing_price,
+avg(thirty_day_avg)as thirty_day_avg,
+avg(ninety_day_avg)as ninety_day_avg,
+avg(previous_year_clearing_price)as previous_year_clearing_price
+from bi_fact_markets_part inner join bi_dim_date  on bi_fact_markets_part.bi_dim_date_id = bi_dim_date .id where bi_dim_market_id in (500,501,502,503,505,506,507,508)
+and bi_dim_date_id between 
+(select id from bi_dim_date where timestamp = subdate(DATE_FORMAT(LAST_DAY(now() - interval 1 month ) , '%Y-%m-01'), interval 12 month)) 
+and 
+(select id from bi_dim_date where timestamp = LAST_DAY(now() - interval 1 month ))
+group by year(timestamp) , month(timestamp)
+order by timestamp asc]]></query>  
+        <live><![CDATA[true]]></live>  
+        <driver><![CDATA[com.mysql.jdbc.Driver]]></driver>  
+        <connection><![CDATA[jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses]]></connection>  
+        <user-id><![CDATA[puneet.b]]></user-id>  
+        <password><![CDATA[Sigma_2010!]]></password> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>OpenFlashChartComponent</component-name>
+      <action-type>Open Flash Chart1</action-type>
+      <action-inputs> 
+        <chart-data type="result-set" mapping="r2"/>  
+        <height type="string" mapping="chart_height"/>  
+        <width type="string" mapping="chart_width"/> 
+      </action-inputs>
+      <action-resources> 
+        <chart-attributes type="resource" mapping="line"/> 
+      </action-resources>
+      <action-outputs> 
+        <html_fragment type="content"/> 
+      </action-outputs>
+      <component-definition/> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

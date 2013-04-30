@@ -67,6 +67,25 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Strings cut</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Regex Evaluation</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Row Normaliser</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Row Normaliser 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>js</to><enabled>Y</enabled> </hop>  <hop> <from>file href</from><to>Row Normaliser 2</to><enabled>Y</enabled> </hop>  <hop> <from>filename</from><to>Row Normaliser</to><enabled>Y</enabled> </hop>  <hop> <from>js</from><to>Run SSH commands</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Strings cut 2</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut 2</from><to>Regex Evaluation</to><enabled>Y</enabled> </hop>  </order>
   <step>
@@ -1655,10 +1674,14 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;se
 var fileurllink = substr(filedownloadlink,0,49) + substr(filedownloadlink,59,80);
 
 &#47;&#47;var wgett =  &quot;curl&quot; + &quot; &quot;  + fileurllink + &quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;
-
-var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;
+&#47;&#47;previous script
+&#47;&#47;var wgett = &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;
       
-&#47;&#47;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;</jsScript_script>
+&#47;&#47;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;
+
+
+&#47;&#47;Modified script on Dec4th
+var wgett = &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;</jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
         <jsScript_name>substr_Sample</jsScript_name>
         <jsScript_script>&#47;&#47; Perform the substring function
@@ -1684,7 +1707,7 @@ Alert(&quot;From position 6 for 7 long : &quot; + str3);
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>635</xloc>
+      <xloc>638</xloc>
       <yloc>232</yloc>
       <draw>Y</draw>
       </GUI>

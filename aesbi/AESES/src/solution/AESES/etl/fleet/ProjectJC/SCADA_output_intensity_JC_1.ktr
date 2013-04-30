@@ -95,9 +95,9 @@
   </connection>
   <connection>
     <name>pro</name>
-    <server>50.16.172.74</server>
+    <server>enst01db02pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -120,13 +120,13 @@
   </connection>
   <connection>
     <name>scada</name>
-    <server/>
+    <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>scada</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
+    <access>Native</access>
+    <database>mango</database>
+    <port>3306</port>
+    <username>puneet.b</username>
+    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -136,7 +136,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>

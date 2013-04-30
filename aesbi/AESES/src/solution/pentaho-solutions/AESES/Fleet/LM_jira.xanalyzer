@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2012-10-19T09:14:21" created="2011-10-10T07:20:05" description="" updatedBy="preethi" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/Fleet/LM_jira.xanalyzer" name="LM_jira"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="5" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet Cube" catalog="Fleet KPI">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Completed]"/>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Tickets Created]"/>
+            <measure id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Issues]"/>
+            <measure id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Minor Issues]"/>
+            <measure id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Issues]"/>
+            <measure id="[MEASURE:5]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Blocker Issues]"/>
+            <measure id="[MEASURE:6]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Trivial Issues]"/>
+            <measure id="[MEASURE:7]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Average Resolution Time (Days)]"/>
+            <measure id="[MEASURE:8]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Major Resolution Time (Days)]"/>
+            <measure id="[MEASURE:9]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Minor Resolution Time (Days)]"/>
+            <measure id="[MEASURE:10]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Critical Resolution Time (Days)]"/>
+            <measure id="[MEASURE:11]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Blocker Resolution Time (Days)]"/>
+            <measure id="[MEASURE:12]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Trivial Resolution Time (Days)]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Laurel Mountain" formula="[Project].[Laurel Mountain]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2012" formula="[Year].[2012]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="October" formula="[Month].[October]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Day of Month].[Day of Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="1" formula="[Day of Month].[1]"/>
+                        <member pos="0" caption="10" formula="[Day of Month].[10]"/>
+                        <member pos="0" caption="11" formula="[Day of Month].[11]"/>
+                        <member pos="0" caption="12" formula="[Day of Month].[12]"/>
+                        <member pos="0" caption="13" formula="[Day of Month].[13]"/>
+                        <member pos="0" caption="14" formula="[Day of Month].[14]"/>
+                        <member pos="0" caption="15" formula="[Day of Month].[15]"/>
+                        <member pos="0" caption="16" formula="[Day of Month].[16]"/>
+                        <member pos="0" caption="17" formula="[Day of Month].[17]"/>
+                        <member pos="0" caption="18" formula="[Day of Month].[18]"/>
+                        <member pos="0" caption="19" formula="[Day of Month].[19]"/>
+                        <member pos="0" caption="2" formula="[Day of Month].[2]"/>
+                        <member pos="0" caption="20" formula="[Day of Month].[20]"/>
+                        <member pos="0" caption="21" formula="[Day of Month].[21]"/>
+                        <member pos="0" caption="22" formula="[Day of Month].[22]"/>
+                        <member pos="0" caption="23" formula="[Day of Month].[23]"/>
+                        <member pos="0" caption="24" formula="[Day of Month].[24]"/>
+                        <member pos="0" caption="25" formula="[Day of Month].[25]"/>
+                        <member pos="0" caption="26" formula="[Day of Month].[26]"/>
+                        <member pos="0" caption="27" formula="[Day of Month].[27]"/>
+                        <member pos="0" caption="28" formula="[Day of Month].[28]"/>
+                        <member pos="0" caption="29" formula="[Day of Month].[29]"/>
+                        <member pos="0" caption="3" formula="[Day of Month].[3]"/>
+                        <member pos="0" caption="30" formula="[Day of Month].[30]"/>
+                        <member pos="0" caption="31" formula="[Day of Month].[31]"/>
+                        <member pos="0" caption="4" formula="[Day of Month].[4]"/>
+                        <member pos="0" caption="5" formula="[Day of Month].[5]"/>
+                        <member pos="0" caption="6" formula="[Day of Month].[6]"/>
+                        <member pos="0" caption="7" formula="[Day of Month].[7]"/>
+                        <member pos="0" caption="8" formula="[Day of Month].[8]"/>
+                        <member pos="0" caption="9" formula="[Day of Month].[9]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" chartType="HORIZONTAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="12">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

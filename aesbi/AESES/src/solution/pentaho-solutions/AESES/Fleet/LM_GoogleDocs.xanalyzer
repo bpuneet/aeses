@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2013-02-05T02:03:15" created="2011-10-10T07:20:05" description="" updatedBy="harsha" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/Fleet/LM_GoogleDocs.xanalyzer" name="LM_GoogleDocs"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="7" showDrillLinks="false" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet Cube" catalog="Fleet KPI">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure gembarOrdinal="0" gembarId="measures" id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Availability Factor (%)]"/>
+            <measure gembarOrdinal="1" gembarId="measures" id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Unplanned Outage Rate (%)]"/>
+            <measure gembarOrdinal="2" gembarId="measures" id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Planned Outage Rate (%)]"/>
+            <measure gembarOrdinal="3" gembarId="measures" id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Market Capture (%)]"/>
+            <measure gembarOrdinal="4" gembarId="measures" id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Losses (MWh)]"/>
+            <measure gembarOrdinal="5" gembarId="measures" id="[MEASURE:5]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Cost ($)]"/>
+            <measure gembarOrdinal="6" gembarId="measures" id="[MEASURE:6]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Other Charges ($)]"/>
+            <measure gembarOrdinal="7" gembarId="measures" id="[MEASURE:7]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Gross Revenue ($)]"/>
+            <measure gembarOrdinal="8" gembarId="measures" id="[MEASURE:8]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Potential Revenue ($)]"/>
+            <measure gembarOrdinal="9" gembarId="measures" id="[MEASURE:9]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Revenue Capture (%)]"/>
+            <measure gembarOrdinal="10" gembarId="measures" id="[MEASURE:10]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Roundtrip Energy (MWh)]"/>
+            <measure gembarOrdinal="11" gembarId="measures" id="[MEASURE:11]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy_Efficiency (%)]"/>
+        </measures>
+        <columnAttributes>
+            <attribute gembarOrdinal="0" gembarId="columns" sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute gembarOrdinal="0" gembarId="rows" sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute gembarOrdinal="1" gembarId="rows" sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute gembarOrdinal="2" gembarId="rows" sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Laurel Mountain" formula="[Project].[Laurel Mountain]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="April" formula="[Month].[April]"/>
+                        <member pos="0" caption="August" formula="[Month].[August]"/>
+                        <member pos="0" caption="December" formula="[Month].[December]"/>
+                        <member pos="0" caption="February" formula="[Month].[February]"/>
+                        <member pos="0" caption="January" formula="[Month].[January]"/>
+                        <member pos="0" caption="July" formula="[Month].[July]"/>
+                        <member pos="0" caption="June" formula="[Month].[June]"/>
+                        <member pos="0" caption="March" formula="[Month].[March]"/>
+                        <member pos="0" caption="May" formula="[Month].[May]"/>
+                        <member pos="0" caption="November" formula="[Month].[November]"/>
+                        <member pos="0" caption="October" formula="[Month].[October]"/>
+                        <member pos="0" caption="September" formula="[Month].[September]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2013" formula="[Year].[2013]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnitsSecondary="UNITS_0" autoRangeSecondary="true" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" customChartType="ccc_horzbar" chartType="CUSTOM"/>
+        <selectionFilters/>
+        <selectionItems/>
+        <pageSetup excelScalingPageTall="1" excelScalingPageWide="1" excelScalingPercent="100" excelScalingType="PERCENT" pdfOrientation="LANDSCAPE" excelOrientation="LANDSCAPE" pdfPageSize="LETTER" excelPageSize="LETTER"/>
+    </report>
+    <uiAttributes showFilterPanel="false" showFieldLayout="true" showFieldList="true">
+        <rowFieldWidths actualWidths="80,80,80"/>
+        <columnDataFieldWidths actualWidths="120,120,120,120,120,120,120,120,120,120,120,120">
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+        <pluginData>[]</pluginData>
+    </uiAttributes>
+</reportRecord>

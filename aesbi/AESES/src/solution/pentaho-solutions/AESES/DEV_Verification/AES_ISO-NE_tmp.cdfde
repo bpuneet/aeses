@@ -1,0 +1,2330 @@
+{
+  "layout": {
+    "title": "CDF - Sample structure",
+    "rows": [
+      {
+        "id": "05e3f6f5-3d77-d3fa-5ac9-105376ddbf2c",
+        "type": "LayoutResource",
+        "typeDesc": "Resource",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "resourceType",
+            "value": "Css",
+            "type": "Label"
+          },
+          {
+            "name": "resourceFile",
+            "value": "",
+            "type": "ResourceFile"
+          },
+          {
+            "name": "resourceCode",
+            "value": ".container {\n    margin: 0 auto;\n    width: auto;\n} ",
+            "type": "Resource"
+          }
+        ]
+      },
+      {
+        "id": "7de6d1b6-c187-9fa7-8788-ec9734228ee8",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "height",
+            "value": "30",
+            "type": "Integer"
+          },
+          {
+            "name": "backgroundColor",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          },
+          {
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign"
+          }
+        ]
+      },
+      {
+        "id": "f3f2770a-6adf-ae07-f2aa-a20b48b0c715",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "7de6d1b6-c187-9fa7-8788-ec9734228ee8",
+        "properties": [
+          {
+            "name": "name",
+            "value": "op",
+            "type": "Id"
+          },
+          {
+            "name": "html",
+            "value": "<h3>Market Prices Report: Energy Prices</h3> ",
+            "type": "Html"
+          },
+          {
+            "name": "color",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "fontSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "id": "ab82813a-6e6b-2e59-e4dd-62e98262ea12",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "name",
+            "value": "a",
+            "type": "Id"
+          },
+          {
+            "name": "height",
+            "value": "20",
+            "type": "Integer"
+          },
+          {
+            "name": "backgroundColor",
+            "value": "#6cc4d4",
+            "type": "Color"
+          },
+          {
+            "name": "roundCorners",
+            "value": "cdfdd-round",
+            "type": "RoundCorners"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          },
+          {
+            "name": "textAlign",
+            "value": "center",
+            "type": "TextAlign"
+          }
+        ]
+      },
+      {
+        "id": "0e47bdc2-6779-20b0-d82e-6077500e2c35",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "ab82813a-6e6b-2e59-e4dd-62e98262ea12",
+        "properties": [
+          {
+            "name": "name",
+            "value": "nyiso",
+            "type": "Id"
+          },
+          {
+            "name": "html",
+            "value": "<h4>ISO-NE</h4> ",
+            "type": "Html"
+          },
+          {
+            "name": "color",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "fontSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "id": "6b22ec86-7445-67dc-c5b0-5da7b623698b",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "height",
+            "value": "250",
+            "type": "Integer"
+          },
+          {
+            "name": "backgroundColor",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          },
+          {
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign"
+          }
+        ]
+      },
+      {
+        "id": "cf1e6645-b506-60c9-7b6e-c8f7933836f9",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "6b22ec86-7445-67dc-c5b0-5da7b623698b",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "html",
+            "value": "<table>\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=NYISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"NYISO_DAM\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=NYISO_RT.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"NYISO_RT\"></div></a></td>\n</tr>\n</table> ",
+            "type": "Html"
+          },
+          {
+            "name": "color",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "fontSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "id": "beade6ac-2ce4-0bdf-9937-a611a082e9cb",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "height",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "backgroundColor",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          },
+          {
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign"
+          }
+        ]
+      },
+      {
+        "id": "5bb58d55-ade7-8bc8-489c-014276c27965",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "beade6ac-2ce4-0bdf-9937-a611a082e9cb",
+        "properties": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "Id"
+          },
+          {
+            "name": "html",
+            "value": "<table>\n<tr>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px;text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ISO-NE</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px; text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ISO-NE</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td> \n</tr>\n\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=ERCOT_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"ERCOT_DAM\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=PJM_DAM.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"PJM\"></div></a></td>\n</tr>\n\n<tr>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px;text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ISO-NE</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px; text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ISO-NE</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td> \n</tr>\n\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=CAISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"CAISO\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=MISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"MISO\"></div></a></td>\n</tr>\n\n</table> ",
+            "type": "Html"
+          },
+          {
+            "name": "color",
+            "value": "",
+            "type": "Color"
+          },
+          {
+            "name": "fontSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cssClass",
+            "value": "",
+            "type": "String"
+          }
+        ]
+      }
+    ]
+  },
+  "components": {
+    "rows": [
+      {
+        "id": "CHARTS",
+        "name": "Charts",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "value": "Charts",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "36301d7a-79fa-47b4-46e9-6d371fbc9590",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Energy",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "250",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Energy",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "function() { \n\n/* INSERT CODE HERE */ \n\nreturn window.open(\"http://www.google.co.in\");\n} ",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Day-Ahead Energy: Energy",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "NYISO_DAM",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "53af5a90-5f32-70fb-69b7-805c2f540130",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Losses",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "250",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Losses",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Day-Ahead Energy: Losses",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "NYISO_RT",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "79d330af-2edf-5f41-6a9d-5d6a475e0407",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Congestion",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "200",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Congestion",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Day-Ahead Energy: Congestion",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "ERCOT_DAM",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "85240370-3d0a-dde4-e345-a316ed472dae",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Congestion",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "200",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Congestion",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Real-Time Energy: Congestion",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "PJM",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "9eb5b7c3-4706-ee31-aca2-b84a0a39fe9b",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Losses",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "200",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Losses",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Real-Time Energy: Losses",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "CAISO",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "795a8492-f5cb-1dbb-a9d9-21bec985411f",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Energy",
+            "type": "Id"
+          },
+          {
+            "name": "width",
+            "value": "550",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "value": "200",
+            "type": "Integer"
+          },
+          {
+            "name": "dataSource",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Energy",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "order": 43
+          },
+          {
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAnimate",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String"
+          },
+          {
+            "name": "cccOrientation",
+            "value": "vertical",
+            "type": "MenuMode"
+          },
+          {
+            "name": "cccColors",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "cccShowValues",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccShowDots",
+            "value": "false",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccValueFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccTooltipFormat",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "type": "AnchorCenter"
+          },
+          {
+            "name": "title",
+            "value": "ISO-NE: Real-Time Energy: Energy",
+            "type": "String"
+          },
+          {
+            "name": "cccTitlePosition",
+            "value": "top",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccTitleSize",
+            "value": 25,
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "type": "Anchor"
+          },
+          {
+            "name": "cccLegendSize",
+            "value": "",
+            "type": "Integer"
+          },
+          {
+            "name": "cccLegendAlign",
+            "value": "center",
+            "type": "SquareAlign"
+          },
+          {
+            "name": "cccShowXScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "type": "TopBottom"
+          },
+          {
+            "name": "cccXAxisSize",
+            "value": "50",
+            "type": "Integer"
+          },
+          {
+            "name": "cccShowYScale",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "type": "LeftRight"
+          },
+          {
+            "name": "cccYAxisSize",
+            "value": "40",
+            "type": "Integer"
+          },
+          {
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccAxisOffset",
+            "value": "",
+            "type": "Float"
+          },
+          {
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "executeAtStart",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "postFetch",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "preChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postChange",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "htmlObject",
+            "value": "MISO",
+            "type": "HtmlObject"
+          },
+          {
+            "name": "preExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "postExecution",
+            "value": "",
+            "type": "JavaScript"
+          },
+          {
+            "name": "tooltip",
+            "value": "",
+            "type": "Html"
+          },
+          {
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners"
+          }
+        ]
+      },
+      {
+        "id": "SELECTORS",
+        "name": "Selects",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "value": "Selects",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "GENERIC",
+        "name": "Generic",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "value": "Generic",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "OTHERCOMPONENTS",
+        "name": "Others",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "value": "Others",
+            "type": "Label"
+          }
+        ]
+      }
+    ]
+  },
+  "datasources": {
+    "rows": [
+      {
+        "id": "SQL",
+        "name": "SQL Queries",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "value": "SQL Queries",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "18f968f7-57f8-fe74-4269-7d3c482c80d4",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Energy",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7005\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "id": "5108c333-b32e-6676-b463-6a5395f98f0b",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Losses",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7006\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(CURDATE(), interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=CURDATE())) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(CURDATE(), interval 1 month) AND CURDATE()) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "id": "604774c1-3b04-7658-c8c6-8e1fadca5ed4",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Day_Ahead_Energy_Congestion",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7007\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "id": "a763edb2-1157-7fa0-a54a-64cd948c6ec7",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Congestion",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price \nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7008\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw),interval 1 month)\nAND (SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw)) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "id": "3417f10a-2735-13e5-4c2f-b31a7577fe29",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Losses",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price \nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7009\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month)\nAND (SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw)) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "id": "e78dba20-bc41-0533-9ca9-b326a125273c",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "name": "name",
+            "value": "Real_Time_Energy_Energy",
+            "type": "Id"
+          },
+          {
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String"
+          },
+          {
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String"
+          },
+          {
+            "name": "access",
+            "value": "public",
+            "type": "Access"
+          },
+          {
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters"
+          },
+          {
+            "name": "output",
+            "value": "[]",
+            "type": "Array"
+          },
+          {
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode"
+          },
+          {
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray"
+          },
+          {
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7010\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery"
+          },
+          {
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean"
+          },
+          {
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer"
+          }
+        ]
+      }
+    ]
+  },
+  "filename": "/AESES/DEV_Verification/AES_ISO-NE_tmp.cdfde"
+}

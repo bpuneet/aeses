@@ -1,0 +1,3735 @@
+{
+  "layout": {
+    "title": "CDF - Sample structure",
+    "rows": [
+      {
+        "id": "05e3f6f5-3d77-d3fa-5ac9-105376ddbf2c",
+        "type": "LayoutResource",
+        "typeDesc": "Resource",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 19,
+            "description": "Type",
+            "name": "resourceType",
+            "value": "Css",
+            "type": "Label",
+            "tooltip": "Resource Type to include"
+          },
+          {
+            "order": 18,
+            "description": "Resource file",
+            "name": "resourceFile",
+            "value": "",
+            "type": "ResourceFile",
+            "tooltip": "Resource file to include"
+          },
+          {
+            "order": 19,
+            "description": "Resource code",
+            "name": "resourceCode",
+            "value": ".container {\n    margin: 0 auto;\n    width: auto;\n} ",
+            "type": "Resource",
+            "tooltip": "Resource code to include"
+          }
+        ]
+      },
+      {
+        "id": "7de6d1b6-c187-9fa7-8788-ec9734228ee8",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "30",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "order": 56,
+            "description": "BackgroundColor",
+            "name": "backgroundColor",
+            "value": "",
+            "classType": "advanced",
+            "type": "Color",
+            "tooltip": "Element background color"
+          },
+          {
+            "order": 70,
+            "description": "Corners",
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners",
+            "tooltip": "Corners type"
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          },
+          {
+            "order": 75,
+            "description": "Text Align",
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign",
+            "tooltip": "Text Align"
+          }
+        ]
+      },
+      {
+        "id": "f3f2770a-6adf-ae07-f2aa-a20b48b0c715",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "7de6d1b6-c187-9fa7-8788-ec9734228ee8",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "op",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 15,
+            "description": "HTML",
+            "name": "html",
+            "value": "<h3>Market Prices Report: Ancillary Prices</h3> ",
+            "type": "Html",
+            "tooltip": "Html code to be added"
+          },
+          {
+            "order": 55,
+            "description": "Color",
+            "name": "color",
+            "value": "",
+            "type": "Color",
+            "tooltip": "Element color"
+          },
+          {
+            "order": 49,
+            "description": "Font Size",
+            "name": "fontSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Font size, in pixels "
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          }
+        ]
+      },
+      {
+        "id": "ab82813a-6e6b-2e59-e4dd-62e98262ea12",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "a",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "20",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "order": 56,
+            "description": "BackgroundColor",
+            "name": "backgroundColor",
+            "value": "#6cc4d4",
+            "classType": "advanced",
+            "type": "Color",
+            "tooltip": "Element background color"
+          },
+          {
+            "order": 70,
+            "description": "Corners",
+            "name": "roundCorners",
+            "value": "cdfdd-round",
+            "type": "RoundCorners",
+            "tooltip": "Corners type"
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          },
+          {
+            "order": 75,
+            "description": "Text Align",
+            "name": "textAlign",
+            "value": "center",
+            "type": "TextAlign",
+            "tooltip": "Text Align"
+          }
+        ]
+      },
+      {
+        "id": "0e47bdc2-6779-20b0-d82e-6077500e2c35",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "ab82813a-6e6b-2e59-e4dd-62e98262ea12",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "nyiso",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 15,
+            "description": "HTML",
+            "name": "html",
+            "value": "<h4>NYISO</h4> ",
+            "type": "Html",
+            "tooltip": "Html code to be added"
+          },
+          {
+            "order": 55,
+            "description": "Color",
+            "name": "color",
+            "value": "",
+            "type": "Color",
+            "tooltip": "Element color"
+          },
+          {
+            "order": 49,
+            "description": "Font Size",
+            "name": "fontSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Font size, in pixels "
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          }
+        ]
+      },
+      {
+        "id": "6b22ec86-7445-67dc-c5b0-5da7b623698b",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "250",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "order": 56,
+            "description": "BackgroundColor",
+            "name": "backgroundColor",
+            "value": "",
+            "classType": "advanced",
+            "type": "Color",
+            "tooltip": "Element background color"
+          },
+          {
+            "order": 70,
+            "description": "Corners",
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners",
+            "tooltip": "Corners type"
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          },
+          {
+            "order": 75,
+            "description": "Text Align",
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign",
+            "tooltip": "Text Align"
+          }
+        ]
+      },
+      {
+        "id": "cf1e6645-b506-60c9-7b6e-c8f7933836f9",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "6b22ec86-7445-67dc-c5b0-5da7b623698b",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 15,
+            "description": "HTML",
+            "name": "html",
+            "value": "<table>\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=NYISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"NYISO_DAM\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=NYISO_RT.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"NYISO_RT\"></div></a></td>\n</tr>\n</table> ",
+            "type": "Html",
+            "tooltip": "Html code to be added"
+          },
+          {
+            "order": 55,
+            "description": "Color",
+            "name": "color",
+            "value": "",
+            "type": "Color",
+            "tooltip": "Element color"
+          },
+          {
+            "order": 49,
+            "description": "Font Size",
+            "name": "fontSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Font size, in pixels "
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          }
+        ]
+      },
+      {
+        "id": "beade6ac-2ce4-0bdf-9937-a611a082e9cb",
+        "type": "LayoutRow",
+        "typeDesc": "Row",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "order": 56,
+            "description": "BackgroundColor",
+            "name": "backgroundColor",
+            "value": "",
+            "classType": "advanced",
+            "type": "Color",
+            "tooltip": "Element background color"
+          },
+          {
+            "order": 70,
+            "description": "Corners",
+            "name": "roundCorners",
+            "value": "",
+            "type": "RoundCorners",
+            "tooltip": "Corners type"
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          },
+          {
+            "order": 75,
+            "description": "Text Align",
+            "name": "textAlign",
+            "value": "",
+            "type": "TextAlign",
+            "tooltip": "Text Align"
+          }
+        ]
+      },
+      {
+        "id": "5bb58d55-ade7-8bc8-489c-014276c27965",
+        "type": "LayoutHtml",
+        "typeDesc": "Html",
+        "parent": "beade6ac-2ce4-0bdf-9937-a611a082e9cb",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 15,
+            "description": "HTML",
+            "name": "html",
+            "value": "<table>\n<tr>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px;text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ERCOT</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px; text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>PJM</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td> \n</tr>\n\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=ERCOT_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"ERCOT_DAM\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=PJM_DAM.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"PJM\"></div></a></td>\n</tr>\n\n<tr>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px;text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>CAISO</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px; text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>MISO</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td> \n</tr>\n\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=CAISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"CAISO\"></div> </a></td>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=MISO_DAM.xanalyzer&showFieldList=true\" target=\"_blank\"> \n<div id=\"MISO\"></div></a></td>\n</tr>\n\n\n<tr>\n<td style=\"width:650;\">\n<div style=\"background-color: rgb(108, 196, 212); height: 20px;text-align: center; border: medium none; position: relative;\" class=\"cdfdd-round clearfix \" id=\"b\"><div class=\"jquery-corner\" style=\"margin: 0px 0px -10px;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div></div>\n      <h4>ISO-NE</h4> \n      \n    <div class=\"jquery-corner\" style=\"position: absolute; margin: 0pt; padding: 0pt; left: 0pt; bottom: 0pt; width: 100%;\"><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 0px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 1px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 2px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 3px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 4px;\"></div><div style=\"overflow: hidden; height: 1px; background-color: transparent; border-style: none solid; border-color: rgb(255, 255, 255); border-width: 0pt 6px;\"></div></div></div> \n</td>\n<td style=\"width:650;\">\n</td> \n</tr>\n\n<tr>\n<td>\n<a href=\"http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/analyzer/editor?command=open&solution=AESES&path=%2FMarket&action=ISO-NE_DAM.xanalyzer&showFieldList=true\" target=\"_blank\">\n<div id=\"ISO_NE\"></div> </a></td>\n<td>\n</td>\n</tr>\n</table> ",
+            "type": "Html",
+            "tooltip": "Html code to be added"
+          },
+          {
+            "order": 55,
+            "description": "Color",
+            "name": "color",
+            "value": "",
+            "type": "Color",
+            "tooltip": "Element color"
+          },
+          {
+            "order": 49,
+            "description": "Font Size",
+            "name": "fontSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Font size, in pixels "
+          },
+          {
+            "order": 80,
+            "description": "Css Class",
+            "name": "cssClass",
+            "value": "",
+            "type": "String",
+            "tooltip": "Css Class to be used when this element is rendered"
+          }
+        ]
+      }
+    ]
+  },
+  "components": {
+    "rows": [
+      {
+        "id": "CHARTS",
+        "name": "Charts",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "description": "Group",
+            "value": "Charts",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "36301d7a-79fa-47b4-46e9-6d371fbc9590",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Energy",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "250",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Energy",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "function() { \n\n/* INSERT CODE HERE */ \n\nreturn window.open(\"http://www.google.co.in\");\n} ",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "NYISO Day-Ahead Regulation Prices Report: Regulation",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "NYISO_DAM",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "53af5a90-5f32-70fb-69b7-805c2f540130",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Losses",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "250",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Losses",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "NYISO Real-Time Regulation Prices Report: Regulation",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "NYISO_RT",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "79d330af-2edf-5f41-6a9d-5d6a475e0407",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Congestion",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "200",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Day_Ahead_Energy_Congestion",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "Ercot Day-Ahead Regulation Prices Report: Regulation (Up and Down)",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "ERCOT_DAM",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "85240370-3d0a-dde4-e345-a316ed472dae",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Congestion",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "200",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Congestion",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "PJM Day-Ahead Regulation Prices Report: Regulation",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "PJM",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "9eb5b7c3-4706-ee31-aca2-b84a0a39fe9b",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Losses",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "200",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Losses",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "CAISO Day-Ahead Regulation Prices Report: Regulation",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "CAISO",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "795a8492-f5cb-1dbb-a9d9-21bec985411f",
+        "type": "ComponentscccLineChart",
+        "typeDesc": "CCC Line Chart",
+        "parent": "CHARTS",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Energy",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 50,
+            "description": "Width",
+            "name": "width",
+            "value": "650",
+            "type": "Integer",
+            "tooltip": "Element width, in pixels "
+          },
+          {
+            "order": 50,
+            "description": "Height",
+            "name": "height",
+            "value": "200",
+            "type": "Integer",
+            "tooltip": "Element height, in pixels "
+          },
+          {
+            "name": "dataSource",
+            "description": "Datasource",
+            "tooltip": "DataSource to be used in this selector",
+            "type": "Datasource",
+            "value": "Real_Time_Energy_Energy",
+            "order": 43
+          },
+          {
+            "order": 87,
+            "description": "Crosstab mode",
+            "name": "cccCrosstabMode",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Datasource is crosstab mode (mdx)"
+          },
+          {
+            "order": 88,
+            "description": "Series in rows",
+            "name": "cccSeriesInRows",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Datasource series are in rows?"
+          },
+          {
+            "order": 69,
+            "description": "Animate",
+            "name": "cccAnimate",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Animate the chart?"
+          },
+          {
+            "order": 87,
+            "description": "Clickable",
+            "name": "cccClickable",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Chart is clickable?"
+          },
+          {
+            "order": 90,
+            "description": "Click action",
+            "name": "cccClickAction",
+            "value": "",
+            "type": "JavaScript",
+            "tooltip": "Action to be called on click"
+          },
+          {
+            "order": 45,
+            "description": "Timeseries",
+            "name": "cccTimeSeries",
+            "value": "false",
+            "type": "Boolean",
+            "tooltip": "Timeseries chart?"
+          },
+          {
+            "order": 46,
+            "description": "Timeseries format",
+            "name": "cccTimeSeriesFormat",
+            "value": "%Y-%m-%d",
+            "type": "String",
+            "tooltip": "Timeseries format"
+          },
+          {
+            "order": 68,
+            "description": "Orientation",
+            "name": "cccOrientation",
+            "value": "vertical",
+            "classType": "advanced",
+            "type": "MenuMode",
+            "tooltip": "Orientation of the chart, horizontal or vertical"
+          },
+          {
+            "order": 67,
+            "description": "Colors",
+            "name": "cccColors",
+            "value": "[]",
+            "classType": "advanced",
+            "type": "Array",
+            "tooltip": "Colorschema for the chart"
+          },
+          {
+            "order": 51,
+            "description": "Show values",
+            "name": "cccShowValues",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show values next to markers"
+          },
+          {
+            "order": 53,
+            "description": "Show dots",
+            "name": "cccShowDots",
+            "value": "false",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show dots next to markers"
+          },
+          {
+            "order": 91,
+            "description": "Value format",
+            "name": "cccValueFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the values appears"
+          },
+          {
+            "order": 92,
+            "description": "Tooltip format",
+            "name": "cccTooltipFormat",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to format how the tooltip appears"
+          },
+          {
+            "order": 52,
+            "description": "Values position",
+            "name": "cccValuesAnchor",
+            "value": "right",
+            "classType": "advanced",
+            "type": "AnchorCenter",
+            "tooltip": "Values position"
+          },
+          {
+            "order": 1,
+            "description": "Title",
+            "name": "title",
+            "value": "MISO Day-Ahead Regulation Prices Report: Regulation",
+            "type": "String",
+            "tooltip": "Title"
+          },
+          {
+            "order": 40,
+            "description": "Title position",
+            "name": "cccTitlePosition",
+            "value": "top",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Title position"
+          },
+          {
+            "order": 41,
+            "description": "Title size",
+            "name": "cccTitleSize",
+            "value": 25,
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Title area size"
+          },
+          {
+            "order": 71,
+            "description": "Show legend",
+            "name": "cccShowLegend",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Show the legend?"
+          },
+          {
+            "order": 72,
+            "description": "Legend position",
+            "name": "cccLegendPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "Anchor",
+            "tooltip": "Legend position"
+          },
+          {
+            "order": 73,
+            "description": "Legend size",
+            "name": "cccLegendSize",
+            "value": "",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "Legend area size"
+          },
+          {
+            "order": 74,
+            "description": "Legend align",
+            "name": "cccLegendAlign",
+            "value": "center",
+            "classType": "advanced",
+            "type": "SquareAlign",
+            "tooltip": "Legend alignsize"
+          },
+          {
+            "order": 80,
+            "description": "Show xx scale",
+            "name": "cccShowXScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx scale?"
+          },
+          {
+            "order": 52,
+            "description": "X axis position",
+            "name": "cccXAxisPosition",
+            "value": "bottom",
+            "classType": "advanced",
+            "type": "TopBottom",
+            "tooltip": "X axis position"
+          },
+          {
+            "order": 82,
+            "description": "XX axis size",
+            "name": "cccXAxisSize",
+            "value": "50",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "XX axis area size"
+          },
+          {
+            "order": 81,
+            "description": "Show yy scale",
+            "name": "cccShowYScale",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy scale?"
+          },
+          {
+            "order": 53,
+            "description": "Y axis position",
+            "name": "cccYAxisPosition",
+            "value": "left",
+            "classType": "advanced",
+            "type": "LeftRight",
+            "tooltip": "Y axis position"
+          },
+          {
+            "order": 83,
+            "description": "YY axis size",
+            "name": "cccYAxisSize",
+            "value": "40",
+            "classType": "advanced",
+            "type": "Integer",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 84,
+            "description": "Show xx grid",
+            "name": "cccXAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show xx axis full grid?"
+          },
+          {
+            "order": 85,
+            "description": "Show yy grid",
+            "name": "cccYAxisFullGrid",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Show yy axis full grid?"
+          },
+          {
+            "order": 86,
+            "description": "Axis offset",
+            "name": "cccAxisOffset",
+            "value": "",
+            "classType": "advanced",
+            "type": "Float",
+            "tooltip": "YY axis area size"
+          },
+          {
+            "order": 87,
+            "description": "Origin is zero",
+            "name": "cccOriginIsZero",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Start the axis at zero?"
+          },
+          {
+            "order": 99,
+            "description": "Extension points",
+            "name": "cccExtensionPoints",
+            "value": "[[\"xAxisLabel_textAngle\",\"-0.5\"],[\"xAxisLabel_textAlign\",\"right\"]]",
+            "classType": "advanced",
+            "type": "ValuesArray",
+            "tooltip": "CCC Extension points"
+          },
+          {
+            "order": 40,
+            "description": "Parameters",
+            "name": "xActionArrayParameter",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": " Parameters to pass to the component"
+          },
+          {
+            "order": 91,
+            "description": "Execute at start",
+            "name": "executeAtStart",
+            "value": "true",
+            "classType": "advanced",
+            "type": "Boolean",
+            "tooltip": "Execute at start?"
+          },
+          {
+            "order": 93,
+            "description": "Post Fetch",
+            "name": "postFetch",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Code executed after this component's data is fetched from the server"
+          },
+          {
+            "order": 94,
+            "description": "Pre Change",
+            "name": "preChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is changed. It's a function of the type function(value){return value}, and can be used for validation"
+          },
+          {
+            "order": 95,
+            "description": "Post Change",
+            "name": "postChange",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is changed. It's a function of the type function(value){...}"
+          },
+          {
+            "order": 90,
+            "description": "HtmlObject",
+            "name": "htmlObject",
+            "value": "MISO",
+            "type": "HtmlObject",
+            "tooltip": "HtmlObject to prompt"
+          },
+          {
+            "order": 92,
+            "description": "Pre Execution",
+            "name": "preExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed before the component is updated"
+          },
+          {
+            "order": 93,
+            "description": "Post Execution",
+            "name": "postExecution",
+            "value": "",
+            "classType": "advanced",
+            "type": "JavaScript",
+            "tooltip": "Function to be executed after the component is updated"
+          },
+          {
+            "order": 99,
+            "description": "Tooltip",
+            "name": "tooltip",
+            "value": "",
+            "classType": "advanced",
+            "type": "Html",
+            "tooltip": "Tooltip to be displayed on component's mouse hover"
+          },
+          {
+            "order": 13,
+            "description": "Listeners",
+            "name": "listeners",
+            "value": "[]",
+            "type": "Listeners",
+            "tooltip": "Parameters to listen to"
+          }
+        ]
+      },
+      {
+        "id": "SELECTORS",
+        "name": "Selects",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "description": "Group",
+            "value": "Selects",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "GENERIC",
+        "name": "Generic",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "description": "Group",
+            "value": "Generic",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "OTHERCOMPONENTS",
+        "name": "Others",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "description": "Group",
+            "value": "Others",
+            "type": "Label"
+          }
+        ]
+      }
+    ]
+  },
+  "datasources": {
+    "rows": [
+      {
+        "id": "SQL",
+        "name": "SQL Queries",
+        "type": "Label",
+        "typeDesc": "<i>Group</i>",
+        "parent": "UnIqEiD",
+        "properties": [
+          {
+            "name": "Group",
+            "description": "Group",
+            "value": "SQL Queries",
+            "type": "Label"
+          }
+        ]
+      },
+      {
+        "id": "18f968f7-57f8-fe74-4269-7d3c482c80d4",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Energy",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7005\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      },
+      {
+        "id": "5108c333-b32e-6676-b463-6a5395f98f0b",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Losses",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7006\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(CURDATE(), interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=CURDATE())) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(CURDATE(), interval 1 month) AND CURDATE()) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      },
+      {
+        "id": "604774c1-3b04-7658-c8c6-8e1fadca5ed4",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Day_Ahead_Energy_Congestion",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7007\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      },
+      {
+        "id": "a763edb2-1157-7fa0-a54a-64cd948c6ec7",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Congestion",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price \nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7008\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw),interval 1 month)\nAND (SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw)) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      },
+      {
+        "id": "3417f10a-2735-13e5-4c2f-b31a7577fe29",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Losses",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price \nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7009\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month)\nAND (SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw)) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      },
+      {
+        "id": "e78dba20-bc41-0533-9ca9-b326a125273c",
+        "type": "Componentssql_sqlJdbc",
+        "typeDesc": "sql over sqlJdbc",
+        "meta": "CDA",
+        "meta_conntype": "sql.jdbc",
+        "meta_datype": "sql",
+        "parent": "SQL",
+        "properties": [
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "name",
+            "value": "Real_Time_Energy_Energy",
+            "type": "Id",
+            "tooltip": "Name"
+          },
+          {
+            "order": 5,
+            "description": "Name",
+            "name": "driver",
+            "value": "com.mysql.jdbc.Driver",
+            "type": "String",
+            "tooltip": "Name"
+          },
+          {
+            "order": 11,
+            "description": "URL",
+            "name": "url",
+            "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+            "type": "String",
+            "tooltip": "URL for the element"
+          },
+          {
+            "order": 5,
+            "description": "User name",
+            "name": "user",
+            "value": "puneet.b",
+            "type": "String",
+            "tooltip": "User name"
+          },
+          {
+            "order": 5,
+            "description": "Password",
+            "name": "pass",
+            "value": "Sigma_2011!",
+            "type": "String",
+            "tooltip": "Password"
+          },
+          {
+            "order": 11,
+            "description": "Access Level",
+            "name": "access",
+            "value": "public",
+            "type": "Access",
+            "tooltip": "The Access Level (Scope) for this data access"
+          },
+          {
+            "order": 28,
+            "description": "Parameters",
+            "name": "parameters",
+            "value": "[]",
+            "type": "CdaParameters",
+            "tooltip": "Parameters to be sent to the xaction"
+          },
+          {
+            "order": 40,
+            "description": "Output Options",
+            "name": "output",
+            "value": "[]",
+            "type": "Array",
+            "tooltip": "Output options for this data access"
+          },
+          {
+            "order": 40,
+            "description": "Output Mode",
+            "name": "outputMode",
+            "value": "include",
+            "type": "OutputMode",
+            "tooltip": "Whether the output columns refer to columns that should be Included or Excluded from the final output"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 40,
+            "description": "Column Configurations",
+            "name": "cdacalculatedcolumns",
+            "value": "[]",
+            "type": "ValuesArray",
+            "tooltip": "Column Configurations"
+          },
+          {
+            "order": 25,
+            "description": "Query",
+            "name": "query",
+            "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 7010\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+            "type": "SqlQuery",
+            "tooltip": "Query to be executed in the selected datasource"
+          },
+          {
+            "order": 91,
+            "description": "Cache",
+            "name": "cache",
+            "value": "true",
+            "type": "Boolean",
+            "tooltip": "Is this data access's output supposed to be cached?"
+          },
+          {
+            "order": 50,
+            "description": "Cache Duration",
+            "name": "cacheDuration",
+            "value": 3600,
+            "type": "Integer",
+            "tooltip": "Cache Duration, in seconds"
+          }
+        ]
+      }
+    ]
+  },
+  "filename": "/AESES/DEV_Verification/AES_ISONE.cdfde"
+}

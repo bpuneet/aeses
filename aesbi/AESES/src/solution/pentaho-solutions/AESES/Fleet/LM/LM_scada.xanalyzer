@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2012-12-04T01:53:11" created="2011-10-10T07:20:05" description="" updatedBy="harsha" createdBy="puneet.b@sigmainfo.net">
+        <path folder="AESES/Fleet/LM_scada.xanalyzer" name="LM_scada"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="5" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showSubTotals="true" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Fleet Cube" catalog="Fleet KPI">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showSum="true" formula="[Measures].[Energy Throughput (MWh/yr/MW)]"/>
+            <measure id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Availability Factor (%)]"/>
+            <measure id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Capacity Factor]"/>
+            <measure id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Output_Intensity (∆KW/s/MW)]"/>
+            <measure id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Signal_Intensity (∆KW/s/MW)]"/>
+        </measures>
+        <columnAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Project].[Project]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Month].[Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Day of Month].[Day of Month]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Hour].[Hour]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Project].[Project]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Laurel Mountain" formula="[Project].[Laurel Mountain]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2012" formula="[Year].[2012]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Month].[Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="December" formula="[Month].[December]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Day of Month].[Day of Month]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="1" formula="[Day of Month].[1]"/>
+                        <member pos="0" caption="10" formula="[Day of Month].[10]"/>
+                        <member pos="0" caption="11" formula="[Day of Month].[11]"/>
+                        <member pos="0" caption="12" formula="[Day of Month].[12]"/>
+                        <member pos="0" caption="13" formula="[Day of Month].[13]"/>
+                        <member pos="0" caption="14" formula="[Day of Month].[14]"/>
+                        <member pos="0" caption="15" formula="[Day of Month].[15]"/>
+                        <member pos="0" caption="16" formula="[Day of Month].[16]"/>
+                        <member pos="0" caption="17" formula="[Day of Month].[17]"/>
+                        <member pos="0" caption="18" formula="[Day of Month].[18]"/>
+                        <member pos="0" caption="19" formula="[Day of Month].[19]"/>
+                        <member pos="0" caption="2" formula="[Day of Month].[2]"/>
+                        <member pos="0" caption="20" formula="[Day of Month].[20]"/>
+                        <member pos="0" caption="21" formula="[Day of Month].[21]"/>
+                        <member pos="0" caption="22" formula="[Day of Month].[22]"/>
+                        <member pos="0" caption="23" formula="[Day of Month].[23]"/>
+                        <member pos="0" caption="24" formula="[Day of Month].[24]"/>
+                        <member pos="0" caption="25" formula="[Day of Month].[25]"/>
+                        <member pos="0" caption="26" formula="[Day of Month].[26]"/>
+                        <member pos="0" caption="27" formula="[Day of Month].[27]"/>
+                        <member pos="0" caption="28" formula="[Day of Month].[28]"/>
+                        <member pos="0" caption="29" formula="[Day of Month].[29]"/>
+                        <member pos="0" caption="3" formula="[Day of Month].[3]"/>
+                        <member pos="0" caption="30" formula="[Day of Month].[30]"/>
+                        <member pos="0" caption="31" formula="[Day of Month].[31]"/>
+                        <member pos="0" caption="4" formula="[Day of Month].[4]"/>
+                        <member pos="0" caption="5" formula="[Day of Month].[5]"/>
+                        <member pos="0" caption="6" formula="[Day of Month].[6]"/>
+                        <member pos="0" caption="7" formula="[Day of Month].[7]"/>
+                        <member pos="0" caption="8" formula="[Day of Month].[8]"/>
+                        <member pos="0" caption="9" formula="[Day of Month].[9]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Hour].[Hour]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="0" formula="[Hour].[0]"/>
+                        <member pos="0" caption="1" formula="[Hour].[1]"/>
+                        <member pos="0" caption="10" formula="[Hour].[10]"/>
+                        <member pos="0" caption="11" formula="[Hour].[11]"/>
+                        <member pos="0" caption="12" formula="[Hour].[12]"/>
+                        <member pos="0" caption="13" formula="[Hour].[13]"/>
+                        <member pos="0" caption="14" formula="[Hour].[14]"/>
+                        <member pos="0" caption="15" formula="[Hour].[15]"/>
+                        <member pos="0" caption="16" formula="[Hour].[16]"/>
+                        <member pos="0" caption="17" formula="[Hour].[17]"/>
+                        <member pos="0" caption="18" formula="[Hour].[18]"/>
+                        <member pos="0" caption="19" formula="[Hour].[19]"/>
+                        <member pos="0" caption="2" formula="[Hour].[2]"/>
+                        <member pos="0" caption="20" formula="[Hour].[20]"/>
+                        <member pos="0" caption="21" formula="[Hour].[21]"/>
+                        <member pos="0" caption="22" formula="[Hour].[22]"/>
+                        <member pos="0" caption="23" formula="[Hour].[23]"/>
+                        <member pos="0" caption="3" formula="[Hour].[3]"/>
+                        <member pos="0" caption="4" formula="[Hour].[4]"/>
+                        <member pos="0" caption="5" formula="[Hour].[5]"/>
+                        <member pos="0" caption="6" formula="[Hour].[6]"/>
+                        <member pos="0" caption="7" formula="[Hour].[7]"/>
+                        <member pos="0" caption="8" formula="[Hour].[8]"/>
+                        <member pos="0" caption="9" formula="[Hour].[9]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" chartType="HORIZONTAL_BAR"/>
+    </report>
+    <uiAttributes>
+        <rowFieldWidths/>
+        <columnDataFieldWidths>
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="12">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="13">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="14">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="15">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="16">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="17">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="18">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="19">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+    </uiAttributes>
+</reportRecord>

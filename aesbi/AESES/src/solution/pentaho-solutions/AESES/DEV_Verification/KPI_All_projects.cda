@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="NYISO_DAM" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="NYISO_RT" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="ERCOT_DAM" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+      <Connection id="PJM" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="NYISO_DAM"
+               id="NYISO_DAM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS "TIMESTAMP",
+ROUND(AVG(Available_Capacity),2) AS "Available_Capacity",
+ROUND(AVG(disposition),2) AS "disposition",
+ROUND(AVG(charge_crate),2) AS "charge_crate",
+ROUND(AVG(discharge_crate),2) AS "discharge_crate",
+ROUND(AVG(c_rate),2)  AS "c-rate",
+ROUND(AVG(Output_Intensity),2) AS "Output_Intensity"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600
+
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600 AND c_rate IS NOT NULL))
+,'%Y-%m-01 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600 AND c_rate IS NOT NULL)) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE 
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600 AND c_rate IS NOT NULL)),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH )
+ AND DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600 AND c_rate IS NOT NULL)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) DESC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="NYISO_RT"
+               id="NYISO_RT"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS "TIMESTAMP",
+ROUND(AVG(Available_Capacity),2) AS "Available_Capacity",
+ROUND(AVG(disposition),2) AS "disposition",
+ROUND(AVG(charge_crate),2) AS "charge_crate",
+ROUND(AVG(discharge_crate),2) AS "discharge_crate",
+ROUND(AVG(c_rate),2)  AS "c-rate",
+ROUND(AVG(Output_Intensity),2) AS "Output_Intensity"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400
+
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400 AND c_rate IS NOT NULL))
+,'%Y-%m-01 00:00:00'), INTERVAL 1 MONTH))
+AND
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400 AND c_rate IS NOT NULL)) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE 
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400 AND c_rate IS NOT NULL)),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH)
+ AND DATE_SUB(DATE_FORMAT(
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 400 AND c_rate IS NOT NULL)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) DESC ;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="ERCOT_DAM"
+               id="ERCOT_DAM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT 
+DATE(b.timestamp) AS "TIMESTAMP",
+round(AVG(availability_factor),2) AS "Availability Factor",
+round(AVG(planned_outage_rate),2) AS "Planned Outage Rate",
+round(AVG(unplanned_outage_rate),2) AS "Unplanned Outage Rate",
+round(AVG(market_capture),2) AS "Market capture",
+round(AVG(revenue_capture),2) AS "Revenue Capture"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 500 and market_capture is not null))
+,'%Y-%m-01 00:00:00'), INTERVAL 1 month))
+AND
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 500 and market_capture is not null)) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE 
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 500 and market_capture is not null)),'%Y-%m-%d 00:00:00'), INTERVAL 1 month)
+ AND DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 500 and market_capture is not null)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) desc ;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="PJM" id="PJM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT 
+DATE(b.timestamp) AS "TIMESTAMP",
+round(AVG(availability_factor),2) AS "Availability Factor",
+round(AVG(planned_outage_rate),2) AS "Planned Outage Rate",
+round(AVG(unplanned_outage_rate),2) AS "Unplanned Outage Rate",
+round(AVG(market_capture),2) AS "Market capture",
+round(AVG(revenue_capture),2) AS "Revenue Capture"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 300
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null))
+,'%Y-%m-01 00:00:00'), INTERVAL 1 month))
+AND
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE 
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)),'%Y-%m-%d 00:00:00'), INTERVAL 1 month)
+ AND DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) desc ;</Query>
+   </DataAccess>
+</CDADescriptor>

@@ -99,8 +99,8 @@
     <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -115,6 +115,25 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
     </attributes>
   </connection>
   <order>
@@ -563,10 +582,10 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
     <commandfieldname>wgett</commandfieldname>
     <port>22</port>
     <servername>enst01ap02pr.aesenergystorage.com</servername>
-    <userName>puneet</userName>
+    <userName>harshavardhan.k</userName>
     <password>Encrypted </password>
     <usePrivateKey>Y</usePrivateKey>
-    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;pass</keyFileName>
+    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;passh</keyFileName>
     <passPhrase/>
     <stdOutFieldName>stdOut</stdOutFieldName>
     <stdErrFieldName>stdErr</stdErrFieldName>
@@ -1454,13 +1473,18 @@ else
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
-              
-var wgett =  &quot;wget -O &#47;var&#47;www&#47;html&#47;caiso_volume&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
-var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;caiso_volume&#47;&quot; +filename+ &quot;.zip&quot;;
+&#47;&#47;previous scripts              
+&#47;&#47;var wgett =  &quot;wget -O &#47;var&#47;www&#47;html&#47;caiso_volume&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
+&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;caiso_volume&#47;&quot; +filename+ &quot;.zip&quot;;
+
+&#47;&#47;Modified scripts on DEC4th 
+var wgett =  &quot;wget -O &#47;usr&#47;local&#47;data&#47;bi_data&#47;caiso_volume&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
+var final_url = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;caiso_volume&#47;&quot; +filename+ &quot;.zip&quot;;
+
              
 </jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>

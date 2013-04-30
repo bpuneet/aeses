@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="LM_project" type="sql.jdbc">
+         <Driver>com.mysql.jdbc.Driver</Driver>
+         <Pass>Sigma_2011!</Pass>
+         <Url>jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses</Url>
+         <User>puneet.b</User>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_project"
+               id="LM_project"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS "TIMESTAMP",
+round(avg(Available_Capacity),2) as "Available_Capacity",
+round(avg(disposition),2) as "disposition",
+round(avg(charge_crate),2) as "charge_crate",
+round(avg(discharge_crate),2) as "discharge_crate",
+round(avg(c_rate),2)  as "c-rate",
+round(avg(Output_Intensity),2) as "Output_Intensity"
+
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 600
+
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 600 and charge_crate is not null))
+,'%Y-%m-01 00:00:00'), INTERVAL 9 DAY))
+AND
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 600 and charge_crate is not null)) a
+INNER JOIN 
+(SELECT * FROM bi_dim_date WHERE 
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 600 and charge_crate is not null)),'%Y-%m-%d 00:00:00'), INTERVAL 9 DAY)
+ AND DATE_SUB(DATE_FORMAT(
+(select timestamp from bi_dim_date where id=
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 600 and charge_crate is not null)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY DATE(b.timestamp)
+ORDER BY  DATE(b.timestamp) ASC ;</Query>
+   </DataAccess>
+</CDADescriptor>

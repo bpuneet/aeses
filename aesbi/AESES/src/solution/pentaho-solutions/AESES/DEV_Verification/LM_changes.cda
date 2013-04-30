@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="LM_project" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="LM_chart" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="chart2" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="table_jira" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="jira_component" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_project"
+               id="LM_project"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT &#xD;
+DATE(b.timestamp) AS "TIMESTAMP",&#xD;
+ROUND(AVG(availability_factor*100),2) AS "Availability Factor",&#xD;
+ROUND(AVG(planned_outage_rate*100),2)  AS "planned_outage_rate",&#xD;
+ROUND(AVG(unplanned_outage_rate*100),2)  AS "unplanned_outage_rate",&#xD;
+ROUND(AVG(market_capture*100),2)  AS "market_capture",&#xD;
+ROUND(SUM(energy_cost)/4,2)  AS "energy_cost",&#xD;
+ROUND(SUM(gross_revenue)/4,2)  AS "gross_revenue",&#xD;
+ROUND(SUM(energy_losses)/4,2)  AS "energy_losses",&#xD;
+ROUND(AVG(energy_throughput),2)  AS "energy_throyghput",&#xD;
+ROUND(AVG(c_rate),2)  AS "c_rate"&#xD;
+&#xD;
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL))&#xD;
+,'%Y-%m-01 00:00:00'), INTERVAL 1 MONTH))&#xD;
+AND&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE &#xD;
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH)&#xD;
+ AND DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp)  ;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_chart"
+               id="LM_chart"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT &#xD;
+DATE(b.timestamp) AS "TIMESTAMP",&#xD;
+ROUND(AVG(availability_factor*100),2) AS "Availability Factor"&#xD;
+&#xD;
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL))&#xD;
+,'%Y-%m-01 00:00:00'), INTERVAL 1 MONTH))&#xD;
+AND&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE &#xD;
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH)&#xD;
+ AND DATE_SUB(DATE_FORMAT(&#xD;
+(SELECT TIMESTAMP FROM bi_dim_date WHERE id=&#xD;
+(SELECT MAX(bi_dim_date_id) FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 500 AND market_capture IS NOT NULL)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp)  ;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="chart2"
+               id="chart2"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT  &#xD;
+j.`Issue Type`,&#xD;
+DATE_FORMAT(DATE(b.timestamp),'%Y-%b') AS "TIMESTAMP",&#xD;
+SUM(a.tickets_created)AS "tickets_created"&#xD;
+ &#xD;
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE jira_id IN (300, 301, 303,302) AND bi_dim_fleet_id = 500&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 12 MONTH))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH))) a&#xD;
+INNER JOIN&#xD;
+(SELECT * FROM bi_dim_jira WHERE id IN (300, 301, 303,302)) j ON j.id = a.jira_id&#xD;
+  &#xD;
+ INNER JOIN  &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 12 MONTH) AND DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY  YEAR(b.timestamp), MONTH(b.timestamp), j.`Issue Type`&#xD;
+ORDER BY  YEAR(b.timestamp),MONTH(b.timestamp), j.`Issue Type` ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="table_jira"
+               id="table_jira"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT  
+j.`Issue Type`,
+DATE_FORMAT(DATE(b.timestamp),'%Y-%b') AS "TIMESTAMP",
+SUM(a.tickets_created)AS "tickets_created",
+SUM(a.tickets_completed)AS "tickets_completed"
+ 
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE jira_id IN (300, 301, 303,302) AND bi_dim_fleet_id = 500
+AND bi_dim_date_id BETWEEN 
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 12 MONTH))
+AND
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH))) a
+INNER JOIN
+(SELECT * FROM bi_dim_jira WHERE id IN (300, 301, 303,302)) j ON j.id = a.jira_id
+  
+ INNER JOIN  
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 12 MONTH) AND DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b
+ ON a.bi_dim_date_id = b.id 
+GROUP BY  YEAR(b.timestamp), MONTH(b.timestamp), j.`Issue Type`
+ORDER BY  YEAR(b.timestamp),MONTH(b.timestamp), j.`Issue Type` ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="jira_component"
+               id="jira_component"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT  component, COUNT(created_date)AS 'tickets' FROM all_projects_jira_info WHERE component IS NOT NULL AND project = 'Laurel Mountain'  
+ GROUP BY  component HAVING tickets &gt;= 3
+  ORDER BY tickets DESC ;</Query>
+   </DataAccess>
+</CDADescriptor>

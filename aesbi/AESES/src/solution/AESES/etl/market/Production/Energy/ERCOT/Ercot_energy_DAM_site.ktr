@@ -68,6 +68,25 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Strings cut</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Regex Evaluation</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Row Normaliser</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Row Normaliser 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>js</to><enabled>Y</enabled> </hop>  <hop> <from>file href</from><to>Row Normaliser 2</to><enabled>Y</enabled> </hop>  <hop> <from>filename</from><to>Row Normaliser</to><enabled>Y</enabled> </hop>  <hop> <from>js</from><to>Run SSH commands</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Strings cut 2</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut 2</from><to>Regex Evaluation</to><enabled>Y</enabled> </hop>  </order>
   <step>
@@ -443,10 +462,10 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;se
     <commandfieldname>wgett</commandfieldname>
     <port>22</port>
     <servername>enst01ap02pr.aesenergystorage.com</servername>
-    <userName>gopeshwer.s</userName>
+    <userName>harshavardhan.k</userName>
     <password>Encrypted </password>
     <usePrivateKey>Y</usePrivateKey>
-    <keyFileName>&#47;var&#47;www&#47;html&#47;ercot&#47;key&#47;pass</keyFileName>
+    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;passh</keyFileName>
     <passPhrase/>
     <stdOutFieldName>stdOut</stdOutFieldName>
     <stdErrFieldName>stdErr</stdErrFieldName>
@@ -1647,7 +1666,7 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;se
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -1655,22 +1674,13 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;se
 
 var fileurllink = substr(filedownloadlink,0,49) + substr(filedownloadlink,59,80);
 
-&#47;&#47;
-&#47;&#47;var filedate1 = substr(filedate, 0,6);
-&#47;&#47;var filedate2 = substr(filedate, 6,1);
+&#47;&#47; Previous script
+&#47;&#47;var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Energy&#47;&quot; + filedate + &quot;.zip&quot;;
 
-&#47;&#47;if(filedate2==0){
-&#47;&#47;finalfiledate = filedate1+&quot; (&quot;+substr(filedate, 7,1)+&quot;)&quot;
-&#47;&#47;} 
-&#47;&#47;else{
-&#47;&#47;finalfiledate = filedate1+&quot; (&quot;+substr(filedate, 6,2)+&quot;)&quot;
-&#47;&#47;}
-
-&#47;&#47;var wgett =  &quot;curl&quot; + &quot; &quot;  + fileurllink + &quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;
-
-var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Energy&#47;&quot; + filedate + &quot;.zip&quot;;
+&#47;&#47;Modified script on Dec4th
+var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_DAM_Energy&#47;&quot; + filedate + &quot;.zip&quot;;
       
-&#47;&#47;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;</jsScript_script>
+</jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
         <jsScript_name>substr_Sample</jsScript_name>
         <jsScript_script>&#47;&#47; Perform the substring function

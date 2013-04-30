@@ -70,6 +70,31 @@
   </notepads>
   <connection>
     <name>aeses</name>
+    <server>enst01db02pr.aesenergystorage.com</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>aeses</database>
+    <port>3306</port>
+    <username>puneet.b</username>
+    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>pro</name>
     <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
@@ -97,8 +122,8 @@
     <name>scada</name>
     <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>scada</database>
+    <access>Native</access>
+    <database>mango</database>
     <port>3306</port>
     <username>puneet.b</username>
     <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
@@ -119,7 +144,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Filter null values</from><to>Dummy (do nothing) 3</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Select 1st round</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>Filter null values</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>maxdate entry</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Get System Info</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>lookup values</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>lookup values</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Filter null values</from><to>Dummy (do nothing) 3</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Abort</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>SCADA KPIs</from><to>Select 1st round</to><enabled>Y</enabled> </hop>  <hop> <from>Select 1st round</from><to>Filter null values</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Get System Info</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>SCADA KPIs</to><enabled>Y</enabled> </hop>  <hop> <from>lookup values</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>Filter null values</from><to>lookup values</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>maxdate entry 2</to><enabled>Y</enabled> </hop>  <hop> <from>max fact date dev</from><to>Select values</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Abort</name>
     <type>Abort</type>
@@ -326,6 +351,12 @@
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>jira_id</name>
+        <field>jira_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <value>
         <name>bi_dim_date_id</name>
         <rename>bi_dim_date_id</rename>
@@ -476,7 +507,7 @@
            <schema_name/>
            </partitioning>
     <connection>scada</connection>
-    <sql>SELECT i.date as &apos;date&apos;,
+    <sql>SELECT i.date AS &apos;date&apos;,
     la.energy_throughput AS &quot;energy_throughput&quot;,
     la.disposition AS &quot;disposition&quot;,
     la.charge_crate AS &quot;charge_crate&quot;,
@@ -496,51 +527,60 @@
     NULL AS planned_outage_rate,
     NULL AS unplanned_outage_rate,
     NULL AS &quot;availability_factor&quot;,
-    (i.total_gross_power_capacity &#47; 2000000 ) * 100 AS &quot;Available_Capacity&quot;,
+    (i.total_gross_power_capacity &#47; 3200000 ) * 100 AS &quot;Available_Capacity&quot;,
     0 AS &quot;jira_id&quot;,
-    ? as &quot;maxdate&quot;
+    ? AS &quot;maxdate&quot;
     
     
     FROM
     
-(SELECT x.date AS TIMESTAMP, 8760*SUM((x.output&#47;y.total_gross_power_capacity))&#47;(60*60&#47;4)&#47;((15*60&#47;4)&#47;(60*60&#47;4)) AS energy_throughput,
-ROUND((SUM(h.d&#47;y.total_gross_power_capacity))&#47;(SUM(h.dd)) * 4 ,4) AS &quot;discharge_crate&quot;,
-ROUND((SUM(h.c&#47;y.total_gross_power_capacity))&#47;(SUM(h.cc)) * 4 ,4) AS &quot;charge_crate&quot;,
-ROUND(AVG(h.cr&#47;y.total_gross_power_capacity),4) AS &quot;c_rate&quot;,
-ROUND(SUM(x.dispositionvalue&#47;y.total_gross_power_capacity)&#47;(15*60&#47;4),4) AS disposition,
+(SELECT x.date AS TIMESTAMP, 
+ROUND((x.output*8760&#47;(y.total_gross_power_capacity*x.countP)),4) AS energy_throughput,
+-- 8760*SUM((x.output&#47;y.total_gross_power_capacity))&#47;(60*60&#47;4)&#47;((15*60&#47;4)&#47;(60*60&#47;4)) AS energy_throughput,
+-- ROUND((SUM(h.d&#47;y.total_gross_power_capacity))&#47;(SUM(h.dd)) * 4 ,4) AS &quot;discharge_crate&quot;,
+-- ROUND((SUM(h.c&#47;y.total_gross_power_capacity))&#47;(SUM(h.cc)) * 4 ,4) AS &quot;charge_crate&quot;,
+-- ROUND(AVG(h.cr&#47;y.total_gross_power_capacity),4) AS &quot;c_rate&quot;,
+-- ROUND(SUM(x.dispositionvalue&#47;y.total_gross_power_capacity)&#47;(15*60&#47;4),4) AS disposition,
+   ROUND((x.dispositionvalue*1000 &#47; y.total_gross_power_capacity),4) AS disposition,
+   ROUND(h.charge_nyseg_plc_ovation_gross_kw&#47;(y.total_gross_power_capacity&#47;4),4) AS &quot;charge_crate&quot;,
+   ROUND(h.discharge_nyseg_plc_ovation_gross_kw&#47;(y.total_gross_power_capacity&#47;4),4) AS &quot;discharge_crate&quot;,
+   ROUND(h.nyseg_plc_ovation_gross_kw&#47;(y.total_gross_power_capacity&#47;4),4) AS &quot;c_rate&quot;,
 DATE(x.date) AS DATE,HOUR(x.date) AS hr,FLOOR(MINUTE(x.date)&#47;15) AS minutes
 
 FROM
 
 (SELECT FROM_UNIXTIME(ts&#47;1000) AS DATE,
    ABS(pointValue) AS &quot;output&quot;,
-   pointValue AS &quot;dispositionvalue&quot;
+   COUNT(pointValue) AS countP,
+   AVG(pointValue) AS &quot;dispositionvalue&quot;
     
             FROM mango.pointValues 
 WHERE ts  BETWEEN UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 
          AND UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 AND dataPointId = 5867
 GROUP BY YEAR(FROM_UNIXTIME(ts&#47;1000)),DAYOFYEAR(FROM_UNIXTIME(ts&#47;1000)),HOUR(FROM_UNIXTIME(ts&#47;1000)),MINUTE(FROM_UNIXTIME(ts&#47;1000)),
-FLOOR(SECOND(FROM_UNIXTIME(ts&#47;1000))&#47;4))x
+FLOOR(SECOND(FROM_UNIXTIME(ts&#47;1000))&#47;4)) `x`
 
 JOIN
 
 (SELECT AVG(pointValue) AS total_gross_power_capacity, FROM_UNIXTIME(ts&#47;1000) AS DATE
     FROM mango.pointValues
-    WHERE dataPointId = 5874 AND
+    WHERE dataPointId = 6180 AND
        ts  BETWEEN UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 
          AND UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000
     GROUP BY YEAR(FROM_UNIXTIME(ts&#47;1000)),DAYOFYEAR(FROM_UNIXTIME(ts&#47;1000)),
-    HOUR(FROM_UNIXTIME(ts&#47;1000)),MINUTE(FROM_UNIXTIME(ts&#47;1000)) ,FLOOR(SECOND(FROM_UNIXTIME(ts&#47;1000))&#47;4)) y
+    HOUR(FROM_UNIXTIME(ts&#47;1000)),MINUTE(FROM_UNIXTIME(ts&#47;1000)) ,FLOOR(SECOND(FROM_UNIXTIME(ts&#47;1000))&#47;4)) `y`
     ON x.date = y.date
     
     JOIN
     
  (SELECT  
-ABS(IF(pointValue&gt;0,pointValue,0)) AS d,
-ABS(IF(pointValue&lt;0,pointValue,0)) AS c,
-IF(pointValue&gt;0,1,0) AS dd,
-IF(pointValue&lt;0,1,0) AS cc,
-ABS(PointValue)AS cr,
+ AVG(IF(pointValue &lt; 0,ABS(pointValue),NULL)) AS charge_nyseg_plc_ovation_gross_kw, 
+AVG(IF(pointValue &gt;= 0,ABS(pointValue),NULL)) AS discharge_nyseg_plc_ovation_gross_kw, 
+-- ABS(IF(pointValue&gt;0,pointValue,0)) AS d,
+-- ABS(IF(pointValue&lt;0,pointValue,0)) AS c,
+-- IF(pointValue&gt;0,1,0) AS dd,
+-- IF(pointValue&lt;0,1,0) AS cc,
+-- ABS(PointValue)AS cr,
 AVG(ABS(PointValue)) AS nyseg_plc_ovation_gross_kw, FROM_UNIXTIME(ts&#47;1000) AS DATE
     FROM mango.pointValues
     WHERE dataPointId = 5867 AND
@@ -558,8 +598,8 @@ JOIN
 
 (SELECT AVG(pointValue) AS total_gross_power_capacity, FROM_UNIXTIME(ts&#47;1000) AS DATE
     FROM mango.pointValues
-    WHERE dataPointId = 5874 AND
-       ts  BETWEEN UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 
+    WHERE dataPointId = 6180 AND
+       ts BETWEEN UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 
          AND UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000
     GROUP BY YEAR(FROM_UNIXTIME(ts&#47;1000)),DAYOFYEAR(FROM_UNIXTIME(ts&#47;1000)),
     HOUR(FROM_UNIXTIME(ts&#47;1000)),FLOOR(MINUTE(FROM_UNIXTIME(ts&#47;1000))&#47;15)) i
@@ -575,8 +615,8 @@ DAYOFYEAR(i.date),HOUR(i.date),FLOOR(MINUTE(i.date)&#47;15)</sql>
     <lazy_conversion_active>Y</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>373</xloc>
-      <yloc>337</yloc>
+      <xloc>372</xloc>
+      <yloc>334</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -701,6 +741,41 @@ DAYOFYEAR(i.date),HOUR(i.date),FLOOR(MINUTE(i.date)&#47;15)</sql>
     </step>
 
   <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>maxdate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>maxdate</name>
+        <rename>maxdate</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>562</xloc>
+      <yloc>219</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>lookup values</name>
     <type>ScriptValueMod</type>
     <description/>
@@ -718,7 +793,26 @@ DAYOFYEAR(i.date),HOUR(i.date),FLOOR(MINUTE(i.date)&#47;15)</sql>
 var bi_dim_fleet_id = 600;
 var bi_dim_es_service_id = 1;
 var bi_dim_supplier_id = 1;
-var  bi_dim_technology_id = 1;</jsScript_script>
+var  bi_dim_technology_id = 1;
+
+var min = date.getMinutes() ;
+date.setSeconds(0);
+
+
+ if(min &gt;= 0 &amp;&amp; min &lt; 15)
+{
+date.setMinutes(0);
+}
+else if(min &gt;= 15 &amp;&amp; min &lt; 30)
+{
+date.setMinutes(15);
+}
+else if(min &gt;= 30 &amp;&amp; min &lt; 45)
+{
+date.setMinutes(30);
+}
+else if(min &gt;= 45 &amp;&amp; min &lt;= 60)
+date.setMinutes(45);</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>bi_dim_market_id</name>
         <rename>bi_dim_market_id</rename>
         <type>Number</type>
@@ -787,7 +881,7 @@ from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis 
     </step>
 
   <step>
-    <name>maxdate entry</name>
+    <name>maxdate entry 2</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -796,10 +890,10 @@ from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis 
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aeses</connection>
+    <connection>pro</connection>
     <schema/>
     <table>maxdate_angamos</table>
-    <commit>100</commit>
+    <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>N</use_batch>
@@ -821,8 +915,8 @@ from bi_dim_date where id = (select max(bi_dim_date_id) from bi_fact_fleet_kpis 
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>394</xloc>
-      <yloc>243</yloc>
+      <xloc>615</xloc>
+      <yloc>142</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

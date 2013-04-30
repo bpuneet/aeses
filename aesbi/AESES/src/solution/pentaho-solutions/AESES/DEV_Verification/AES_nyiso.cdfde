@@ -1,0 +1,1756 @@
+{
+ "layout": {
+  "title": "CDF - Sample structure",
+  "rows": [
+   {
+    "id": "8515efee-352a-48d5-d1bf-e16d8af79a42",
+    "type": "LayoutResource",
+    "typeDesc": "Resource",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "css",
+      "type": "Id"
+     },
+     {
+      "name": "resourceType",
+      "value": "Css",
+      "type": "Label"
+     },
+     {
+      "name": "resourceFile",
+      "value": "",
+      "type": "ResourceFile"
+     },
+     {
+      "name": "resourceCode",
+      "value": "img\n{\nheight:10px;\n} \n\n.line2\n{\nmargin-right:330px;\n} \n\n.chart\n{\nmargin-top:50px;\n} ",
+      "type": "Resource"
+     }
+    ]
+   },
+   {
+    "id": "2855e707-19de-52c2-bcfe-9759dfa5f1a5",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "h",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "6",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "#587ebf",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     }
+    ]
+   },
+   {
+    "id": "4fba37dd-561d-53dd-ea39-86c761d0645c",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "params",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "50",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "#9ac5e6",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "",
+      "type": "TextAlign"
+     }
+    ]
+   },
+   {
+    "id": "adcf9c95-3cea-7e69-44a8-4996f979c789",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "4fba37dd-561d-53dd-ea39-86c761d0645c",
+    "properties": [
+     {
+      "name": "name",
+      "value": "p",
+      "type": "Id"
+     },
+     {
+      "name": "html",
+      "value": "<table style=\"width:180px;\">\n<tr>\n<td>Iso:</td>\n<td id=\"iso\" style=\"align:left;\"></td> \n\n<td>Market:</td>\n<td id=\"market\" style=\"align:left;\"></td> \n\n<td>Service:</td>\n<td id=\"service\" style=\"align:left;\"></td> \n\n<td>Zone:</td>\n<td id=\"zone\" style=\"align:left;\"></td> \n</tr>\n\n</table> ",
+      "type": "Html"
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "16",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "52fdf1e9-d4da-4ffb-044f-4a8e0304e477",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "value": "line2",
+      "type": "Id"
+     },
+     {
+      "name": "height",
+      "value": "500",
+      "type": "Integer"
+     },
+     {
+      "name": "backgroundColor",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "roundCorners",
+      "value": "",
+      "type": "RoundCorners"
+     },
+     {
+      "name": "cssClass",
+      "value": "chart",
+      "type": "String"
+     },
+     {
+      "name": "textAlign",
+      "value": "left",
+      "type": "TextAlign"
+     }
+    ]
+   }
+  ]
+ },
+ "components": {
+  "rows": [
+   {
+    "id": "OTHERCOMPONENTS",
+    "name": "Others",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Others",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "53941cfc-2c07-2b9e-69d6-346a7fd9b52c",
+    "type": "ComponentsTable",
+    "typeDesc": "table Component",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "table",
+      "type": "Id"
+     },
+     {
+      "name": "htmlObject",
+      "value": "table",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "NYISO"
+     },
+     {
+      "name": "colHeaders",
+      "value": "[\"Period\",\"Daily Avg\",\"30 Day Rolling\",\"90 Day Rolling\",\"Prev Year Daily Avg\"]",
+      "type": "Array"
+     },
+     {
+      "name": "colTypes",
+      "value": "[\"date\",\"number\",\"number\",\"number\",\"number\"]",
+      "type": "Array"
+     },
+     {
+      "name": "colFormats",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "colWidths",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "colSortable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "colSearchable",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "paginate",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "paginationType",
+      "value": "two_button",
+      "type": "PaginationType"
+     },
+     {
+      "name": "filter",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "info",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "sort",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "sortBy",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "displayLength",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "lengthChange",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "tableStyle",
+      "value": "themeroller",
+      "type": "TableStyle"
+     },
+     {
+      "name": "drawCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "sDom",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "oLanguage",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "paginateServerside",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "extraOptions",
+      "value": "[]",
+      "type": "OptionArray"
+     },
+     {
+      "name": "expandParameters",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "expandOnClick",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "expandContainerObject",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "2ed0e3d2-43e2-80e6-9cf6-766bdcca1fec",
+    "type": "ComponentsbuttonComponent",
+    "typeDesc": "Button Component",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "select",
+      "type": "Id"
+     },
+     {
+      "name": "label",
+      "value": "submit",
+      "type": "String"
+     },
+     {
+      "name": "htmlObject",
+      "value": "submit",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "expression",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "tableStyle",
+      "value": "themeroller",
+      "type": "TableStyle"
+     }
+    ]
+   },
+   {
+    "id": "CHARTS",
+    "name": "Charts",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Charts",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "8f840138-bb9a-054b-da3d-0f62567e2a09",
+    "type": "ComponentscccLineChart",
+    "typeDesc": "CCC Line Chart",
+    "parent": "CHARTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "line2",
+      "type": "Id"
+     },
+     {
+      "name": "width",
+      "value": "900",
+      "type": "Integer"
+     },
+     {
+      "name": "height",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "nyiso_line2"
+     },
+     {
+      "name": "cccCrosstabMode",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSeriesInRows",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAnimate",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTimeSeries",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccTimeSeriesFormat",
+      "value": "%Y-%m-%d",
+      "type": "String"
+     },
+     {
+      "name": "cccOrientation",
+      "value": "vertical",
+      "type": "MenuMode"
+     },
+     {
+      "name": "cccColors",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccShowValues",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccShowDots",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTooltipFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccValuesAnchor",
+      "value": "right",
+      "type": "AnchorCenter"
+     },
+     {
+      "name": "title",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "cccTitlePosition",
+      "value": "top",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccTitleSize",
+      "value": 25,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowLegend",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccLegendPosition",
+      "value": "bottom",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccLegendSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccLegendAlign",
+      "value": "center",
+      "type": "SquareAlign"
+     },
+     {
+      "name": "cccShowXScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisPosition",
+      "value": "bottom",
+      "type": "TopBottom"
+     },
+     {
+      "name": "cccXAxisSize",
+      "value": "45",
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowYScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisPosition",
+      "value": "left",
+      "type": "LeftRight"
+     },
+     {
+      "name": "cccYAxisSize",
+      "value": 50,
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAxisOffset",
+      "value": "0",
+      "type": "Float"
+     },
+     {
+      "name": "cccOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccExtensionPoints",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"],[\"param_service\",\"param_service\"],[\"param_zone\",\"param_zone\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "htmlObject",
+      "value": "line2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market','param_service','param_zone']",
+      "type": "Listeners"
+     }
+    ]
+   },
+   {
+    "id": "GENERIC",
+    "name": "Generic",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Generic",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "aa8eca9b-434d-7a4f-98fa-4b07b39dd6bb",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "PJM",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "9fdc16b7-8837-44f7-6356-214cb3b89680",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "Day-Ahead Regulation",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "051e0511-1de3-16d4-59a7-2a20f1d48dd8",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "Regulation",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "e37ee627-d803-e163-cf00-17bf41209eda",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "All",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "SELECTORS",
+    "name": "Selects",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Selects",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "6ae31276-2921-46b2-e118-07f54c460ab1",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_iso",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "iso",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_iso"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "b5c120f3-4a35-5d2e-4a4c-7424e995695a",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_market",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "market",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_market"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "817688ad-2b6d-a07c-5a9c-3ebe18bb11b4",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_service",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "service",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_service"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "cf6022cc-0808-f1ff-b0ed-3020d8f8ae4a",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "param_zone",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "zone",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "['param_iso','param_market','param_service']",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"param_iso\",\"param_iso\"],[\"param_market\",\"param_market\"],[\"param_service\",\"param_service\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "param_zone"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   }
+  ]
+ },
+ "datasources": {
+  "rows": [
+   {
+    "id": "SQL",
+    "name": "SQL Queries",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "SQL Queries",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "59b209d9-ca13-6971-803d-ba34020a44c2",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "NYISO",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2010!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "SELECT DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price,\nAVG(a.thirty_day_avg)AS thirty_day_avg,\nAVG(a.ninety_day_avg)AS ninety_day_avg,\nAVG(a.previous_year_clearing_price)AS previous_year_clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "6dd6b185-6b7d-10a3-9d3b-f8dfdf1c423c",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "nyiso_line",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01dv.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2010!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "SELECT cp.series ,cp.TIMESTAMP,cp.clearing_price FROM\n(SELECT \"ClearingPrice\" AS series,\nDATE(b.timestamp) AS TIMESTAMP,\nAVG(a.clearing_price)AS clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC) cp\nUNION\n(SELECT \n\"30-Day-Avg\" AS series,DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.thirty_day_avg) AS clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC) \nUNION\n(SELECT \n\"90-Day-Avg\" AS series,DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.ninety_day_avg) AS clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC)\nUNION\n(SELECT \n\"Previous Year Clearing Price\" AS series,DATE(b.timestamp) AS TIMESTAMP,\nAVG(a.previous_year_clearing_price) AS clearing_price\nFROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500\nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH))\nAND\n(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a\nINNER JOIN \n(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b\n ON a.bi_dim_date_id = b.id \nGROUP BY DATE(b.timestamp)\nORDER BY  DATE(b.timestamp) ASC) ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "1a7014bc-40e5-18bf-dd44-c813fac9e4f4",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "nyiso_line2",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2011!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\"],[\"param_market\",\"param_market\",\"String\"],[\"param_service\",\"param_service\",\"String\"],[\"param_zone\",\"param_zone\",\"String\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "SELECT \nDATE_FORMAT(TIMESTAMP, '%b %Y') AS customM,\nAVG(clearing_price)AS clearing_price,\nAVG(thirty_day_avg)AS thirty_day_avg,\nAVG(ninety_day_avg)AS ninety_day_avg,\nAVG(previous_year_clearing_price)AS previous_year_clearing_price\nFROM bi_fact_markets_part INNER JOIN bi_dim_date  ON bi_fact_markets_part.bi_dim_date_id = bi_dim_date .id \nWHERE bi_dim_market_id in (SELECT id FROM bi_dim_market WHERE iso = ${param_iso} AND market=${param_market} AND service=${param_service} and zone=${param_zone}) \nAND bi_dim_date_id BETWEEN \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH)) \nAND \n(SELECT id FROM bi_dim_date WHERE TIMESTAMP = LAST_DAY(NOW() - INTERVAL 1 MONTH ))\nGROUP BY YEAR(TIMESTAMP) , MONTH(TIMESTAMP)\nORDER BY TIMESTAMP ASC ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "4bb074fe-bb3d-44ce-42ca-f3a96cbb430b",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_iso",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2011!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "select distinct iso as param_iso from bi_dim_market ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "c39ae78a-5842-9ea6-b028-1369399cc978",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_market",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2011!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"NYISO\",\"String\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_market \nunion\nSELECT DISTINCT market AS param_market FROM bi_dim_market WHERE iso=${param_iso} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "ec2392d1-3a80-59a6-da9a-c6e583f8b958",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_service",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2011!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"NYISO\",\"String\"],[\"param_market\",\"Day-Ahead Regulation\",\"String\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_service \nunion\nSELECT DISTINCT service AS param_service FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     }
+    ]
+   },
+   {
+    "id": "26834bed-a19d-4be0-5fb7-e6a3d0b51748",
+    "type": "Componentssql_sqlJdbc",
+    "typeDesc": "sql over sqlJdbc",
+    "meta": "CDA",
+    "meta_conntype": "sql.jdbc",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "value": "param_zone",
+      "type": "Id"
+     },
+     {
+      "name": "driver",
+      "value": "com.mysql.jdbc.Driver",
+      "type": "String"
+     },
+     {
+      "name": "url",
+      "value": "jdbc:mysql://enst01db01pr.aesenergystorage.com:3306/aeses",
+      "type": "String"
+     },
+     {
+      "name": "user",
+      "value": "puneet.b",
+      "type": "String"
+     },
+     {
+      "name": "pass",
+      "value": "Sigma_2011!",
+      "type": "String"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"param_iso\",\"param_iso\",\"String\"],[\"param_market\",\"param_market\",\"String\"],[\"param_service\",\"param_service\",\"String\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "query",
+      "value": "select \"--select--\" as param_zone \nunion\nSELECT DISTINCT if(zone='ALL','All',zone) AS param_zone FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} and service=${param_service} ",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": "3600",
+      "type": "Integer"
+     }
+    ]
+   }
+  ]
+ },
+ "filename": "/AESES/DEV_Verification/AES_nyiso.cdfde"
+}

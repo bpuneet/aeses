@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>MISO_site_to_raw</name>
+    <name>temp</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -17,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>N</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>N</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -52,7 +51,7 @@
     <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit/>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
     </dependencies>
     <partitionschemas>
@@ -61,47 +60,22 @@
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
-  <created_user/>
-  <created_date>2011&#47;01&#47;11 12:25:05.500</created_date>
+  <created_user>-</created_user>
+  <created_date>2012&#47;07&#47;02 12:10:34.791</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2011&#47;01&#47;10 16:54:11.677</modified_date>
+  <modified_date>2012&#47;07&#47;02 12:10:34.791</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>aes</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>aes</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>aes-pr</name>
-    <server>enst01db01pr.aesenergystorage.com</server>
+    <name>aeses</name>
+    <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>aeses</database>
-    <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -111,32 +85,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>aeses</name>
-    <server>enst01db01dv.aesenergystorage.com</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>aeses</database>
-    <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3ff9b</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -144,7 +93,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>max date </from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>Get File Names</to><enabled>Y</enabled> </hop>  <hop> <from>filter</from><to>file doe not exists</to><enabled>Y</enabled> </hop>  <hop> <from>Get File Names</from><to>filter</to><enabled>Y</enabled> </hop>  <hop> <from>filter</from><to>Text file input 2</to><enabled>Y</enabled> </hop>  <hop> <from>Text file input 2</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Select values 2</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Add sequence</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Get File Names</from><to>filter</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Text file input 2</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>filter</from><to>Text file input 2</to><enabled>Y</enabled> </hop>  <hop> <from>filter</from><to>file doe not exists</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>Get File Names</to><enabled>Y</enabled> </hop>  <hop> <from>max date </from><to>Clone row</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Add sequence</name>
     <type>Sequence</type>
@@ -157,7 +106,7 @@
            </partitioning>
       <valuename>days</valuename>
       <use_database>N</use_database>
-      <connection>aes</connection>
+      <connection/>
       <schema/>
       <seqname>SEQ_</seqname>
       <use_counter>Y</use_counter>
@@ -167,8 +116,8 @@
       <max_value>99999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>158</xloc>
-      <yloc>118</yloc>
+      <xloc>224</xloc>
+      <yloc>132</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -199,8 +148,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>268</xloc>
-      <yloc>131</yloc>
+      <xloc>334</xloc>
+      <yloc>145</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -224,8 +173,8 @@
     <clonenumfield/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>101</xloc>
-      <yloc>239</yloc>
+      <xloc>167</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -242,8 +191,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>565</xloc>
-      <yloc>72</yloc>
+      <xloc>631</xloc>
+      <yloc>86</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -270,8 +219,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>614</xloc>
-      <yloc>260</yloc>
+      <xloc>680</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -308,8 +257,8 @@
     </file>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>156</yloc>
+      <xloc>435</xloc>
+      <yloc>170</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -325,12 +274,12 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-&quot;+substr(Filename, 67 , 2);</jsScript_script>
+var date=substr(Filename, 0 , 4)+&quot;-&quot;+substr(Filename, 4 , 2)+&quot;-&quot;+substr(Filename, 6 , 2);</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>date</name>
         <rename>date</rename>
         <type>String</type>
@@ -339,8 +288,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>813</xloc>
-      <yloc>296</yloc>
+      <xloc>879</xloc>
+      <yloc>310</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -390,8 +339,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>219</xloc>
-      <yloc>257</yloc>
+      <xloc>285</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -857,8 +806,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>741</xloc>
-      <yloc>144</yloc>
+      <xloc>807</xloc>
+      <yloc>158</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1340,8 +1289,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>868</xloc>
-      <yloc>111</yloc>
+      <xloc>934</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1356,13 +1305,13 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aes-pr</connection>
+    <connection>aeses</connection>
     <schema/>
     <table>miso_dayaheadreport_raw</table>
     <commit>1000</commit>
     <truncate>N</truncate>
-    <ignore_errors>Y</ignore_errors>
-    <use_batch>N</use_batch>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -1489,8 +1438,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>947</xloc>
-      <yloc>254</yloc>
+      <xloc>1013</xloc>
+      <yloc>268</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1970,18 +1919,18 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
     <line_number_files_extension>line</line_number_files_extension>
     <date_format_lenient>Y</date_format_lenient>
     <date_format_locale>en_US</date_format_locale>
-    <shortFileFieldName/>
+    <shortFileFieldName>${Internal.Job.Filename.Name}</shortFileFieldName>
     <pathFieldName/>
     <hiddenFieldName/>
     <lastModificationTimeFieldName/>
-    <uriNameFieldName>${Internal.Job.Filename.Name}</uriNameFieldName>
+    <uriNameFieldName/>
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>502</xloc>
-      <yloc>154</yloc>
+      <xloc>568</xloc>
+      <yloc>168</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1998,8 +1947,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>429</xloc>
-      <yloc>70</yloc>
+      <xloc>495</xloc>
+      <yloc>84</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2026,8 +1975,8 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>266</yloc>
+      <xloc>501</xloc>
+      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2043,7 +1992,7 @@ var date=substr(Filename, 61 , 4)+&quot;-&quot;+substr(Filename, 65 , 2)+&quot;-
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
+    <optimizationLevel/>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -2115,8 +2064,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>253</yloc>
+      <xloc>386</xloc>
+      <yloc>267</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2131,7 +2080,7 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aes-pr</connection>
+    <connection>aeses</connection>
     <sql>SELECT MAX(m_date) as url FROM miso_dayaheadreport_raw
 </sql>
     <limit>0</limit>
@@ -2141,8 +2090,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>32</xloc>
-      <yloc>93</yloc>
+      <xloc>50</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

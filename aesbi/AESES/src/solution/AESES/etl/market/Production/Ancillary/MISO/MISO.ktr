@@ -171,8 +171,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>471</xloc>
-      <yloc>165</yloc>
+      <xloc>459</xloc>
+      <yloc>132</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -262,8 +262,8 @@
         <norm>Clearing_Price</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>283</xloc>
-      <yloc>271</yloc>
+      <xloc>271</xloc>
+      <yloc>238</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -304,8 +304,8 @@ date=M_Date;
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>417</xloc>
-      <yloc>272</yloc>
+      <xloc>405</xloc>
+      <yloc>239</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -348,8 +348,8 @@ else if (MCP_TYPE ==&apos;GENSUPPMCP&apos;)
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>553</xloc>
-      <yloc>279</yloc>
+      <xloc>541</xloc>
+      <yloc>246</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -467,8 +467,8 @@ else if (MCP_TYPE ==&apos;GENSUPPMCP&apos;)
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>162</yloc>
+      <xloc>334</xloc>
+      <yloc>129</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -520,8 +520,8 @@ else if (MCP_TYPE ==&apos;GENSUPPMCP&apos;)
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>639</xloc>
-      <yloc>104</yloc>
+      <xloc>627</xloc>
+      <yloc>71</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -575,8 +575,8 @@ FROM miso_dayaheadreport_raw where M_Date &gt;= (SELECT DATE_FORMAT(MAX(TIMESTAM
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>210</xloc>
-      <yloc>85</yloc>
+      <xloc>198</xloc>
+      <yloc>52</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

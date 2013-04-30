@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="nyiso_line2" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_iso" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_market" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_service" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="param_zone" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="nyiso_line2"
+               id="nyiso_line2"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+         <Parameter default="param_market" name="param_market" type="String"/>
+         <Parameter default="param_service" name="param_service" type="String"/>
+         <Parameter default="param_zone" name="param_zone" type="String"/>
+      </Parameters>
+      <Query>SELECT DATE_FORMAT(d.TIMESTAMP, '%b %Y') AS customM,&#xD;
+AVG(f.clearing_price)AS clearing_price,&#xD;
+SUM(f.volume) AS volume,&#xD;
+AVG(f.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(f.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(f.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM bi_fact_markets_part AS f, bi_dim_date AS d &#xD;
+WHERE f.bi_dim_market_id = (SELECT id FROM bi_dim_market WHERE iso = ${param_iso} AND market=${param_market} AND service=${param_service} AND zone=${param_zone})&#xD;
+AND d.timestamp BETWEEN SUBDATE(DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH ) , '%Y-%m-01'), INTERVAL 12 MONTH) AND LAST_DAY(NOW() - INTERVAL 1 MONTH )  AND&#xD;
+f.bi_dim_date_id = d.id&#xD;
+GROUP BY YEAR(d.timestamp), MONTH(d.timestamp)</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_iso"
+               id="param_iso"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT iso AS param_iso FROM bi_dim_market UNION SELECT  "---select--"  ORDER BY param_iso</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_market"
+               id="param_market"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_market &#xD;
+union&#xD;
+SELECT DISTINCT market AS param_market FROM bi_dim_market WHERE iso=${param_iso}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_service"
+               id="param_service"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+         <Parameter default="param_market" name="param_market" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_service &#xD;
+union&#xD;
+SELECT DISTINCT service AS param_service FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="param_zone"
+               id="param_zone"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="param_iso" name="param_iso" type="String"/>
+         <Parameter default="param_market" name="param_market" type="String"/>
+         <Parameter default="param_service" name="param_service" type="String"/>
+      </Parameters>
+      <Query>select "--select--" as param_zone &#xD;
+union&#xD;
+SELECT DISTINCT if(zone='ALL','All',zone) AS param_zone FROM bi_dim_market WHERE iso=${param_iso} AND market=${param_market} and service=${param_service}</Query>
+   </DataAccess>
+</CDADescriptor>

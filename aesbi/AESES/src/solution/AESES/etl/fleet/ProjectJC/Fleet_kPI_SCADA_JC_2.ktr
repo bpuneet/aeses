@@ -95,9 +95,9 @@
   </connection>
   <connection>
     <name>aespro</name>
-    <server>enst01db01pr.aesenergystorage.com</server>
+    <server>enst01db02pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -120,13 +120,13 @@
   </connection>
   <connection>
     <name>scada</name>
-    <server/>
+    <server>enst01db01pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
-    <database>scada</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
+    <access>Native</access>
+    <database>mango</database>
+    <port>3306</port>
+    <username>puneet.b</username>
+    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -136,7 +136,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -305,6 +305,12 @@
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>jira_id</name>
+        <field>jira_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <value>
         <name>bi_dim_date_id</name>
         <rename>bi_dim_date_id</rename>
@@ -397,14 +403,17 @@
     <connection>scada</connection>
     <sql>SELECT 
     i.date as &apos;date&apos;,
-    ROUND((8760 * a.energy &#47; i.total_gross_power_capacity) &#47; (60*60&#47;2) &#47; ((15*60&#47;2) &#47; (60*60&#47;2)) *1000,4) AS energy_throughput,
-    ROUND((a.dis &#47; i.total_gross_power_capacity) &#47; (15*60&#47;2) * 1000,4) AS disposition,
+    ROUND((a.energy*8760&#47;(i.total_gross_power_capacity*a.countP)),4) AS energy_throughput,
+    ROUND((a.dis*1000 &#47; i.total_gross_power_capacity),4) AS disposition,
+--    ROUND((8760 * a.energy &#47; i.total_gross_power_capacity) &#47; (60*60&#47;2) &#47; ((15*60&#47;2) &#47; (60*60&#47;2)) *1000,4) AS energy_throughput,
+--    ROUND((a.dis &#47; i.total_gross_power_capacity) &#47; (15*60&#47;2) * 1000,4) AS disposition,
     h.date,
     ROUND(h.charge_nyseg_plc_ovation_gross_kw&#47;(i.total_gross_power_capacity&#47;4),4) AS &quot;charge_crate&quot;,
     ROUND(h.discharge_nyseg_plc_ovation_gross_kw&#47;(i.total_gross_power_capacity&#47;4),4) AS &quot;discharge_crate&quot;,
     ROUND(h.nyseg_plc_ovation_gross_kw&#47;(i.total_gross_power_capacity&#47;4),4) AS &quot;c_rate&quot;,
     z.nyseg_ads_signal as Signal_Intensity,
-   (i.total_gross_power_capacity &#47; 800000) * 100 as &quot;Available_Capacity&quot;,
+     (i.total_gross_power_capacity &#47; 3200000) * 100 as &quot;Available_Capacity&quot;,
+   -- (i.total_gross_power_capacity &#47; 800000) * 100 as &quot;Available_Capacity&quot;,
     0 as &quot;jira_id&quot;
     
            
@@ -430,7 +439,8 @@ JOIN
 JOIN
 (SELECT FROM_UNIXTIME(ts&#47;1000) AS DATE,
    SUM(ABS(pointValue)) AS &quot;energy&quot;,
-    SUM(pointValue) AS &quot;dis&quot;
+   COUNT(pointValue) AS countP,
+    AVG(pointValue) AS &quot;dis&quot;
             FROM mango.pointValues
 WHERE ts  BETWEEN UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 
          AND UNIX_TIMESTAMP(CONVERT_TZ(?,&apos;US&#47;Eastern&apos;,&apos;GMT&apos;))* 1000 AND dataPointId = 14
@@ -622,7 +632,26 @@ DAYOFYEAR(i.date),HOUR(i.date),FLOOR(MINUTE(i.date)&#47;15)</sql>
 var bi_dim_fleet_id = 300;
 var bi_dim_es_service_id = 1;
 var bi_dim_supplier_id = 1;
-var  bi_dim_technology_id = 1;</jsScript_script>
+var  bi_dim_technology_id = 1;
+
+var min = date.getMinutes() ;
+date.setSeconds(0);
+
+
+ if(min &gt;= 0 &amp;&amp; min &lt; 15)
+{
+date.setMinutes(0);
+}
+else if(min &gt;= 15 &amp;&amp; min &lt; 30)
+{
+date.setMinutes(15);
+}
+else if(min &gt;= 30 &amp;&amp; min &lt; 45)
+{
+date.setMinutes(30);
+}
+else if(min &gt;= 45 &amp;&amp; min &lt;= 60)
+date.setMinutes(45);</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>bi_dim_market_id</name>
         <rename>bi_dim_market_id</rename>
         <type>Number</type>

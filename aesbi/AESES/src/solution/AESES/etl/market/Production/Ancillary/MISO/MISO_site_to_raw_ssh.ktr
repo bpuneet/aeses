@@ -80,12 +80,12 @@
            <schema_name/>
            </partitioning>
     <dynamicCommandField>N</dynamicCommandField>
-    <command> &#47;var&#47;www&#47;html&#47;data-integration&#47;pan.sh -file=&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;MISO&#47;MISO_site_to_raw.ktr  -level=Detailed
+    <command> &#47;usr&#47;local&#47;pentaho-bi-suite&#47;pentaho&#47;design-tools&#47;data-integration&#47;pan.sh -file=&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;MISO&#47;MISO_site_to_raw.ktr  -level=Detailed
 </command>
     <commandfieldname>wgett</commandfieldname>
     <port>22</port>
     <servername>enst01ap02pr.aesenergystorage.com</servername>
-    <userName>harshavardhan.k</userName>
+    <userName>gopeshwer.s</userName>
     <password>Encrypted </password>
     <usePrivateKey>Y</usePrivateKey>
     <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;passh</keyFileName>

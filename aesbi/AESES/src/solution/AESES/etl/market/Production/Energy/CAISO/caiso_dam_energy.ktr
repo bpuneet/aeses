@@ -176,7 +176,7 @@
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -2396,10 +2396,10 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
     <commandfieldname>wgett</commandfieldname>
     <port>22</port>
     <servername>enst01ap02pr.aesenergystorage.com</servername>
-    <userName>puneet</userName>
+    <userName>harshavardhan.k</userName>
     <password>Encrypted </password>
     <usePrivateKey>Y</usePrivateKey>
-    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;pass</keyFileName>
+    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;passh</keyFileName>
     <passPhrase/>
     <stdOutFieldName>stdOut</stdOutFieldName>
     <stdErrFieldName>stdErr</stdErrFieldName>

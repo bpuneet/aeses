@@ -12,6 +12,50 @@
   <modified_date>2011&#47;09&#47;22 18:19:23.625</modified_date>
     <parameters>
     </parameters>
+  <connection>
+    <name>aeses</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -60,7 +104,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;ERCOT&#47;ERCOT_Energy-job.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;ERCOT&#47;ERCOT_Energy-job.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -90,7 +134,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;NYISO&#47;NYISO_Energy-job.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;NYISO&#47;NYISO_Energy-job.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -120,7 +164,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;PJM&#47;pjm_energy-job.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;PJM&#47;pjm_energy-job.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -150,7 +194,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;update_all_markets_Energy.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;update_all_markets_Energy.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -177,76 +221,12 @@
       <yloc>115</yloc>
       </entry>
     <entry>
-      <name>caiso_energy</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;CAISO&#47;caiso_dam_energy.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>407</xloc>
-      <yloc>161</yloc>
-      </entry>
-    <entry>
-      <name>iso_energy_dam_rt</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;ISO-NE&#47;iso-ne-dam-rt.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>435</xloc>
-      <yloc>249</yloc>
-      </entry>
-    <entry>
       <name>HAM_fact_update</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;NYISO&#47;HAM_fact_update.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;NYISO&#47;HAM_fact_update.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -269,8 +249,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>755</xloc>
-      <yloc>244</yloc>
+      <xloc>760</xloc>
+      <yloc>271</yloc>
       </entry>
     <entry>
       <name>NYISO_HAM_energy</name>
@@ -278,7 +258,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Energy&#47;NYISO&#47;NYISO_HAM_ENERGY_N.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;NYISO&#47;NYISO_HAM_ENERGY_N.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -301,8 +281,68 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>589</xloc>
-      <yloc>247</yloc>
+      <xloc>594</xloc>
+      <yloc>272</yloc>
+      </entry>
+    <entry>
+      <name>iso-ne-dam-rt</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;ISO-NE&#47;iso-ne-dam-rt.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>417</xloc>
+      <yloc>279</yloc>
+      </entry>
+    <entry>
+      <name>caiso-energy</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Energy&#47;CAISO&#47;caiso_dayahead_energy.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>389</xloc>
+      <yloc>160</yloc>
       </entry>
   </entries>
   <hops>
@@ -334,33 +374,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>pjm_energy-job</from>
-      <to>caiso_energy</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>caiso_energy</from>
-      <to>iso_energy_dam_rt</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>iso_energy_dam_rt</from>
-      <to>update_all_markets_Energy</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>NYISO_HAM_energy</from>
       <to>HAM_fact_update</to>
       <from_nr>0</from_nr>
@@ -378,16 +391,43 @@
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>iso-ne-dam-rt</from>
+      <to>update_all_markets_Energy</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>pjm_energy-job</from>
+      <to>caiso-energy</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>caiso-energy</from>
+      <to>iso-ne-dam-rt</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
       <note>NYISO HAM Modified</note>
-      <xloc>538</xloc>
-      <yloc>314</yloc>
+      <xloc>546</xloc>
+      <yloc>335</yloc>
       <width>136</width>
       <heigth>25</heigth>
-      <fontname/>
-      <fontsize>-1</fontsize>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="NYISO_DAM" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="NYISO_RT" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="ERCOT_DAM" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="PJM" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="CAISO" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="MISO" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="ISO_NE" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="NYISO_DAM"
+               id="NYISO_DAM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 500&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 00:00:00'), interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="NYISO_RT"
+               id="NYISO_RT"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id = 1141&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(CURDATE(), interval 1 month))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=CURDATE())) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(CURDATE(), interval 1 month) AND CURDATE()) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="ERCOT_DAM"
+               id="ERCOT_DAM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=2004&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),interval 1 month) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="PJM" id="PJM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price &#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=1&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw_jan2009_Oct2012),INTERVAL 1 MONTH))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw_jan2009_Oct2012))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB((SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw_jan2009_Oct2012),INTERVAL 1 MONTH)&#xD;
+AND (SELECT DATE_FORMAT(DATE_SUB(MAX(market_datehour),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') FROM pjm_ancillary_dam_raw_jan2009_Oct2012)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="CAISO" id="CAISO"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price &#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=3030&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=(SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub((SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw),interval 1 month)&#xD;
+AND (SELECT DATE_FORMAT(DATE_SUB(max(datetime),INTERVAL 1 DAY),'%Y-%m-%d 23:45:00') from caiso_dam_ancillary_raw)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="MISO" id="MISO"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=4000&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="ISO_NE"
+               id="ISO_NE"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE(b.timestamp) AS TIMESTAMP,&#xD;
+AVG(a.clearing_price)AS clearing_price,&#xD;
+AVG(a.thirty_day_avg)AS thirty_day_avg,&#xD;
+AVG(a.ninety_day_avg)AS ninety_day_avg,&#xD;
+AVG(a.previous_year_clearing_price)AS previous_year_clearing_price&#xD;
+FROM (SELECT* FROM bi_fact_markets_part WHERE bi_dim_market_id=4000&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00'),INTERVAL 1 MONTH) AND DATE_FORMAT(CURDATE(),'%Y-%m-%d 23:45:00')) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) ASC</Query>
+   </DataAccess>
+</CDADescriptor>

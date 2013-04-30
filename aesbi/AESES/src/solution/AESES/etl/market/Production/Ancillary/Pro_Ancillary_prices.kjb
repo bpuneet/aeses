@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>Dev_Ancillary_prices</name>
+  <name>Pro_Ancillary_prices</name>
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#47;</directory>
   <created_user>-</created_user>
-  <created_date>2011&#47;09&#47;22 18:19:23.625</created_date>
+  <created_date>2012&#47;06&#47;22 16:39:29.349</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2011&#47;09&#47;22 18:19:23.625</modified_date>
+  <modified_date>2012&#47;06&#47;22 16:39:29.349</modified_date>
     <parameters>
     </parameters>
+  <connection>
+    <name>aeses</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -34,6 +79,36 @@
    <shared_objects_file/>
   <entries>
     <entry>
+      <name>CAISO-Ancillary-job </name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;CAISO&#47;CAISO-Ancillary-job.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>191</xloc>
+      <yloc>62</yloc>
+      </entry>
+    <entry>
       <name>START</name>
       <description/>
       <type>SPECIAL</type>
@@ -50,16 +125,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>149</xloc>
-      <yloc>239</yloc>
+      <xloc>72</xloc>
+      <yloc>152</yloc>
       </entry>
     <entry>
-      <name>CAISO-Ancillary-job </name>
+      <name>ercot_All_Markets</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;CAISO&#47;CAISO-Ancillary-job.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;ERCOT&#47;ercot_All_Markets.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -80,16 +155,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>284</xloc>
-      <yloc>90</yloc>
+      <xloc>287</xloc>
+      <yloc>202</yloc>
       </entry>
     <entry>
-      <name>ercot_All_Markets </name>
+      <name>ISO-NE-JOB</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;ERCOT&#47;ercot_All_Markets.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;ISO-NE&#47;ISO-NE-JOB.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -110,38 +185,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>390</xloc>
-      <yloc>280</yloc>
-      </entry>
-    <entry>
-      <name>ISO-NE-JOB </name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;ISO-NE&#47;ISO-NE-JOB.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>497</xloc>
-      <yloc>102</yloc>
+      <xloc>402</xloc>
+      <yloc>52</yloc>
       </entry>
     <entry>
       <name>MISO-ANCILLARY-JOB</name>
@@ -149,7 +194,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;MISO&#47;MISO-ANCILLARY-JOB.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;MISO&#47;MISO-ANCILLARY-JOB.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -170,8 +215,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>609</xloc>
-      <yloc>285</yloc>
+      <xloc>499</xloc>
+      <yloc>204</yloc>
       </entry>
     <entry>
       <name>NYISO-ANCILLARY-JOB</name>
@@ -179,7 +224,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;NYISO&#47;NYISO-ANCILLARY-JOB.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;NYISO&#47;NYISO-ANCILLARY-JOB.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -200,46 +245,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>718</xloc>
-      <yloc>92</yloc>
+      <xloc>606</xloc>
+      <yloc>49</yloc>
       </entry>
     <entry>
-      <name>PJM-Ancillary-job</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;PJM&#47;PJM-Ancillary-job.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>858</xloc>
-      <yloc>287</yloc>
-      </entry>
-    <entry>
-      <name>update_all_markets_ancillary</name>
+      <name>Transformation</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;update_all_markets_ancillary.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;update_all_markets_ancillary.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -262,16 +277,16 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>973</xloc>
-      <yloc>89</yloc>
+      <xloc>934</xloc>
+      <yloc>211</yloc>
       </entry>
     <entry>
-      <name>SEM-O</name>
+      <name>PJM-Ancillary-job</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;Production&#47;Ancillary&#47;SEM-O&#47;Jobs&#47;Loading_Sheets.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;PJM&#47;PJM-Ancillary-job-new.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -292,8 +307,38 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>936</xloc>
-      <yloc>212</yloc>
+      <xloc>740</xloc>
+      <yloc>216</yloc>
+      </entry>
+    <entry>
+      <name>Irish</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;Production&#47;Ancillary&#47;SEM-O&#47;Irish&#47;Irish.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>817</xloc>
+      <yloc>64</yloc>
       </entry>
   </entries>
   <hops>
@@ -308,29 +353,29 @@
     </hop>
     <hop>
       <from>CAISO-Ancillary-job </from>
-      <to>ercot_All_Markets </to>
+      <to>ercot_All_Markets</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>ercot_All_Markets </from>
-      <to>ISO-NE-JOB </to>
+      <from>ercot_All_Markets</from>
+      <to>ISO-NE-JOB</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>ISO-NE-JOB </from>
+      <from>ISO-NE-JOB</from>
       <to>MISO-ANCILLARY-JOB</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
@@ -339,7 +384,7 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
@@ -348,25 +393,25 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>PJM-Ancillary-job</from>
-      <to>SEM-O</to>
+      <to>Irish</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>SEM-O</from>
-      <to>update_all_markets_ancillary</to>
+      <from>Irish</from>
+      <to>Transformation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>

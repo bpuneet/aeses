@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2013-02-12T12:45:36" created="2011-11-15T10:42:48" description="" updatedBy="isaiah.jefferson@aes.com" createdBy="joe">
+        <path folder="AESES/Market/Capacity_Markets.xanalyzer" name="Capacity_Markets"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="7" showDrillLinks="false" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="PIVOT" cube="Market Prices (Prices, Volume and Capacity)" catalog="Market Prices">
+        <title></title>
+        <subtitle></subtitle>
+        <measures>
+            <measure gembarOrdinal="0" gembarId="measures" id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Clearing Price]"/>
+            <measure gembarOrdinal="1" gembarId="measures" id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Thirty Day Average]"/>
+            <measure gembarOrdinal="2" gembarId="measures" id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[Previous Year Price]"/>
+        </measures>
+        <columnAttributes>
+            <attribute gembarOrdinal="0" gembarId="columns" sortOrderEnum="ASC" showSubtotal="false" formula="[Iso].[Iso]"/>
+            <attribute gembarOrdinal="1" gembarId="columns" sortOrderEnum="ASC" showSubtotal="false" formula="[Market].[Market]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market Service.Service].[Service]"/>
+            <attribute sortOrderEnum="ASC" showSubtotal="false" formula="[Market Zone.Zone].[Zone]"/>
+        </columnAttributes>
+        <rowAttributes>
+            <attribute gembarOrdinal="0" gembarId="rows" sortOrderEnum="ASC" showSubtotal="false" formula="[Year].[Year]"/>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Iso].[Iso]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="ISO-NE" formula="[Iso].[ISO-NE]"/>
+                        <member pos="0" caption="NYISO" formula="[Iso].[NYISO]"/>
+                        <member pos="0" caption="PJM" formula="[Iso].[PJM]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Year].[Year]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2009" formula="[Year].[2009]"/>
+                        <member pos="0" caption="2010" formula="[Year].[2010]"/>
+                        <member pos="0" caption="2011" formula="[Year].[2011]"/>
+                        <member pos="0" caption="2012" formula="[Year].[2012]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Market].[Market]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Annual" formula="[Market].[Annual]"/>
+                        <member pos="0" caption="SPOT MONTH" formula="[Market].[SPOT MONTH]"/>
+                        <member pos="0" caption="STRIP MONTH" formula="[Market].[STRIP MONTH]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[Market Service.Service].[Service]">
+                <predicates>
+                    <predicate operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="Capacity" formula="[Market Service.Service].[Capacity]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnitsSecondary="UNITS_0" autoRangeSecondary="true" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" customChartType="ccc_bar" chartType="CUSTOM"/>
+        <selectionFilters/>
+        <selectionItems/>
+        <pageSetup excelScalingPageTall="1" excelScalingPageWide="1" excelScalingPercent="100" excelScalingType="PERCENT" pdfOrientation="LANDSCAPE" excelOrientation="LANDSCAPE" pdfPageSize="LETTER" excelPageSize="LETTER"/>
+    </report>
+    <uiAttributes showFilterPanel="false" showFieldLayout="true" showFieldList="true">
+        <rowFieldWidths actualWidths="80"/>
+        <columnDataFieldWidths actualWidths="120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120,120">
+            <labelWidth index="0">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="1">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="2">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="3">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="4">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="5">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="6">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="7">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="8">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="9">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="10">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="11">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="12">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="13">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="14">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="15">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="16">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="17">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="18">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="19">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="20">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="21">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="22">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="23">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="24">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="25">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="26">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="27">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="28">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="29">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="30">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="31">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="32">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="33">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="34">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="35">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="36">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="37">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="38">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="39">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="40">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="41">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="42">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="43">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="44">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="45">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="46">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="47">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="48">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="49">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="50">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="51">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="52">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="53">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="54">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="55">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="56">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="57">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="58">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="59">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="60">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="61">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="62">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="63">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="64">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="65">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="66">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="67">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="68">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="69">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="70">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="71">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="72">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="73">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="74">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="75">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="76">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="77">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="78">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="79">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="80">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="81">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="82">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="83">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="84">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="85">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="86">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="87">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="88">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="89">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="90">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="91">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="92">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="93">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="94">
+                <width>0</width>
+            </labelWidth>
+            <labelWidth index="95">
+                <width>0</width>
+            </labelWidth>
+        </columnDataFieldWidths>
+        <pluginData>[]</pluginData>
+    </uiAttributes>
+</reportRecord>

@@ -1,0 +1,106 @@
+<Schema name="Market Prices (Prices and Volume) in Mondrian schema">
+  <Cube name="Market Prices (Prices and Volume) in Mondrian schema" visible="true" cache="true" enabled="true">
+    <Table name="bi_fact_markets_part">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Year">
+      <Hierarchy name="Year" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Year" visible="true" column="year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Quarter">
+      <Hierarchy name="Quarter" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Quarter" visible="true" column="quarter_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Month">
+      <Hierarchy name="Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Month" visible="true" column="month" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Year">
+      <Hierarchy name="Day of Year" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Year" visible="true" column="day_of_year" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Day of Month">
+      <Hierarchy name="Day of Month" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Day of Month" visible="true" column="day_of_month" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market">
+      <Hierarchy name="Market" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Market" visible="true" column="market" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Iso">
+      <Hierarchy name="Iso" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Iso" visible="true" column="iso" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market Service">
+      <Hierarchy name="Service" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Service" visible="true" column="service" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_market_id" highCardinality="false" name="Market Zone">
+      <Hierarchy name="Zone" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_market">
+        </Table>
+        <Level name="Zone" visible="true" column="zone" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour">
+      <Hierarchy name="Hour" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour" visible="true" column="hour" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="bi_dim_date_id" highCardinality="false" name="Hour gmt">
+      <Hierarchy name="Hour gmt" visible="true" hasAll="true" primaryKey="id">
+        <Table name="bi_dim_date">
+        </Table>
+        <Level name="Hour gmt" visible="true" column="hour_gmt" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Clearing Price" column="clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Thirty Day Average" column="thirty_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Ninety Day Average" column="ninety_day_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Previous Year Price" column="previous_year_clearing_price" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Volume (Quantity)" column="volume" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Twelve Month Rolling Average" column="one_year_avg" datatype="Integer" formatString="##0.00" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

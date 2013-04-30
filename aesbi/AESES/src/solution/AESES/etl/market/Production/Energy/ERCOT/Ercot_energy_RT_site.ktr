@@ -67,6 +67,25 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Row Normaliser</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Row Normaliser 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>file href</from><to>Row Normaliser 2</to><enabled>Y</enabled> </hop>  <hop> <from>filename</from><to>Row Normaliser</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Strings cut</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut</from><to>Regex Evaluation</to><enabled>Y</enabled> </hop>  <hop> <from>File exists</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Strings cut 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows 2</from><to>Dummy (do nothing) 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows 2</from><to>Run SSH commands</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>js</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut 2</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>js</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>Regex Evaluation</from><to>Filter rows</to><enabled>Y</enabled> </hop>  </order>
   <step>
@@ -1715,7 +1734,7 @@ var filedownloadlink = &quot;http:&#47;&#47;mis.ercot.com&#47;misdownload&#47;se
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -1732,23 +1751,6 @@ var filedate2 = substr(filedate, 9,2);
 var filedate3 = substr(filedate, 11,2);
 var checkPoint = (str2date(dd+&quot;&#47;&quot;+mm+&quot;&#47;&quot;+yyyy+&quot; &quot;+filedate2+&quot;:&quot;+filedate3+&quot;:00&quot;,&quot;dd&#47;MM&#47;yyyy HH:mm:ss&quot;));
 
-&#47;&#47;var currDate = new Date();
-&#47;&#47;var beforeDate = dateAdd(currDate,&quot;hh&quot;,-1)
-
-&#47;&#47;&#47;&#47;&#47;
-&#47;&#47;if(filedate3&lt;15){
-&#47;&#47;finalfiledate = filedate1+filedate2+&quot; (1)&quot;
-&#47;&#47;} 
-&#47;&#47;else if(str2num(filedate3)&lt;30 &amp;&amp; str2num(filedate3)&gt;=15){
-&#47;&#47;finalfiledate = filedate1+filedate2+&quot; (2)&quot;
-&#47;&#47;}
-&#47;&#47;else if(str2num(filedate3)&lt;45 &amp;&amp; str2num(filedate3)&gt;=30){
-&#47;&#47;finalfiledate = filedate1+filedate2+&quot; (3)&quot;
-&#47;&#47;}
-&#47;&#47;else{
-&#47;&#47;finalfiledate = filedate1+filedate2+&quot; (4)&quot;
-&#47;&#47;}
-&#47;&#47;&#47;&#47;&#47;&#47;&#47;
 
 if(filedate3==00){
 finalfiledate = filedate1+filedate2+&quot;_1&quot;
@@ -1762,16 +1764,16 @@ finalfiledate = filedate1+filedate2+&quot;_3&quot;
 else{
 finalfiledate = filedate1+filedate2+&quot;_4&quot;
 }
+&#47;&#47;Previous scripts
+&#47;&#47;var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_RT_Energy&#47;&quot; + finalfiledate + &quot;.zip&quot;;
+&#47;&#47;var filename = &quot;&#47;home&#47;anubha&#47;ercot&#47;&quot; + finalfiledate + &quot;.zip&quot;;
 
-&#47;&#47;var wgett =  &quot;curl&quot; + &quot; &quot;  + fileurllink + &quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; + filedate + &quot;.zip&quot;;
+&#47;&#47;Modified Scripts on Dec4
+var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_RT_Energy&#47;&quot; + finalfiledate + &quot;.zip&quot;;
+var filename = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_RT_Energy&#47;&quot; + finalfiledate + &quot;.zip&quot;;
 
-var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_RT_Energy&#47;&quot; + finalfiledate + &quot;.zip&quot;;
-
-&#47;&#47;var wgett =  &quot;curl&quot; + &quot; \&quot;&quot;  + filedownloadlink + &quot;\&quot; &quot; + &quot;-o&quot; + &quot; &quot; + &quot;&#47;home&#47;anubha&#47;ercot&#47;&quot; + finalfiledate + &quot;.zip&quot;;
-
-var filename = &quot;&#47;home&#47;anubha&#47;ercot&#47;&quot; + finalfiledate + &quot;.zip&quot;;
       
-&#47;&#47;&#47;var&#47;www&#47;html&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;</jsScript_script>
+</jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
         <jsScript_name>substr_Sample</jsScript_name>
         <jsScript_script>dateDiff(var,var,var)&#47;&#47; Perform the substring function

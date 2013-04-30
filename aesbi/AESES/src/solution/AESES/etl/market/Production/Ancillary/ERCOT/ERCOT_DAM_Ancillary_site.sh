@@ -1,2 +1,2 @@
-cd /usr/local/pentaho-bi-suite/pentaho/design-tools/data-integration
-./pan.sh -file=/var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_DAM_Ancillary.ktr >> /var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_download.log
+cd /usr/local/pentaho-bi-suite/pentaho-4.8/design-tools/data-integration
+./pan.sh -file=/var/www/html/cron/Production/Ancillary/ERCOT/ERCOT_DAM_Ancillary.ktr >> /usr/local/data/bi_data/logs/ERCOT_download.log

@@ -11,6 +11,50 @@
   <modified_date>2011&#47;10&#47;20 11:00:43.329</modified_date>
     <parameters>
     </parameters>
+  <connection>
+    <name>aeses</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50000</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -59,7 +103,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;Fleet_kPI_SCADA_JC.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;Fleet_kPI_SCADA_JC.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -89,7 +133,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectLA&#47;Fleet_KPI_LA.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectLA&#47;Fleet_KPI_LA.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -119,7 +163,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectLM&#47;Fleet_KPI_LM.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectLM&#47;Fleet_KPI_LM.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -140,8 +184,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>406</xloc>
-      <yloc>115</yloc>
+      <xloc>855</xloc>
+      <yloc>378</yloc>
       </entry>
     <entry>
       <name>JC_GoogleSS</name>
@@ -149,7 +193,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;Google_Fleet_KPI_JC.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;Google_Fleet_KPI_JC.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -172,8 +216,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>548</xloc>
-      <yloc>41</yloc>
+      <xloc>379</xloc>
+      <yloc>168</yloc>
       </entry>
     <entry>
       <name>AN_Scada</name>
@@ -181,7 +225,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectAN&#47;Fleet_KPI_AM.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectAN&#47;Fleet_KPI_AM.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -202,7 +246,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>700</xloc>
+      <xloc>701</xloc>
       <yloc>383</yloc>
       </entry>
     <entry>
@@ -211,7 +255,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;jira_files&#47;jira_data_all_projects.kjb</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;jira_files&#47;jira_data_all_projects.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -241,7 +285,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;All-Projects-Jira.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;All-Projects-Jira.ktr</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -286,15 +330,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>LA_Scada</from>
-      <to>LM_Scada</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>JC_GoogleSS</from>
       <to>jira_data_all_projects</to>
       <from_nr>0</from_nr>
@@ -322,12 +357,21 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>LM_Scada</from>
+      <from>AN_Scada</from>
+      <to>LM_Scada</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>LA_Scada</from>
       <to>JC_GoogleSS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
   </hops>

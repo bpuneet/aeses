@@ -100,8 +100,8 @@
     <access>JNDI</access>
     <database>aeses</database>
     <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -143,8 +143,27 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence</from><to>Add sequence 2</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator 2</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence 2</from><to>Calculator 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>File exists</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>js</to><enabled>Y</enabled> </hop>  <hop> <from>js</from><to>Run SSH commands</to><enabled>Y</enabled> </hop>  <hop> <from>Clearing_price</from><to>Value Mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Text file input</from><to>Clearing_price</to><enabled>Y</enabled> </hop>  <hop> <from>Run SSH commands</from><to>Text file input</to><enabled>Y</enabled> </hop>  <hop> <from>Value Mapper</from><to>24 hour</to><enabled>Y</enabled> </hop>  <hop> <from>24 hour</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>To add Id</to><enabled>Y</enabled> </hop>  <hop> <from>To add Id</from><to>caiso_dam_ancillary_raw</to><enabled>Y</enabled> </hop>  <hop> <from>maxdate</from><to>yyymmdd</to><enabled>Y</enabled> </hop>  <hop> <from>yyymmdd</from><to>Clone row</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Clone row</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence</from><to>Add sequence 2</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator 2</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence 2</from><to>Calculator 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>File exists</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>js</to><enabled>Y</enabled> </hop>  <hop> <from>js</from><to>Run SSH commands</to><enabled>Y</enabled> </hop>  <hop> <from>Run SSH commands</from><to>Text file input</to><enabled>Y</enabled> </hop>  <hop> <from>Value Mapper</from><to>24 hour</to><enabled>Y</enabled> </hop>  <hop> <from>To add Id</from><to>caiso_dam_ancillary_raw</to><enabled>Y</enabled> </hop>  <hop> <from>maxdate</from><to>yyymmdd</to><enabled>Y</enabled> </hop>  <hop> <from>yyymmdd</from><to>Clone row</to><enabled>Y</enabled> </hop>  <hop> <from>Clearing_price</from><to>Value Mapper</to><enabled>Y</enabled> </hop>  <hop> <from>Text file input</from><to>Clearing_price</to><enabled>Y</enabled> </hop>  <hop> <from>24 hour</from><to>Calculator</to><enabled>Y</enabled> </hop>  <hop> <from>Calculator</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows 2</from><to>To add Id</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows 2</from><to>Dummy (do nothing) 2</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>24 hour</name>
     <type>ScriptValueMod</type>
@@ -156,7 +175,7 @@
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -181,8 +200,8 @@ date=OPR_DT;
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>799</xloc>
-      <yloc>141</yloc>
+      <xloc>781</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -269,8 +288,8 @@ date=OPR_DT;
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>799</xloc>
-      <yloc>247</yloc>
+      <xloc>787</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -406,8 +425,8 @@ date=OPR_DT;
         <norm>Clearing_Price</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>703</xloc>
-      <yloc>230</yloc>
+      <xloc>659</xloc>
+      <yloc>197</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -451,6 +470,24 @@ date=OPR_DT;
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>407</xloc>
       <yloc>10</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy (do nothing) 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>904</xloc>
+      <yloc>273</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -507,6 +544,34 @@ date=OPR_DT;
     </step>
 
   <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Dummy (do nothing) 2</send_true_to>
+<send_false_to>To add Id</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>datetime</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>796</xloc>
+      <yloc>377</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Modified Java Script Value</name>
     <type>ScriptValueMod</type>
     <description/>
@@ -517,7 +582,7 @@ date=OPR_DT;
            <schema_name/>
            </partitioning>
     <compatible>Y</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
@@ -561,10 +626,10 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
     <commandfieldname>wgett</commandfieldname>
     <port>22</port>
     <servername>enst01ap02pr.aesenergystorage.com</servername>
-    <userName>puneet</userName>
+    <userName>harshavardhan.k</userName>
     <password>Encrypted </password>
     <usePrivateKey>Y</usePrivateKey>
-    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;pass</keyFileName>
+    <keyFileName>&#47;var&#47;www&#47;html&#47;cron&#47;ssh-key&#47;passh</keyFileName>
     <passPhrase/>
     <stdOutFieldName>stdOut</stdOutFieldName>
     <stdErrFieldName>stdErr</stdErrFieldName>
@@ -636,7 +701,7 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
     <name>Text file input</name>
     <type>TextFileInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -1190,8 +1255,8 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>681</xloc>
-      <yloc>78</yloc>
+      <xloc>656</xloc>
+      <yloc>79</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1207,10 +1272,12 @@ var filename = date2.replace(&quot;&#47;&quot;,&quot;&quot;).substr(0,8);
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
+
+
 
 var id = 0;
 if (ANC_TYPE==&apos;NR&apos;)
@@ -1229,8 +1296,8 @@ else
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>947</xloc>
-      <yloc>322</yloc>
+      <xloc>917</xloc>
+      <yloc>372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1348,8 +1415,8 @@ else
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>777</xloc>
-      <yloc>28</yloc>
+      <xloc>770</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1405,8 +1472,8 @@ else
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>994</xloc>
-      <yloc>170</yloc>
+      <xloc>913</xloc>
+      <yloc>491</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1422,13 +1489,17 @@ else
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
-              
-var wgett =  &quot;wget -O &#47;var&#47;www&#47;html&#47;caiso&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
-var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;caiso&#47;&quot; +filename+ &quot;.zip&quot;;
+&#47;&#47;previous script 
+&#47;&#47;var wgett =  &quot;wget -O &#47;var&#47;www&#47;html&#47;caiso&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
+&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;caiso&#47;&quot; +filename+ &quot;.zip&quot;;
+
+&#47;&#47;Modified script on DEC4th
+var wgett =  &quot;wget -O &#47;usr&#47;local&#47;data&#47;bi_data&#47;caiso&#47;&quot;+filename +&quot;.zip&quot; + &quot; \&quot;&quot;+ url+&quot;\&quot;&quot;
+var final_url = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;caiso&#47;&quot; +filename+ &quot;.zip&quot;;
              
 </jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>

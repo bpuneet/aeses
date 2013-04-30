@@ -101,7 +101,7 @@
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -116,6 +116,25 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
     </attributes>
   </connection>
   <order>
@@ -992,8 +1011,8 @@ else
     <table>ercot_dam_ancillary_raw</table>
     <commit>1000</commit>
     <truncate>N</truncate>
-    <ignore_errors>Y</ignore_errors>
-    <use_batch>N</use_batch>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -1012,10 +1031,6 @@ else
         <field>
           <column_name>time_stamp</column_name>
           <stream_name>time</stream_name>
-        </field>
-        <field>
-          <column_name>hour</column_name>
-          <stream_name>hour</stream_name>
         </field>
         <field>
           <column_name>total</column_name>
@@ -1255,15 +1270,18 @@ else
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
 var s = date2str(date,&quot;yyyyMMdd&quot;);
 
+&#47;&#47; previous script
+&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; +s+ &quot;.zip&quot;;
 
-var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_DAM_Ancillary&#47;&quot; +s+ &quot;.zip&quot;;
+&#47;&#47;Modified script on Dec4th
+var final_url = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_DAM_Ancillary&#47;&quot; +s+ &quot;.zip&quot;;
 
 
 

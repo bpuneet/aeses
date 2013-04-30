@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="LM_project" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+      <Connection id="LM" type="sql.jndi">
+         <Jndi>aeses</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM_project"
+               id="LM_project"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT &#xD;
+DATE(b.timestamp) AS "TIMESTAMP",&#xD;
+round(AVG(availability_factor),2) AS "Availability Factor",&#xD;
+round(AVG(planned_outage_rate),2) AS "Planned Outage Rate",&#xD;
+round(AVG(unplanned_outage_rate),2) AS "Unplanned Outage Rate",&#xD;
+round(AVG(market_capture),2) AS "Market capture",&#xD;
+round(AVG(revenue_capture),2) AS "Revenue Capture"&#xD;
+&#xD;
+FROM (SELECT * FROM bi_fact_fleet_kpis WHERE bi_dim_fleet_id = 300&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = DATE_SUB(DATE_FORMAT(&#xD;
+(select timestamp from bi_dim_date where id=&#xD;
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null))&#xD;
+,'%Y-%m-01 00:00:00'), INTERVAL 1 month))&#xD;
+AND&#xD;
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE &#xD;
+TIMESTAMP BETWEEN DATE_SUB(DATE_FORMAT(&#xD;
+(select timestamp from bi_dim_date where id=&#xD;
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)),'%Y-%m-%d 00:00:00'), INTERVAL 1 month)&#xD;
+ AND DATE_SUB(DATE_FORMAT(&#xD;
+(select timestamp from bi_dim_date where id=&#xD;
+(select max(bi_dim_date_id) from bi_fact_fleet_kpis where bi_dim_fleet_id = 300 and market_capture is not null)),'%Y-%m-%d 23:45:00'), INTERVAL 0 MONTH)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY DATE(b.timestamp)&#xD;
+ORDER BY  DATE(b.timestamp) desc ;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LM" id="LM"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DATE_FORMAT(DATE(b.timestamp),'%Y-%b') AS "TIMESTAMP",&#xD;
+ sum(tickets_created)as "tickets_created",&#xD;
+ sum(tickets_completed)as "tickets_completed",&#xD;
+ sum(major_count)as "major_count",&#xD;
+ sum(critical_count) as "critical_count",&#xD;
+ sum(minor_count)as "minor_count"&#xD;
+&#xD;
+FROM (SELECT * FROM bi_fact_fleet_kpis where jira_id = 300 and bi_dim_fleet_id = 300&#xD;
+AND bi_dim_date_id BETWEEN &#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP = date_sub(DATE_FORMAT(curdate(),'%Y-%m-%d 00:00:00'), interval 8 month))&#xD;
+AND&#xD;
+(SELECT id FROM bi_dim_date WHERE TIMESTAMP=date_sub(DATE_FORMAT(curdate(),'%Y-%m-%d 23:45:00'), interval 0 month))) a&#xD;
+INNER JOIN &#xD;
+(SELECT * FROM bi_dim_date WHERE TIMESTAMP BETWEEN date_sub(DATE_FORMAT(curdate(),'%Y-%m-%d 00:00:00'), interval 8 month) AND date_sub(DATE_FORMAT(curdate(),'%Y-%m-%d 23:45:00'), interval 0 month)) b&#xD;
+ ON a.bi_dim_date_id = b.id &#xD;
+GROUP BY month(b.timestamp)&#xD;
+ORDER BY  month(b.timestamp) ASC</Query>
+   </DataAccess>
+</CDADescriptor>

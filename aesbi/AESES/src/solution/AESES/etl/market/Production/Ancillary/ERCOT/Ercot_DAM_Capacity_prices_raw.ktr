@@ -75,7 +75,7 @@
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -90,6 +90,25 @@
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
     </attributes>
   </connection>
   <order>
@@ -226,6 +245,10 @@
         <field>
           <column_name>MCPC</column_name>
           <stream_name>MCPC</stream_name>
+        </field>
+        <field>
+          <column_name>DSTFlag</column_name>
+          <stream_name>DSTFlag</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -375,6 +398,10 @@ var timestamp = dateAdd(DeliveryDate,&quot;d&quot;,1);
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>DSTFlag</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>date_time</name>
         <rename>date_time</rename>
@@ -415,8 +442,12 @@ var timestamp = dateAdd(DeliveryDate,&quot;d&quot;,1);
 var s = date2str(date,&quot;yyyyMMdd&quot;);
 
 
+&#47;&#47;previous script
+&#47;&#47;var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_Capacity&#47;&quot; +s+ &quot;.zip&quot;;
 
-var final_url = &quot;http:&#47;&#47;enst01ap02pr.aesenergystorage.com&#47;ercot&#47;ERCOT_Capacity&#47;&quot; +s+ &quot;.zip&quot;;
+&#47;&#47;Modified script on Dec4th
+var final_url = &quot;&#47;usr&#47;local&#47;data&#47;bi_data&#47;ERCOT&#47;ERCOT_Capacity&#47;&quot; +s+ &quot;.zip&quot;;
+
 
 
 
@@ -762,6 +793,21 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DSTFlag</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
         <ifnull/>
         <position>-1</position>
         <length>-1</length>

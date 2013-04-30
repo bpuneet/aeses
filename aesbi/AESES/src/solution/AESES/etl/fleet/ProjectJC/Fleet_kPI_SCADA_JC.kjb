@@ -12,6 +12,50 @@
     <parameters>
     </parameters>
   <connection>
+    <name>aeses</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>50000</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>dev</name>
     <server>enst01db01dv.aesenergystorage.com</server>
     <type>MYSQL</type>
@@ -38,9 +82,9 @@
   </connection>
   <connection>
     <name>pro</name>
-    <server>enst01db01pr.aesenergystorage.com</server>
+    <server>enst01db02pr.aesenergystorage.com</server>
     <type>MYSQL</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>aeses</database>
     <port>3306</port>
     <username>puneet.b</username>
@@ -89,7 +133,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;Fleet_kPI_SCADA_JC_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -112,8 +156,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>374</xloc>
-      <yloc>229</yloc>
+      <xloc>314</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>Fleet_kPI_SCADA_JC_2</name>
@@ -121,7 +165,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;Fleet_kPI_SCADA_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -144,8 +188,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>585</xloc>
-      <yloc>226</yloc>
+      <xloc>454</xloc>
+      <yloc>118</yloc>
       </entry>
     <entry>
       <name>Fleet_kPI_SCADA_JC_3</name>
@@ -153,7 +197,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;Fleet_kPI_SCADA_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -176,8 +220,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>766</xloc>
-      <yloc>226</yloc>
+      <xloc>681</xloc>
+      <yloc>121</yloc>
       </entry>
     <entry>
       <name>Truncate tables</name>
@@ -187,15 +231,15 @@
       <arg_from_previous>N</arg_from_previous>
       <fields>
         <field>
-          <name>maxdate_JC</name>
+          <name>maxdate_jc</name>
           <schemaname/>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>220</xloc>
-      <yloc>286</yloc>
+      <xloc>223</xloc>
+      <yloc>121</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_1</name>
@@ -203,7 +247,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -226,8 +270,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>616</xloc>
-      <yloc>363</yloc>
+      <xloc>456</xloc>
+      <yloc>236</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_1 (2)</name>
@@ -235,7 +279,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_1.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -258,8 +302,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>845</xloc>
-      <yloc>358</yloc>
+      <xloc>685</xloc>
+      <yloc>231</yloc>
       </entry>
     <entry>
       <name>Abort job 3</name>
@@ -269,8 +313,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>740</xloc>
-      <yloc>572</yloc>
+      <xloc>580</xloc>
+      <yloc>445</yloc>
       </entry>
     <entry>
       <name>Abort job 4</name>
@@ -280,8 +324,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>239</xloc>
-      <yloc>570</yloc>
+      <xloc>79</xloc>
+      <yloc>443</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_2 (2)</name>
@@ -289,7 +333,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -312,8 +356,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>613</xloc>
-      <yloc>490</yloc>
+      <xloc>453</xloc>
+      <yloc>363</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_2</name>
@@ -321,7 +365,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -344,8 +388,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>847</xloc>
-      <yloc>489</yloc>
+      <xloc>687</xloc>
+      <yloc>362</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -355,8 +399,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>379</xloc>
-      <yloc>365</yloc>
+      <xloc>219</xloc>
+      <yloc>238</yloc>
       </entry>
     <entry>
       <name>Abort job 2</name>
@@ -366,8 +410,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1065</xloc>
-      <yloc>357</yloc>
+      <xloc>905</xloc>
+      <yloc>230</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -386,8 +430,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>78</xloc>
-      <yloc>285</yloc>
+      <xloc>84</xloc>
+      <yloc>121</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_2 (3)</name>
@@ -395,7 +439,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -418,8 +462,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>366</xloc>
-      <yloc>490</yloc>
+      <xloc>206</xloc>
+      <yloc>363</yloc>
       </entry>
     <entry>
       <name>Abort job 4 2</name>
@@ -429,8 +473,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>460</xloc>
-      <yloc>574</yloc>
+      <xloc>300</xloc>
+      <yloc>447</yloc>
       </entry>
     <entry>
       <name>SCADA_output_intensity_JC_2 2</name>
@@ -438,7 +482,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#47;var&#47;www&#47;html&#47;cron&#47;fleet&#47;Production&#47;ProjectJC&#47;SCADA_output_intensity_JC_2.ktr</filename>
+      <filename>&#47;usr&#47;local&#47;data&#47;bi_data&#47;ETL&#47;fleet&#47;Production&#47;ProjectJC&#47;JC_SCADA_OI_TEST_S1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -461,8 +505,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1067</xloc>
-      <yloc>485</yloc>
+      <xloc>907</xloc>
+      <yloc>358</yloc>
       </entry>
     <entry>
       <name>Abort job 3 2</name>
@@ -472,8 +516,48 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>961</xloc>
-      <yloc>570</yloc>
+      <xloc>801</xloc>
+      <yloc>443</yloc>
+      </entry>
+    <entry>
+      <name>DUMMY</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>N</start>
+      <dummy>Y</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>17</yloc>
+      </entry>
+    <entry>
+      <name>DUMMY 2</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>N</start>
+      <dummy>Y</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>675</xloc>
+      <yloc>16</yloc>
       </entry>
   </entries>
   <hops>
@@ -518,7 +602,7 @@
       <to>Fleet_kPI_SCADA_JC_2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -642,6 +726,24 @@
     <hop>
       <from>SCADA_output_intensity_JC_2 2</from>
       <to>Abort job 3 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Fleet_kPI_SCADA_JC_2</from>
+      <to>DUMMY</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Fleet_kPI_SCADA_JC_3</from>
+      <to>DUMMY 2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

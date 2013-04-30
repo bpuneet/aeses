@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -61,21 +62,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2011&#47;04&#47;15 14:09:47.847</created_date>
+  <created_date>2012&#47;11&#47;09 10:38:24.744</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2011&#47;04&#47;15 14:09:47.847</modified_date>
+  <modified_date>2012&#47;11&#47;09 10:38:24.744</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>aes-pr</name>
-    <server>enst01db01pr.aesenergystorage.com</server>
+    <name>aeses</name>
+    <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>aeses</database>
-    <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3fe9b</password>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -85,64 +86,76 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
   <connection>
-    <name>dev</name>
-    <server>enst01db01dv.aesenergystorage.com</server>
-    <type>MYSQL</type>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
     <access>Native</access>
-    <database>aeses</database>
-    <port>3306</port>
-    <username>puneet.b</username>
-    <password>Encrypted 2be98afc86af49b83a61891228ec3ff9b</password>
+    <database>pentaho-instaview</database>
+    <port>50006</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50006</attribute></attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>clone</from><to>more months</to><enabled>Y</enabled> </hop>  <hop> <from>latest date</from><to>clone</to><enabled>Y</enabled> </hop>  <hop> <from>more months</from><to>date format</to><enabled>Y</enabled> </hop>  <hop> <from>date format</from><to>date + months</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>File exists</from><to>Filter existing rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter existing rows</from><to>file does not exist</to><enabled>Y</enabled> </hop>  <hop> <from>Filter existing rows</from><to>input files which exist</to><enabled>Y</enabled> </hop>  <hop> <from> remove unwanted texts</from><to>bad texts</to><enabled>Y</enabled> </hop>  <hop> <from> remove unwanted texts</from><to>date conversion GMT</to><enabled>Y</enabled> </hop>  <hop> <from>date conversion GMT</from><to>select all fields</to><enabled>Y</enabled> </hop>  <hop> <from>latest date fact</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>select all fields</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product)</from><to>greater than fact date</to><enabled>Y</enabled> </hop>  <hop> <from>greater than fact date</from><to>no rows</to><enabled>Y</enabled> </hop>  <hop> <from>input files which exist</from><to>format GMT</to><enabled>Y</enabled> </hop>  <hop> <from>format GMT</from><to> remove unwanted texts</to><enabled>Y</enabled> </hop>  <hop> <from>greater than fact date</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>date + months</from><to>Get System Info</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>till today</to><enabled>Y</enabled> </hop>  <hop> <from>till today</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>till today</from><to>false</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>File exists</from><to>Filter existing rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter existing rows</from><to>file does not exist</to><enabled>Y</enabled> </hop>  <hop> <from>Filter existing rows</from><to>input files which exist</to><enabled>Y</enabled> </hop>  <hop> <from>final_url</from><to>File exists</to><enabled>Y</enabled> </hop>  <hop> <from>input files which exist</from><to>seq</to><enabled>Y</enabled> </hop>  <hop> <from>RN</from><to>req</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>RD</to><enabled>Y</enabled> </hop>  <hop> <from>req</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>seq</from><to>RN</to><enabled>Y</enabled> </hop>  <hop> <from>Join Rows (cartesian product)</from><to>greater than fact date</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>greater than fact date</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>greater than fact date</from><to>no rows</to><enabled>Y</enabled> </hop>  <hop> <from>latest date fact</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Join Rows (cartesian product)</to><enabled>Y</enabled> </hop>  <hop> <from>Strings cut</from><to>ts</to><enabled>Y</enabled> </hop>  <hop> <from>Calc</from><to>nulls</to><enabled>Y</enabled> </hop>  <hop> <from>RD</from><to>Strings cut</to><enabled>Y</enabled> </hop>  <hop> <from>ts</from><to>sel</to><enabled>Y</enabled> </hop>  <hop> <from>sel</from><to>Calc</to><enabled>Y</enabled> </hop>  <hop> <from>nulls</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>latest date</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>final_url</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 5</from><to>maxdate entry 2</to><enabled>Y</enabled> </hop>  <hop> <from>latest date</from><to>Select values 5</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name> remove unwanted texts</name>
-    <type>FilterRows</type>
+    <name>Calc</name>
+    <type>Calculator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>bad texts</send_true_to>
-<send_false_to>date conversion GMT</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>EPT_Hour_Ending</leftvalue>
- <function>=</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>End of Report</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
+       <calculation><field_name>RTO_RPRC</field_name>
+<calc_type>ADD</calc_type>
+<field_a>RTO Regulation Performance</field_a>
+<field_b>RTO Regulation Capability</field_b>
+<field_c/>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>RMCP</field_name>
+<calc_type>MULTIPLY</calc_type>
+<field_a>RTO_RPRC</field_a>
+<field_b>RTO Marginal Benefits Factor</field_b>
+<field_c/>
+<value_type>Number</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>517</xloc>
-      <yloc>191</yloc>
+      <xloc>690</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -164,8 +177,8 @@
     <addresultfilenames>N</addresultfilenames>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>29</yloc>
+      <xloc>199</xloc>
+      <yloc>88</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -192,32 +205,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>388</xloc>
-      <yloc>114</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>today</name>
-        <type>today end</type>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>259</xloc>
-      <yloc>191</yloc>
+      <xloc>256</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -246,14 +235,220 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>829</xloc>
-      <yloc>157</yloc>
+      <xloc>604</xloc>
+      <yloc>287</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>RD</name>
+    <type>Denormaliser</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <key_field>rn</key_field>
+      <group>
+        <field>
+          <name>HOUR_T</name>
+          </field>
+        </group>
+      <fields>
+        <field>
+          <field_name>colvalue</field_name>
+          <key_value>2</key_value>
+          <target_name>RTO Regulation Performance</target_name>
+          <target_type>String</target_type>
+          <target_format/>
+          <target_length>-1</target_length>
+          <target_precision>-1</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>-</target_aggregation_type>
+          </field>
+        <field>
+          <field_name>colvalue</field_name>
+          <key_value>3</key_value>
+          <target_name>RTO Regulation Capability</target_name>
+          <target_type>String</target_type>
+          <target_format/>
+          <target_length>-1</target_length>
+          <target_precision>-1</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>-</target_aggregation_type>
+          </field>
+        <field>
+          <field_name>colvalue</field_name>
+          <key_value>4</key_value>
+          <target_name>RTO Marginal Benefits Factor</target_name>
+          <target_type>String</target_type>
+          <target_format/>
+          <target_length>-1</target_length>
+          <target_precision>-1</target_precision>
+          <target_decimal_symbol/>
+          <target_grouping_symbol/>
+          <target_currency_symbol/>
+          <target_null_string/>
+          <target_aggregation_type>-</target_aggregation_type>
+          </field>
+        </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>544</xloc>
+      <yloc>184</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>RN</name>
+    <type>Normaliser</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <typefield>HOUR_T</typefield>
+    <fields>      <field>        <name>Field2</name>
+        <value>00</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field3</name>
+        <value>01</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field4</name>
+        <value>02</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field5</name>
+        <value>03</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field6</name>
+        <value>04</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field7</name>
+        <value>05</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field8</name>
+        <value>06</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field9</name>
+        <value>07</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field10</name>
+        <value>08</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field11</name>
+        <value>09</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field12</name>
+        <value>10</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field13</name>
+        <value>11</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field14</name>
+        <value>12</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field15</name>
+        <value>13</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field16</name>
+        <value>14</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field17</name>
+        <value>15</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field18</name>
+        <value>16</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field19</name>
+        <value>17</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field20</name>
+        <value>18</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field21</name>
+        <value>19</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field22</name>
+        <value>20</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field23</name>
+        <value>21</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field24</name>
+        <value>22</value>
+        <norm>colvalue</norm>
+        </field>      <field>        <name>Field25</name>
+        <value>23</value>
+        <norm>colvalue</norm>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>428</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
     <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>RMCP</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>rt_load</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>lost_opportunity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>reg_purchases</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>reg_self_scheduled</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>reg_market_assigned</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>market_datehour</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>789</xloc>
+      <yloc>183</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -281,8 +476,45 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>808</xloc>
-      <yloc>37</yloc>
+      <xloc>455</xloc>
+      <yloc>291</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>%%java.io.tmpdir%%</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>HOUR_T</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+      </field>
+      <field>
+        <name>rn</name>
+        <ascending>N</ascending>
+        <case_sensitive>N</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>502</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -297,7 +529,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aes-pr</connection>
+    <connection>aeses</connection>
     <schema/>
     <table>pjm_ancillary_dam_raw</table>
     <commit>100</commit>
@@ -346,247 +578,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>979</xloc>
-      <yloc>232</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>bad texts</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>658</xloc>
-      <yloc>219</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>clone</name>
-    <type>CloneRow</type>
-    <description/>
-    <distribute>N</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <nrclones>1000</nrclones>
-    <addcloneflag>N</addcloneflag>
-    <cloneflagfield/>
-    <nrcloneinfield>N</nrcloneinfield>
-    <nrclonefield/>
-    <addclonenum>N</addclonenum>
-    <clonenumfield/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>172</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>date + months</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>date</field_name>
-<calc_type>ADD_MONTHS</calc_type>
-<field_a>url_date</field_a>
-<field_b>months</field_b>
-<field_c/>
-<value_type>Date</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>217</xloc>
-      <yloc>274</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>date conversion GMT</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel/>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#47;&#47;Script here
-
-
-var years = GMT.substr(6,4);
-var m = GMT.substr(0,2);
-var d = GMT.substr(3,2);
-var hh= GMT.substr(11,2)  
-var mint=&quot;:00:00&quot;;
-var hr = hh+mint;
-
-var dt = replace(hr,&quot;24&quot;,&quot;00&quot;);
-
-
- var market_datehour = years+&quot;-&quot;+m+&quot;-&quot;+d+&quot; &quot;+ dt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>years</name>
-        <rename>years</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>m</name>
-        <rename>m</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>d</name>
-        <rename>d</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>hh</name>
-        <rename>hh</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>mint</name>
-        <rename>mint</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>hr</name>
-        <rename>hr</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>dt</name>
-        <rename>dt</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>market_datehour</name>
-        <rename>market_datehour</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>667</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>date format</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>url_date</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>months</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>url_date</name>
-        <rename>url_date</rename>
-        <type>Date</type>
-        <length>6</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMM</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>149</xloc>
-      <yloc>152</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>false</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>230</xloc>
-      <yloc>36</yloc>
+      <xloc>765</xloc>
+      <yloc>365</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -603,8 +596,8 @@ var dt = replace(hr,&quot;24&quot;,&quot;00&quot;);
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>323</xloc>
-      <yloc>245</yloc>
+      <xloc>170</xloc>
+      <yloc>295</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -613,20 +606,26 @@ var dt = replace(hr,&quot;24&quot;,&quot;00&quot;);
     <name>final_url</name>
     <type>ScriptValueMod</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <compatible>N</compatible>
-    <optimizationLevel/>
+    <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var s = date2str(date,&quot;yyyyMM&quot;);
-var final_url=&quot;http:&#47;&#47;pjm.com&#47;pub&#47;account&#47;pjm-regulation-data&#47;&quot; + s+ &quot;.csv&quot;
+var s = date2str(url_date,&quot;yyyyMMdd&quot;);
+
+&#47;&#47; Previous url
+&#47;&#47;var final_url=&quot;http:&#47;&#47;pjm.com&#47;pub&#47;account&#47;pjm-regulation-data&#47;&quot; + s+ &quot;.csv&quot;
+
+&#47;&#47; present pjm url
+
+var final_url=&quot;http:&#47;&#47;www.pjm.com&#47;pub&#47;account&#47;lmp&#47;&quot; + s+ &quot;.csv&quot;
 
 
 
@@ -677,7 +676,13 @@ Alert(date2str(dValue,&quot;E.MMM.yyyy&quot;,&quot;DE&quot;));
 Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;));
 Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&quot;));
      </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>final_url</name>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>s</name>
+        <rename>s</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>final_url</name>
         <rename>final_url</rename>
         <type>String</type>
         <length>-1</length>
@@ -685,71 +690,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>319</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>format GMT</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>EPT_Hour_Ending</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>GMT_ Hour_Ending</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>RMCP</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM RT Load </name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Lost Opportunity Cost Credit </name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Reg Purchases </name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Self-Scheduled Reg </name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM-Assigned Reg </name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>GMT_ Hour_Ending</name>
-        <rename>GMT</rename>
-        <type>String</type>
-        <length>13</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>525</xloc>
-      <yloc>90</yloc>
+      <xloc>147</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -776,8 +718,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>834</xloc>
-      <yloc>237</yloc>
+      <xloc>601</xloc>
+      <yloc>370</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -800,10 +742,10 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <enclosure>&quot;</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>Y</header>
+    <header>N</header>
     <nr_headerlines>3</nr_headerlines>
     <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
+    <nr_footerlines>104</nr_footerlines>
     <line_wrapped>N</line_wrapped>
     <nr_wraps>1</nr_wraps>
     <layout_paged>N</layout_paged>
@@ -819,7 +761,7 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <encoding/>
     <add_to_result_filenames>N</add_to_result_filenames>
     <file>
-      <name>http:&#47;&#47;pjm.com&#47;pub&#47;account&#47;pjm-regulation-data&#47;200901.csv</name>
+      <name>http:&#47;&#47;www.pjm.com&#47;pub&#47;account&#47;lmp&#47;20121101.csv</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -828,10 +770,18 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
       <compression>None</compression>
     </file>
     <filters>
+      <filter>
+        <filter_string>Base64: UlRPIFJlZ3VsYXRpb24gUGVyZm9ybWFuY2U=</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>Y</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: UlRPIFJlZ3VsYXRpb24gQ2FwYWJpbGl0eQ==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>Y</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: UlRPIE1hcmdpbmFsIEJlbmVmaXRzIEZhY3Rvcg==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>Y</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
+      <filter>
+        <filter_string>Base64: UmVhbCBUaW1lIEhvdXJseSBMTVAgVmFsdWVzIGZvcg==</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>Y</filter_is_last_line>        <filter_is_positive>Y</filter_is_positive>      </filter>
     </filters>
     <fields>
       <field>
-        <name>EPT_Hour_Ending</name>
+        <name>Real_Time_Hourly_LMP_Values</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -840,13 +790,13 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>13</length>
+        <length>36</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>GMT_ Hour_Ending</name>
+        <name>Field2</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -855,43 +805,13 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RMCP</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Total PJM RT Load </name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>11</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Total PJM Lost Opportunity Cost Credit </name>
+        <name>Field3</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -900,13 +820,13 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>8</length>
+        <length>18</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Total PJM Reg Purchases </name>
+        <name>Field4</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -921,7 +841,37 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Total PJM Self-Scheduled Reg </name>
+        <name>Field5</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field6</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field7</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -936,7 +886,7 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Total PJM-Assigned Reg </name>
+        <name>Field8</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -945,7 +895,262 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>7</length>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field9</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field10</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field11</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field12</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field13</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field14</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field15</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field16</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field17</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field18</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field19</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field20</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field21</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field22</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field23</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field24</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Field25</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>17</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -978,8 +1183,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>519</xloc>
-      <yloc>21</yloc>
+      <xloc>313</xloc>
+      <yloc>86</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -988,14 +1193,14 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <name>latest date</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aes-pr</connection>
-    <sql>SELECT date_format(max(market_datehour),&apos;%Y%m&apos;) as url_date FROM  pjm_ancillary_dam_raw</sql>
+    <connection>aeses</connection>
+    <sql>SELECT date_format(max(market_datehour),&apos;%Y%m%d&apos;) as url_date FROM  pjm_ancillary_dam_raw</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1003,8 +1208,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>43</xloc>
-      <yloc>39</yloc>
+      <xloc>38</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1019,7 +1224,7 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>aes-pr</connection>
+    <connection>aeses</connection>
     <sql>select max(market_datehour) from pjm_ancillary_dam_raw</sql>
     <limit>0</limit>
     <lookup/>
@@ -1028,36 +1233,8 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>891</xloc>
-      <yloc>15</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>more months</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>months</valuename>
-      <use_database>N</use_database>
-      <connection>dev</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>0</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>140</xloc>
-      <yloc>47</yloc>
+      <xloc>323</xloc>
+      <yloc>292</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1074,14 +1251,89 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>731</xloc>
-      <yloc>283</yloc>
+      <xloc>448</xloc>
+      <yloc>369</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>select all fields</name>
+    <name>nulls</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>rt_load</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0.0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>lost_opportunity</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0.0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>reg_purchases</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0.0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>reg_self_scheduled</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0.0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>reg_market_assigned</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0.0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>733</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>req</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1090,46 +1342,34 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>RMCP</name>
+    <fields>      <field>        <name>rn</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Total PJM RT Load </name>
-        <rename>rt_load</rename>
+      </field>      <field>        <name>Real_Time_Hourly_LMP_Values</name>
+        <rename>colname</rename>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Lost Opportunity Cost Credit </name>
-        <rename>lost_opportunity</rename>
+      </field>      <field>        <name>HOUR_T</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Reg Purchases </name>
-        <rename>reg_purchases</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM Self-Scheduled Reg </name>
-        <rename>reg_self_scheduled</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Total PJM-Assigned Reg </name>
-        <rename>reg_market_assigned</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>market_datehour</name>
+      </field>      <field>        <name>colvalue</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>128</yloc>
+      <xloc>463</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>till today</name>
-    <type>FilterRows</type>
+    <name>seq</name>
+    <type>Sequence</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -1137,20 +1377,350 @@ Alert(date2str(dValue,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;EN&quot;, &quot;EST&
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>final_url</send_true_to>
-<send_false_to>false</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>date</leftvalue>
- <function>&lt;=</function>
- <rightvalue>today</rightvalue>
- </condition>
-    </compare>
+      <valuename>rn</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>263</xloc>
-      <yloc>114</yloc>
+      <xloc>369</xloc>
+      <yloc>187</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Strings cut</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>colname</in_stream_name>
+        <out_stream_name>coldate</out_stream_name>
+        <cut_from>32</cut_from>
+        <cut_to>40</cut_to>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>577</xloc>
+      <yloc>81</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>ts</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+var ts = HOUR_T+&quot;:00:00&quot;;
+
+
+
+var y = substr(coldate,0,4);
+
+var m = substr(coldate,4,2);
+
+var d = substr(coldate,6,2);
+
+
+var ymdts = y+&quot;-&quot;+m+&quot;-&quot;+d+&quot; &quot;+ts;
+
+
+
+
+
+
+
+
+</jsScript_script>
+      </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2date_Sample</jsScript_name>
+        <jsScript_script>&#47;&#47; Converts the given String to a date Value.
+&#47;&#47;
+&#47;&#47; Usage:
+&#47;&#47; str2date(var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47; This call uses your localized format.
+&#47;&#47;
+&#47;&#47; str2date(var, var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47; 2: String - The Format:
+&#47;&#47;        yy &#47; yyyy - 06 &#47; 2006
+&#47;&#47;        MM &#47; MMM &#47; MMMMM - 11 &#47; Nov &#47; November
+&#47;&#47;        d &#47; dd  - 1 &#47; 01
+&#47;&#47;        E &#47; EEEE - Tue &#47; Tuesday
+&#47;&#47;        hh &#47; HH - 11 &#47; 23
+&#47;&#47;        m &#47; mm - 5 &#47; 05
+&#47;&#47;        s &#47; ss - 8 &#47; 08
+&#47;&#47;
+&#47;&#47; str2date(var, var, var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47; 2: String - The Format:
+&#47;&#47; 3: String - The Locale Parameter
+&#47;&#47;    An valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+&#47;&#47;
+&#47;&#47; str2date(var, var, var, var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47; 2: String - The Format:
+&#47;&#47; 3: String - The Locale Parameter
+&#47;&#47;    An valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+&#47;&#47; 4: String - The Timezone Parameter.
+&#47;&#47;    A valid timezone: EST, GMT, ... (if invalid GMT will be selected as default)
+&#47;&#47; 
+&#47;&#47; 2006-11-15
+&#47;&#47;
+Alert(str2date(&quot;01.12.2006&quot;,&quot;dd.MM.yyyy&quot;));
+Alert(str2date(&quot;01.12.2006 23:23:01&quot;,&quot;dd.MM.yyyy HH:mm:ss&quot;));
+Alert(str2date(&quot;Tue.May.2006&quot;,&quot;E.MMM.yyyy&quot;,&quot;EN&quot;));
+Alert(str2date(&quot;22.02.2008 23:23:01&quot;,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;DE&quot;));
+Alert(str2date(&quot;22.02.2008 23:23:01&quot;,&quot;dd.MM.yyyy HH:mm:ss&quot;,&quot;DE&quot;, &quot;EST&quot;));</jsScript_script>
+      </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>&#47;&#47; Converts the given String to a numeric Value.
+&#47;&#47;
+&#47;&#47; Usage:
+&#47;&#47; str2num(var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47;
+&#47;&#47; str2num(var, var);
+&#47;&#47; 1: String - The Variable with the String to convert.
+&#47;&#47; 2: String - The Format:
+&#47;&#47; 
+&#47;&#47; 2006-11-15
+&#47;&#47;
+var str1 = &quot;1.234,56&quot;;
+var str2 = &quot;12&quot;;
+Alert((str2num(str1,&quot;#,##0.00&quot;)));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ymdts</name>
+        <rename>ymdts</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>612</xloc>
+      <yloc>188</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sel</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>RTO Regulation Performance</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RTO Regulation Capability</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RTO Marginal Benefits Factor</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ymdts</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>RTO Regulation Performance</name>
+        <rename>RTO Regulation Performance</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>RTO Regulation Capability</name>
+        <rename>RTO Regulation Capability</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>RTO Marginal Benefits Factor</name>
+        <rename>RTO Marginal Benefits Factor</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>ymdts</name>
+        <rename>market_datehour</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>654</xloc>
+      <yloc>85</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>url_date</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>url_date</name>
+        <rename>url_date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>87</xloc>
+      <yloc>95</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>url_date</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>url_date</name>
+        <rename>maxdate</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>42</xloc>
+      <yloc>356</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>maxdate entry 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>aeses</connection>
+    <schema/>
+    <table>maxdate_pjm</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>maxdate</column_name>
+          <stream_name>maxdate</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>43</xloc>
+      <yloc>457</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
