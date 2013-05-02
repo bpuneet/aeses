@@ -1,0 +1,2 @@
+cd /usr/local/pentaho-bi-suite/pentaho-4.8/design-tools/data-integration
+./kitchen.sh -file=/usr/local/data/bi_data/ETL/Production/Ancillary/NYISO/NY-ISO_site_to_server_job.kjb --level=detailed > /usr/local/data/bi_data/logs/NY-ISO_site_to_server_job.log

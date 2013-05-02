@@ -1,0 +1,2 @@
+cd /usr/local/pentaho-bi-suite/pentaho-4.8/design-tools/data-integration	
+./kitchen.sh -file=/usr/local/data/bi_data/ETL/fleet/Production/Fleet_Scada.kjb -level=Detailed > /usr/local/data/bi_data/logs/fleetpro.log

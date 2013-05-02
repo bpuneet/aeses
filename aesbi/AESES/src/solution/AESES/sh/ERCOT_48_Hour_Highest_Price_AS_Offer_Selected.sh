@@ -1,0 +1,2 @@
+cd /usr/local/pentaho-bi-suite/pentaho/design-tools/data-integration
+./pan.sh -file=/var/www/html/cron/Production/Energy/ERCOT/ERCOT_48_Hour_Highest_Price_AS_Offer_Selected.ktr -level=Detailed >> /var/www/html/cron/Daily_schedule/ERCOT_48_Hour_Highest_Price_AS_Offer_Selected.log

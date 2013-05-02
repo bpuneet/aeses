@@ -1,0 +1,4 @@
+echo Puneet_2010! | sudo -S wget -O /usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/tomcat/webapps/pentaho/mantle/kpi.html  "http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/reporting/report.html?solution=AESES&path=%2F&name=KPI_Reports_JC_html.prpt&paginate=false&locale=en_US#paginate%253Dfalse%2526solution%253DAESES%2526path%253D%25252F%2526name%253DKPI_Reports_JC_html.prpt%2526locale%253Den_US"
+echo Puneet_2010! | sudo -S wget -O /usr/local/pentaho-bi-suite/pentaho/server/biserver-ee/tomcat/webapps/pentaho/mantle/market.html  "http://enst01ap02pr.aesenergystorage.com:8080/pentaho/content/reporting/report.html?solution=AESES&path=%2F&name=market_prices_dashboard.prpt&paginate=false&locale=en_US#paginate%253Dfalse%2526solution%253DAESES%2526path%253D%25252F%2526name%253Dmarket_prices_dashboard.prpt%2526locale%253Den_US"
+
+
