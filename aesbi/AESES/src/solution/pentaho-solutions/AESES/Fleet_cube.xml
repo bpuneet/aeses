@@ -114,13 +114,13 @@
     </Measure>
     <Measure name="Charge C-rate" column="charge_crate" datatype="Numeric" formatString="##0.00" aggregator="avg" visible="true">
     </Measure>
-    <Measure name="Energy L" column="energy_losses" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    <Measure name="Energy L" column="energy_losses_mwh" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
     </Measure>
     <Measure name="Energy C" column="energy_cost" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
     </Measure>
     <Measure name="Other C" column="other_charge" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
     </Measure>
-    <Measure name="Gross R" column="gross_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
+    <Measure name="Gross R" column="gross_revenue_RMCP" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
     </Measure>
     <Measure name="Potential R" column="potential_revenue" datatype="Numeric" formatString="##0.00" aggregator="sum" visible="false">
     </Measure>
@@ -166,6 +166,18 @@
     </Measure>
     <Measure name="Capacity Factor" column="capacity_factor" datatype="Numeric" formatString="0.00%" aggregator="avg" visible="true">
     </Measure>
+    <Measure name="Potential_rev" column="potential_revenue" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Gross_rev" column="gross_revenue_RMCP" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Out_Unplanned" column="out_unplanned" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Out_Planned" column="out_planned" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="Accepted_Availability_mwh_available" column="Accepted_Availability_mwh_available" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
+    <Measure name="BidAmount" column="BidAmount" datatype="Numeric" formatString="0.00" aggregator="avg" visible="false">
+    </Measure>
     <CalculatedMember name="Energy Losses (MWh)" description="Energy consumed per market settlement report " dimension="Measures">
       <Formula>
         <![CDATA[[Measures].[Energy L] /4]]>
@@ -201,35 +213,23 @@
       <CalculatedMemberProperty name="FORMAT_STRING" value="$##0.00">
       </CalculatedMemberProperty>
     </CalculatedMember>
-    <CalculatedMember name="Market Capture (%)" description="Defined as the amount of time project scheduled to perform in market divided by the amount of the time in the period" dimension="Measures">
-      <Formula>
-        <![CDATA[iif([Measures].[Market C] < 0, 0, [Measures].[Market C])]]>
-      </Formula>
+    <CalculatedMember name="Market Capture (%)" description="Defined as the amount of time project scheduled to perform in market divided by the amount of the time in the period" formula="iif(([Measures].[Accepted_Availability_mwh_available]/(iif([Measures].[Accepted_Availability_mwh_available]=0,1,[Measures].[BidAmount])))&#60;0,0,([Measures].[Accepted_Availability_mwh_available]/(iif([Measures].[Accepted_Availability_mwh_available]=0,1,[Measures].[BidAmount]))))" dimension="Measures">
       <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
       </CalculatedMemberProperty>
     </CalculatedMember>
-    <CalculatedMember name="Availability Factor (%)" description="Defined as the amount of time that it is able to produce electricity over a certain period, divided by the amount of the time in the period" formula="iif([Measures].[Availability F] &#60; 0, 0, [Measures].[Availability F])" dimension="Measures">
+    <CalculatedMember name="Availability Factor (%)" description="Defined as the amount of time that it is able to produce electricity over a certain period, divided by the amount of the time in the period" formula="iif((((32 - [Measures].[Out_Unplanned])-[Measures].[Out_Planned])/32)&#60;0,0,(((32 - [Measures].[Out_Unplanned])-[Measures].[Out_Planned])/32))" dimension="Measures">
       <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
       </CalculatedMemberProperty>
     </CalculatedMember>
-    <CalculatedMember name="Revenue Capture (%)" dimension="Measures">
-      <Formula>
-        <![CDATA[iif([Measures].[Revenue C] < 0, 0, [Measures].[Revenue C])]]>
-      </Formula>
+    <CalculatedMember name="Revenue Capture (%)" formula="iif((iif([Measures].[Potential_rev]=0,0,(([Measures].[Gross_rev])/( [Measures].[Potential_rev]))))&#60;0,0,(iif([Measures].[Potential_rev]=0,0,(([Measures].[Gross_rev])/( [Measures].[Potential_rev])))))" dimension="Measures">
       <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
       </CalculatedMemberProperty>
     </CalculatedMember>
-    <CalculatedMember name="Planned Outage Rate (%)" description="Defined as the number of planned outage hours over the total number of hours in a given period " dimension="Measures">
-      <Formula>
-        <![CDATA[iif([Measures].[Planned O R] < 0, 0, [Measures].[Planned O R])]]>
-      </Formula>
+    <CalculatedMember name="Planned Outage Rate (%)" description="Defined as the number of planned outage hours over the total number of hours in a given period " formula="iif(([Measures].[Out_Planned]/32)&#60;0,0,([Measures].[Out_Planned]/32))" dimension="Measures">
       <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
       </CalculatedMemberProperty>
     </CalculatedMember>
-    <CalculatedMember name="Unplanned Outage Rate (%)" description="Defined as the number of unplanned outage hours over the total number of hours in a given period " dimension="Measures">
-      <Formula>
-        <![CDATA[iif([Measures].[Unplanned O R] < 0, 0, [Measures].[Unplanned O R])]]>
-      </Formula>
+    <CalculatedMember name="Unplanned Outage Rate (%)" description="Defined as the number of unplanned outage hours over the total number of hours in a given period " formula="iif(([Measures].[Out_Unplanned]/32)&#60;0,0, ([Measures].[Out_Unplanned]/32))" dimension="Measures">
       <CalculatedMemberProperty name="FORMAT_STRING" value="0.00%">
       </CalculatedMemberProperty>
     </CalculatedMember>
