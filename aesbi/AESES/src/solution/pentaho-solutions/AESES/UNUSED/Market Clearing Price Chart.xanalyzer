@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reportRecord xmlns="http://www.pentaho.com">
+    <commonStorageAttributes update="2013-06-13T06:21:54" created="2013-06-12T07:12:56" updatedBy="harshavardhan.k@sigmainfo.net" createdBy="harshavardhan.k@sigmainfo.net">
+        <path folder="AESES/UNUSED/Market Clearing Price Chart.xanalyzer" name="Market Clearing Price Chart"/>
+    </commonStorageAttributes>
+    <report freezeRows="true" freezeColumns="true" autoRefresh="true" version="7" showDrillLinks="false" emptyCellDisplay="-" showEmptyCells="false" useNonVisualTotals="false" showColumnGrandTotal="false" showRowGrandTotal="false" reportTypeEnum="JSON" cube="Markets Clearing Price-Query" catalog="Markets Clearing Price-Query">
+        <measures>
+            <measure gembarOrdinal="0" gembarId="measures" id="[MEASURE:0]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[clearing_price]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="Clearing Price" locale=""/>
+                </displayLabels>
+                <numberFormat formatShortcut="NONE" formatScale="2" formatCategory="General Number">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+            <measure gembarOrdinal="1" gembarId="measures" id="[MEASURE:1]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[thirty_day_avg]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="Thirty Day Average" locale=""/>
+                </displayLabels>
+                <numberFormat formatShortcut="NONE" formatScale="2" formatCategory="General Number">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+            <measure gembarOrdinal="2" gembarId="measures" id="[MEASURE:2]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[ninety_day_avg]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="Ninety Day Average" locale=""/>
+                </displayLabels>
+                <numberFormat formatShortcut="NONE" formatScale="2" formatCategory="General Number">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+            <measure gembarOrdinal="3" gembarId="measures" id="[MEASURE:3]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[twelve_month__avg]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="Twelve Month Average" locale=""/>
+                </displayLabels>
+                <numberFormat formatShortcut="NONE" formatScale="2" formatCategory="General Number">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+            <measure gembarOrdinal="4" gembarId="measures" id="[MEASURE:4]" sortOrderEnum="NONE" measureTypeEnum="VALUE" showMin="false" showMax="false" showCount="false" showAverage="false" showAggregate="true" showSum="false" formula="[Measures].[previous_year_clearing_price]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="Previous Year Clearing Price" locale=""/>
+                </displayLabels>
+                <numberFormat formatShortcut="NONE" formatScale="2" formatCategory="General Number">
+                    <formatExpression></formatExpression>
+                </numberFormat>
+            </measure>
+        </measures>
+        <columnAttributes/>
+        <rowAttributes>
+            <attribute gembarOrdinal="0" gembarId="columns" sortOrderEnum="ASC" showSubtotal="false" formula="[Market_Service].[Market_Service]"/>
+            <attribute gembarOrdinal="0" gembarId="rows" sortOrderEnum="ASC" showSubtotal="false" formula="[YEAR].[YEAR]"/>
+            <attribute gembarOrdinal="1" gembarId="rows" sortOrderEnum="DESC" showSubtotal="false" formula="[custom].[custom]">
+                <displayLabels>
+                    <displayLabel labelPlural="" label="MONTH" locale=""/>
+                </displayLabels>
+            </attribute>
+        </rowAttributes>
+        <filters>
+            <filter viewFilterEnum="MULTIPLE" formula="[Market_Service].[Market_Service]">
+                <predicates>
+                    <predicate parameterName="market_service" operatorEnum="CONTAIN" ordinal="1">
+                        <containsExpression>CAISO Day-Ahead Regulation</containsExpression>
+                    </predicate>
+                </predicates>
+            </filter>
+            <filter viewFilterEnum="MULTIPLE" formula="[YEAR].[YEAR]">
+                <predicates>
+                    <predicate parameterName="year" operatorEnum="EQUAL" ordinal="1">
+                        <member pos="0" caption="2013" formula="[YEAR].[2013]"/>
+                    </predicate>
+                </predicates>
+            </filter>
+        </filters>
+        <chartOptions legendFontFamily="Default" labelFontFamily="Default" legendStyle="PLAIN" legendColor="#000000" legendSize="12" legendBackgroundColor="#ffffff" labelStyle="PLAIN" backgroundColorEnd="#ffffff" maxChartsPerRow="3" backgroundFill="NONE" labelSize="12" labelColor="#000000" backgroundColor="#ffffff" maxValues="100" lineShape="CIRCLE" lineWidth="2" displayUnitsSecondary="UNITS_0" autoRangeSecondary="true" displayUnits="UNITS_0" autoRange="true" showLegend="true" legendPosition="RIGHT" customChartType="ccc_line" chartType="CUSTOM"/>
+        <selectionFilters/>
+        <selectionItems/>
+        <pageSetup excelScalingPageTall="1" excelScalingPageWide="1" excelScalingPercent="100" excelScalingType="PERCENT" pdfOrientation="LANDSCAPE" excelOrientation="LANDSCAPE" pdfPageSize="LETTER" excelPageSize="LETTER"/>
+    </report>
+    <uiAttributes showFilterPanel="false" showFieldLayout="true" showFieldList="true">
+        <rowFieldWidths/>
+        <columnDataFieldWidths/>
+        <pluginData>[{"args":{"legendPadding":{"left":1,"right":1,"top":2,"bottom":2},"extensionPoints":{"xAxisLabel_textAngle":-0.7853981633974483,"xAxisLabel_textAlign":"right","xAxisLabel_textBaseline":"top","xAxisRule_strokeStyle":"#808285","yAxisRule_strokeStyle":"#808285","secondYAxisRule_strokeStyle":"#808285","xAxisTicks_strokeStyle":"#D1D3D4","yAxisTicks_strokeStyle":"#D1D3D4","secondYAxisTicks_strokeStyle":"#D1D3D4","legendArea_lineWidth":1,"legendArea_strokeStyle":"#c0c0c0","legendLabel_textDecoration":null},"tipsySettings":{"offset":15,"delayIn":200,"delayOut":80,"html":true,"gravity":"nw","fade":false,"followMouse":true,"corners":true,"arrow":false,"opacity":1},"rolesToCccDimensionsMap":{"columns":"series","rows":"category","multi":"multiChart","measures":"value"},"cccClass":"pvc.LineChart","shape":"circle","nullInterpolationMode":"linear","orthoAxisOffset":0,"baseAxisOffset":0,"crosstabMode":true,"measuresInColumns":false,"orientation":"vertical","groupedLabelSep":"~","legend":true,"multiRole":"multi","legendPosition":"right","legendSizeMax":"60%","legendPaddings":10,"orthoAxisFullGrid":true,"axisEndLine":true,"axisSizeMax":"50%","axisLabelSpacingMin":0.6,"axisDomainRoundMode":"tick","axisTitleSizeMax":"20%","showPlotFrame":false,"axisOverlappedLabelsHide":true,"axisOverlappedLabelsMaxPct":0.05,"lineWidth":"1"},"visualizationId":"ccc_line"}]</pluginData>
+    </uiAttributes>
+</reportRecord>

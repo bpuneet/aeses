@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>TR_F_JIRA_LDS_ALL_PROJECTS</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2012&#x2f;03&#x2f;01 14&#x3a;54&#x3a;18.278</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2012&#x2f;03&#x2f;01 14&#x3a;54&#x3a;18.278</modified_date>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>aesespr</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>aeses</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>AgileBI</name>
+    <server>localhost</server>
+    <type>MONETDB</type>
+    <access>Native</access>
+    <database>pentaho-instaview</database>
+    <port>50000</port>
+    <username>monetdb</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb14a17edb86abd8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>firstexample</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>firstexample</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f297a21ea371fec3fd89</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>Adding Hour</from><to>Changing Date Format</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Work orders  from XML</from><to>date formats</to><enabled>Y</enabled> </hop>
+  <hop> <from>Jira url work orders</from><to>Get Work orders  from XML</to><enabled>Y</enabled> </hop>
+  <hop> <from>KPI counts</from><to>KPIs</to><enabled>Y</enabled> </hop>
+  <hop> <from>date formats</from><to>Adding Hour</to><enabled>Y</enabled> </hop>
+  <hop> <from>Changing Date Format</from><to>KPI counts</to><enabled>Y</enabled> </hop>
+  <hop> <from>KPIs</from><to>Insert &#x2f; Update into Raw Table</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Adding Hour</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>CreatedDate</field_name>
+<calc_type>ADD_TIME_TO_DATE</calc_type>
+<field_a>Cdate2</field_a>
+<field_b>hour</field_b>
+<field_c/>
+<value_type>Date</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>268</xloc>
+      <yloc>223</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get Work orders  from XML</name>
+    <type>getXMLData</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
+    <readurl>Y</readurl>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>N</doNotFailIfNoFile>
+    <rownum_field/>
+    <encoding>UTF-8</encoding>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>key</name>
+        <xpath>key</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>summary</name>
+        <xpath>summary</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>priority</name>
+        <xpath>priority</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>status</name>
+        <xpath>status</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>resolution</name>
+        <xpath>resolution</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>assignee</name>
+        <xpath>assignee</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>reporter</name>
+        <xpath>reporter</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>created</name>
+        <xpath>created</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>due</name>
+        <xpath>due</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>project</name>
+        <xpath>project</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>type</name>
+        <xpath>type</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>component</name>
+        <xpath>component</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>updated</name>
+        <xpath>updated</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <loopxpath>&#x2f;rss&#x2f;channel&#x2f;item</loopxpath>
+    <IsInFields>Y</IsInFields>
+    <IsAFile>N</IsAFile>
+    <XmlField>url1</XmlField>
+    <prunePath/>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>106</xloc>
+      <yloc>230</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#x2f; Update into Raw Table</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>aesespr</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>all_projects_jira_info</table>
+      <key>
+        <name>key</name>
+        <field>key</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>key</name>
+        <rename>key</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>summary</name>
+        <rename>summary</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>priority</name>
+        <rename>priority</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>resolution</name>
+        <rename>resolution</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>assignee</name>
+        <rename>assignee</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reporter</name>
+        <rename>reporter</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project</name>
+        <rename>project</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>component</name>
+        <rename>component</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created_Date</name>
+        <rename>Created_Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Resolved_Date</name>
+        <rename>Resolved_Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status_info</name>
+        <rename>status_info</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>major_count</name>
+        <rename>major_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>minor_count</name>
+        <rename>minor_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>critical_count</name>
+        <rename>critical_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>blocker_count</name>
+        <rename>blocker_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>trivial_count</name>
+        <rename>trivial_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>resolution_time_InDays</name>
+        <rename>resolution_time_InDays</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>major_resolution_time</name>
+        <rename>major_resolution_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>minor_resolution_time</name>
+        <rename>minor_resolution_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>trivial_resolution_time</name>
+        <rename>trivial_resolution_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>blocker_resolution_time</name>
+        <rename>blocker_resolution_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>critical_resolution_time</name>
+        <rename>critical_resolution_time</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>582</xloc>
+      <yloc>220</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Jira url work orders</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>url1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>https&#x3a;&#x2f;&#x2f;aesgse.onjira.com&#x2f;sr&#x2f;jira.issueviews&#x3a;searchrequest-xml&#x2f;temp&#x2f;SearchRequest.xml&#x3f;&#x26;os_username&#x3d;aeses.oss&#x26;os_password&#x3d;aeses_2011&#x21;</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <limit>1</limit>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>26</xloc>
+      <yloc>126</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>KPI counts</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;if &#x28;status &#x3d;&#x3d; &#x22;Resolved&#x22; &#x7c;&#x7c; status &#x3d;&#x3d;&#x22;Closed&#x22;&#x29;&#xa;var status_info &#x3d; 1&#xa;else&#xa;status_info &#x3d; 0&#xa;&#xa;var HH &#x3d; Created_Date.getHours&#x28;&#x29;&#xa;var MM &#x3d; floor&#x28;Created_Date.getMinutes&#x28;&#x29;&#x2f;15&#x29; &#x2a; 15&#xa;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Major&#x22;&#x29;&#xa;var major_count &#x3d; 1&#xa;else&#xa;major_count &#x3d; 0&#xa;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Minor&#x22;&#x29;&#xa;var minor_count &#x3d; 1&#xa;else&#xa;minor_count &#x3d; 0&#xa;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Critical&#x22;&#x29;&#xa;var critical_count &#x3d; 1&#xa;else&#xa;critical_count &#x3d; 0&#xa;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Blocker&#x22;&#x29;&#xa;var blocker_count &#x3d; 1&#xa;else&#xa;blocker_count &#x3d; 0&#xa;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Trivial&#x22;&#x29;&#xa;var trivial_count &#x3d; 1&#xa;else&#xa;trivial_count &#x3d; 0</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>status_info</name>
+        <rename>status_info</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>HH</name>
+        <rename>HH</rename>
+        <type>Integer</type>
+        <length>9</length>
+        <precision>0</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>MM</name>
+        <rename>MM</rename>
+        <type>Integer</type>
+        <length>9</length>
+        <precision>0</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>major_count</name>
+        <rename>major_count</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>minor_count</name>
+        <rename>minor_count</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>critical_count</name>
+        <rename>critical_count</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>blocker_count</name>
+        <rename>blocker_count</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>trivial_count</name>
+        <rename>trivial_count</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>421</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>KPIs</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;&#x2f;&#x2f; resolution time&#xa;var one_day&#x3d;1000&#x2a;60&#x2a;60&#x2a;24&#xa;if &#x28;status &#x3d;&#x3d; &#x22;Resolved&#x22; &#x7c;&#x7c; status &#x3d;&#x3d;&#x22;Closed&#x22;&#x29;&#xa;&#x7b;&#xa;var resolution_time_InDays &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29;&#xa; &#x7d;&#xa;else &#xa;resolution_time_InDays &#x3d; null&#x3b;&#xa;&#xa;&#x2f;&#x2f;major resolution time&#xa;var major_resolution_time&#x3d;null&#x3b;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Major&#x22; &#x26;&#x26; status &#x3d;&#x3d; &#x22;Resolved&#x22;&#x29;&#xa;major_resolution_time &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29; &#xa;else major_resolution_time  &#x3d; null&#xa;&#xa;&#x2f;&#x2f;minor resolution time&#xa;var minor_resolution_time&#x3d;null&#x3b;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Minor&#x22; &#x26;&#x26; status &#x3d;&#x3d; &#x22;Resolved&#x22;&#x29;&#xa;minor_resolution_time &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29; &#xa;else minor_resolution_time  &#x3d; null&#xa;&#xa;&#x2f;&#x2f;trivial&#xa;var trivial_resolution_time&#x3d;null&#x3b;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Trivial&#x22; &#x26;&#x26; status &#x3d;&#x3d; &#x22;Resolved&#x22;&#x29;&#xa;trivial_resolution_time &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29; &#xa;else trivial_resolution_time  &#x3d; null&#xa;&#xa;&#x2f;&#x2f;blocker&#xa;var blocker_resolution_time&#x3d;null&#x3b;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Blocker&#x22; &#x26;&#x26; status &#x3d;&#x3d; &#x22;Resolved&#x22;&#x29;&#xa;blocker_resolution_time &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29; &#xa;else blocker_resolution_time  &#x3d; null&#xa;&#xa;&#x2f;&#x2f;critical&#xa;var critical_resolution_time&#x3d;null&#x3b;&#xa;if&#x28;priority &#x3d;&#x3d; &#x22;Critical&#x22; &#x26;&#x26; status &#x3d;&#x3d; &#x22;Resolved&#x22;&#x29;&#xa;critical_resolution_time &#x3d; Math.round&#x28;&#x28;Resolved_Date.getTime&#x28;&#x29; - Created_Date.getTime&#x28;&#x29;&#x29;&#x2f;one_day&#x29; &#xa;else critical_resolution_time  &#x3d; null&#xa;&#xa;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>resolution_time_InDays</name>
+        <rename>resolution_time_InDays</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>major_resolution_time</name>
+        <rename>major_resolution_time</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>minor_resolution_time</name>
+        <rename>minor_resolution_time</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>trivial_resolution_time</name>
+        <rename>trivial_resolution_time</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>blocker_resolution_time</name>
+        <rename>blocker_resolution_time</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>critical_resolution_time</name>
+        <rename>critical_resolution_time</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>501</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Changing Date Format</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>key</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>summary</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>priority</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>status</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>resolution</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>assignee</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>reporter</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>project</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>type</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>component</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CreatedDate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Udate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>Udate</name>
+        <rename>Resolved_Date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH&#x3a;00&#x3a;00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>CreatedDate</name>
+        <rename>Created_Date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>331</xloc>
+      <yloc>118</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>date formats</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;created date &#xa;var d &#x3d; substr&#x28;created,5,20&#x29;&#xa;var dd &#x3d; substr&#x28;d,0,2&#x29;&#xa;var num &#x3d; str2num&#x28;dd&#x29;&#xa;if&#x28;num &#x3c; 10&#x29;&#xa;var number &#x3d; &#x22;0&#x22; &#x2b; num&#xa;else&#xa;number &#x3d; num&#xa;&#xa;var pdate &#x3d; number &#x2b; &#x22; &#x22;&#x2b;ltrim&#x28;substr&#x28;d,2&#x29;&#x29;&#xa;&#xa;var Cdate &#x3d; str2date&#x28;pdate,&#x22;dd MMM yyyy HH&#x3a;mm&#x3a;ss&#x22;&#x29;&#xa;&#xa;&#xa;&#x2f;&#x2f;Updated date&#x2f;Resolved date&#xa;&#xa;var d1 &#x3d; substr&#x28;updated,5,20&#x29;&#xa;var dd1 &#x3d; substr&#x28;d1,0,2&#x29;&#xa;var num1 &#x3d; str2num&#x28;dd1&#x29;&#xa;if&#x28;num1 &#x3c; 10&#x29;&#xa;var number1 &#x3d; &#x22;0&#x22; &#x2b; num1&#xa;else&#xa;number1 &#x3d; num1&#xa;&#xa;var pdate1 &#x3d; number1 &#x2b; &#x22; &#x22;&#x2b;ltrim&#x28;substr&#x28;d1,2&#x29;&#x29;&#xa;var Udate &#x3d; str2date&#x28;pdate1,&#x22;dd MMM yyyy HH&#x3a;mm&#x3a;ss&#x22;&#x29;&#xa;&#xa;&#xa;&#xa;var d2 &#x3d; substr&#x28;created,5,11&#x29;&#xa;var dd2 &#x3d; substr&#x28;d2,0,2&#x29;&#xa;var num2 &#x3d; str2num&#x28;dd2&#x29;&#xa;if&#x28;num2 &#x3c; 10&#x29;&#xa;var number2 &#x3d; &#x22;0&#x22; &#x2b; num2&#xa;else&#xa;number2 &#x3d; num2&#xa;&#xa;var pdate2 &#x3d; number2 &#x2b; &#x22; &#x22;&#x2b;ltrim&#x28;substr&#x28;d2,2&#x29;&#x29;&#xa;var Cdate2 &#x3d; str2date&#x28;pdate2,&#x22;dd MMM yyyy&#x22;&#x29;&#xa;var hour &#x3d; Cdate.getHours&#x28;&#x29; &#x2b; &#x22;&#x3a;&#x22;&#x2b; floor&#x28;Cdate.getMinutes&#x28;&#x29;&#x2f;15&#x29; &#x2a; 15 &#x2b;&#x22;&#x3a;00&#x22; &#xa;&#xa;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>Udate</name>
+        <rename>Udate</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>Cdate2</name>
+        <rename>Cdate2</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>hour</name>
+        <rename>hour</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>175</xloc>
+      <yloc>115</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+</transformation>
